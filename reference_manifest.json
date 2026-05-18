@@ -1,0 +1,207 @@
+{
+  "project_name": "Real Estate Project Management",
+  "project_description": "End-to-end project management for real-estate developers covering masters, project planning, phases, tasks, activities, action point check-lists, daily progress, issues/risks, dashboards, reports and a public marketing website.",
+  "generated_at": "2026-05-18T07:07:11.351385+00:00",
+  "owner_user_id": "",
+  "navigation_summary": [
+    {
+      "obj_name": "repm_home",
+      "obj_type": "S",
+      "title": "Home",
+      "description": "Authenticated landing page for all internal users."
+    },
+    {
+      "obj_name": "repm_employee",
+      "obj_type": "T",
+      "title": "Manage Employee",
+      "description": "Maintain employees who can be assigned to project work."
+    },
+    {
+      "obj_name": "repm_location",
+      "obj_type": "T",
+      "title": "Manage Project Location",
+      "description": "Maintain project sites/locations."
+    },
+    {
+      "obj_name": "repm_project",
+      "obj_type": "T",
+      "title": "Manage Project",
+      "description": "Create and maintain real-estate projects."
+    },
+    {
+      "obj_name": "repm_phase",
+      "obj_type": "T",
+      "title": "Manage Project Phase",
+      "description": "Define phases under a project."
+    },
+    {
+      "obj_name": "repm_task",
+      "obj_type": "T",
+      "title": "Manage Task",
+      "description": "Define tasks within a phase."
+    },
+    {
+      "obj_name": "repm_activity",
+      "obj_type": "T",
+      "title": "Manage Activity",
+      "description": "Define activities within a task."
+    },
+    {
+      "obj_name": "repm_action_point",
+      "obj_type": "T",
+      "title": "Manage Action Point",
+      "description": "Maintain check-list of action points under an activity."
+    },
+    {
+      "obj_name": "repm_progress_update",
+      "obj_type": "T",
+      "title": "Log Daily Progress Update",
+      "description": "Daily progress notes with photos."
+    },
+    {
+      "obj_name": "repm_issue",
+      "obj_type": "T",
+      "title": "Manage Project Issue / Risk",
+      "description": "Track project issues and risks."
+    },
+    {
+      "obj_name": "repm_v_portfolio_grid",
+      "obj_type": "V",
+      "title": "Project Portfolio Grid",
+      "description": "Portfolio listing of projects."
+    },
+    {
+      "obj_name": "repm_v_phase_pivot",
+      "obj_type": "V",
+      "title": "Phase Progress Pivot",
+      "description": "Phase-wise progress pivot."
+    },
+    {
+      "obj_name": "repm_v_task_status",
+      "obj_type": "V",
+      "title": "Task Status Distribution",
+      "description": "Task counts by phase and status."
+    },
+    {
+      "obj_name": "repm_v_ap_aging",
+      "obj_type": "V",
+      "title": "Action Point Aging",
+      "description": "Aging of pending/blocked action points."
+    },
+    {
+      "obj_name": "repm_v_gantt",
+      "obj_type": "V",
+      "title": "Project Timeline Gantt",
+      "description": "Gantt-style project timeline."
+    },
+    {
+      "obj_name": "repm_v_issue_cards",
+      "obj_type": "V",
+      "title": "Issue & Risk Cards",
+      "description": "Issue/risk KPI cards."
+    },
+    {
+      "obj_name": "repm_v_budget",
+      "obj_type": "V",
+      "title": "Budget vs Actual",
+      "description": "Budget vs actual spend by phase."
+    },
+    {
+      "obj_name": "repm_v_workload",
+      "obj_type": "V",
+      "title": "Employee Workload",
+      "description": "Action point workload by employee."
+    },
+    {
+      "obj_name": "repm_v_top_kpi",
+      "obj_type": "V",
+      "title": "Top KPI Cards",
+      "description": "Portfolio KPI cards."
+    },
+    {
+      "obj_name": "repm_r_project_status",
+      "obj_type": "R",
+      "title": "Project Status Report",
+      "description": "Printable project status report."
+    },
+    {
+      "obj_name": "repm_d_pm",
+      "obj_type": "D",
+      "title": "Project Manager Dashboard",
+      "description": "Dashboard for project managers."
+    },
+    {
+      "obj_name": "repm_d_exec",
+      "obj_type": "D",
+      "title": "Executive / Promoter Dashboard",
+      "description": "Dashboard for executives/promoters."
+    },
+    {
+      "obj_name": "repm_d_site",
+      "obj_type": "D",
+      "title": "Site Engineer Dashboard",
+      "description": "Dashboard for site engineers."
+    },
+    {
+      "obj_name": "repm_s_project_workspace",
+      "obj_type": "S",
+      "title": "Project Workspace",
+      "description": "Per-project workspace smart page."
+    },
+    {
+      "obj_name": "repm_s_help",
+      "obj_type": "S",
+      "title": "Help & FAQ",
+      "description": "In-app help and FAQ."
+    },
+    {
+      "obj_name": "repm_x_corporate",
+      "obj_type": "X",
+      "title": "Developer Corporate Site",
+      "description": "Public marketing website for the developer brand."
+    },
+    {
+      "obj_name": "repm_x_home",
+      "obj_type": "S",
+      "title": "Home",
+      "description": "Corporate website home page."
+    },
+    {
+      "obj_name": "repm_x_about",
+      "obj_type": "S",
+      "title": "About",
+      "description": "About the developer."
+    },
+    {
+      "obj_name": "repm_x_projects",
+      "obj_type": "S",
+      "title": "Projects Overview",
+      "description": "Listing of public projects."
+    },
+    {
+      "obj_name": "repm_x_project_detail",
+      "obj_type": "S",
+      "title": "Project Detail",
+      "description": "Public project detail page template."
+    },
+    {
+      "obj_name": "repm_x_pricing",
+      "obj_type": "S",
+      "title": "Pricing / Configurations",
+      "description": "Pricing & configuration page."
+    },
+    {
+      "obj_name": "repm_x_newsroom",
+      "obj_type": "S",
+      "title": "Blog / Newsroom",
+      "description": "Blog and newsroom index."
+    },
+    {
+      "obj_name": "repm_x_contact",
+      "obj_type": "S",
+      "title": "Contact",
+      "description": "Contact page with form."
+    }
+  ],
+  "tables": []
+}

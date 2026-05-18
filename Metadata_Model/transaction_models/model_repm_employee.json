@@ -1,0 +1,369 @@
+{
+  "transaction": {
+    "obj_name": "repm_employee",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Employee Master",
+          "form_descr": "Maintain employees who can be assigned to project activities and action points.",
+          "columns": [
+            {
+              "column": {
+                "name": "EMP_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR10",
+                "heading": "Employee Code",
+                "descr": "Unique employee code",
+                "key": true,
+                "mandatory": "true",
+                "validations": [
+                  "expression('unique(EMP_CODE)','Employee Code must be unique')"
+                ]
+              }
+            },
+            {
+              "column": {
+                "name": "EMP_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR100",
+                "heading": "Employee Name",
+                "descr": "Full name of the employee",
+                "mandatory": "true"
+              }
+            },
+            {
+              "column": {
+                "name": "DESIGNATION",
+                "group_name": "Basic",
+                "col_type": "CHAR3",
+                "heading": "Designation",
+                "descr": "Job designation of the employee",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "PM",
+                      "display": "Project Manager"
+                    },
+                    {
+                      "data": "SE",
+                      "display": "Site Engineer"
+                    },
+                    {
+                      "data": "AR",
+                      "display": "Architect"
+                    },
+                    {
+                      "data": "CE",
+                      "display": "Civil Engineer"
+                    },
+                    {
+                      "data": "EE",
+                      "display": "Electrical Engineer"
+                    },
+                    {
+                      "data": "PE",
+                      "display": "Plumbing Engineer"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Contractor"
+                    },
+                    {
+                      "data": "SV",
+                      "display": "Supervisor"
+                    },
+                    {
+                      "data": "QI",
+                      "display": "Quality Inspector"
+                    },
+                    {
+                      "data": "SO",
+                      "display": "Safety Officer"
+                    },
+                    {
+                      "data": "PO",
+                      "display": "Procurement Officer"
+                    },
+                    {
+                      "data": "LO",
+                      "display": "Liaison Officer"
+                    },
+                    {
+                      "data": "SM",
+                      "display": "Sales Manager"
+                    },
+                    {
+                      "data": "OT",
+                      "display": "Other"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "DEPARTMENT",
+                "group_name": "Basic",
+                "col_type": "CHAR3",
+                "heading": "Department",
+                "descr": "Department of the employee",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "PLN",
+                      "display": "Planning"
+                    },
+                    {
+                      "data": "DSG",
+                      "display": "Design"
+                    },
+                    {
+                      "data": "CON",
+                      "display": "Construction"
+                    },
+                    {
+                      "data": "PRC",
+                      "display": "Procurement"
+                    },
+                    {
+                      "data": "SAL",
+                      "display": "Sales & Marketing"
+                    },
+                    {
+                      "data": "LGL",
+                      "display": "Legal & Liaison"
+                    },
+                    {
+                      "data": "QLT",
+                      "display": "Quality"
+                    },
+                    {
+                      "data": "SFT",
+                      "display": "Safety"
+                    },
+                    {
+                      "data": "FIN",
+                      "display": "Finance"
+                    },
+                    {
+                      "data": "ADM",
+                      "display": "Admin"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "EMAIL",
+                "group_name": "Contact",
+                "col_type": "VARCHAR120",
+                "heading": "Email",
+                "descr": "Official email address",
+                "mandatory": "true",
+                "validations": [
+                  "expression('valid_email(EMAIL)','Email must be a valid format')",
+                  "expression('unique(EMAIL)','Email must be unique')"
+                ]
+              }
+            },
+            {
+              "column": {
+                "name": "MOBILE",
+                "group_name": "Contact",
+                "col_type": "CHAR10",
+                "heading": "Mobile",
+                "descr": "10-digit mobile number",
+                "mandatory": "true",
+                "validations": [
+                  "expression('len(MOBILE)=10 and is_numeric(MOBILE)','Mobile Number must be 10 digits')"
+                ]
+              }
+            },
+            {
+              "column": {
+                "name": "REPORT_MGR",
+                "group_name": "Organization",
+                "col_type": "CHAR10",
+                "heading": "Reporting Manager",
+                "descr": "Reporting manager employee code",
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')",
+                  "business_logic('validate_active_manager','Reporting Manager must be an existing Active employee')"
+                ]
+              }
+            },
+            {
+              "column": {
+                "name": "REPORT_MGR_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Organization",
+                "col_type": "VARCHAR100",
+                "heading": "Mgr Name",
+                "descr": "Reporting manager name from lookup",
+                "protect": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "DOJ",
+                "group_name": "Organization",
+                "col_type": "DATE",
+                "heading": "Date of Joining",
+                "descr": "Date the employee joined",
+                "mandatory": "true",
+                "default_value": "today()"
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Status",
+                "col_type": "CHAR1",
+                "heading": "Status",
+                "descr": "Active / Inactive status (soft delete via Inactive)",
+                "mandatory": "true",
+                "default_value": "A",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "A",
+                      "display": "Active"
+                    },
+                    {
+                      "data": "I",
+                      "display": "Inactive"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Status",
+                "col_type": "VARCHAR500",
+                "heading": "Remarks",
+                "descr": "Free-form remarks"
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATETIME",
+                "heading": "Added On",
+                "descr": "Record creation timestamp",
+                "default_value": "now()",
+                "protect": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR10",
+                "heading": "Added By",
+                "descr": "User who created the record",
+                "default_value": "logged_in_user()",
+                "protect": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR15",
+                "heading": "Add Term",
+                "descr": "Terminal of record creation",
+                "default_value": "logged_in_terminal()",
+                "protect": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATETIME",
+                "heading": "Changed On",
+                "descr": "Last change timestamp",
+                "default_value": "now()",
+                "protect": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR10",
+                "heading": "Changed By",
+                "descr": "User who last changed the record",
+                "default_value": "logged_in_user()",
+                "protect": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR15",
+                "heading": "Chg Term",
+                "descr": "Terminal of last change",
+                "default_value": "logged_in_terminal()",
+                "protect": "1"
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": true,
+                  "table_descr": "Employee master table"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Reporting manager lookup (self-join)",
+                  "column": "REPORT_MGR",
+                  "join_table": "REPM_EMPLOYEE",
+                  "join_column": "EMP_CODE",
+                  "join_type": "left"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_employee','Validate unique code/email, mobile length, and active reporting manager')"
+          ]
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "search",
+      "delete:business_logic('soft_delete_employee','If references exist, set Status to Inactive instead of hard delete')"
+    ],
+    "cross_updates": [
+      "business_logic('flag_open_action_points','On deactivation, flag open action points assigned to this employee for reassignment')",
+      "business_logic('block_new_assignments','Inactive employees cannot be assigned to new action points')"
+    ],
+    "attach_docs": [
+      "Offer Letter",
+      "ID Proof",
+      "Address Proof"
+    ],
+    "follow_up_actions": [
+      "on-edit,trigger_email:email(get_role('project_manager'),'employee_deactivated','Notify project managers when an employee is set to Inactive so that open action points can be reassigned')"
+    ]
+  }
+}
