@@ -1,0 +1,299 @@
+{
+  "page": {
+    "obj_name": "repm_x_home",
+    "title": "Building Landmarks, Crafting Lifestyles",
+    "description": "Corporate website home page for a real estate developer — hero carousel, project highlights, why-choose-us, testimonials, newsroom and contact.",
+    "kind": "external",
+    "inputs": [
+      {
+        "name": "featured_projects",
+        "label": "Featured projects",
+        "type": "json",
+        "display": true,
+        "api": {
+          "method": "GET",
+          "url": "/api/public/projects/featured",
+          "autoload": true
+        }
+      },
+      {
+        "name": "enquiry_name",
+        "label": "Full Name",
+        "type": "text",
+        "placeholder": "Your name",
+        "isInput": true,
+        "validations": [
+          { "rule": "required", "message": "Please enter your name" }
+        ]
+      },
+      {
+        "name": "enquiry_phone",
+        "label": "Phone",
+        "type": "text",
+        "placeholder": "+91 98xxxxxxxx",
+        "isInput": true,
+        "validations": [
+          { "rule": "required", "message": "Phone is required" },
+          { "rule": "min_length", "arg": 10, "message": "Enter a valid phone number" }
+        ]
+      },
+      {
+        "name": "enquiry_email",
+        "label": "Email",
+        "type": "text",
+        "placeholder": "you@example.com",
+        "isInput": true,
+        "validations": [
+          { "rule": "required", "message": "Email is required" },
+          { "rule": "email", "message": "Enter a valid email" }
+        ]
+      },
+      {
+        "name": "enquiry_interest",
+        "label": "I am interested in",
+        "type": "select",
+        "isInput": true,
+        "options": [
+          { "value": "residential", "label": "Residential" },
+          { "value": "commercial", "label": "Commercial" },
+          { "value": "townships", "label": "Townships" },
+          { "value": "completed", "label": "Completed Projects" }
+        ],
+        "default": "residential"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "hero1",
+        "type": "hero",
+        "eyebrow": "Welcome to our world",
+        "title": "Building Landmarks, Crafting Lifestyles",
+        "subtitle": "Premium residential, commercial and township developments — designed for the way you live, work and grow.",
+        "align": "left",
+        "height": "tall",
+        "background": {
+          "kind": "gradient",
+          "gradientFrom": "#0B1F3A",
+          "gradientTo": "#1F4068",
+          "gradientAngle": 135,
+          "overlay": "rgba(11,31,58,0.45)"
+        },
+        "textColor": "#FFFFFF",
+        "primaryCta": {
+          "id": "hero_cta_primary",
+          "label": "Enquire Now",
+          "variant": "primary",
+          "on_click": { "kind": "set_inputs", "values": { "enquiry_interest": "residential" } }
+        },
+        "secondaryCta": {
+          "id": "hero_cta_secondary",
+          "label": "Explore Projects",
+          "variant": "outline",
+          "on_click": { "kind": "external_url", "url": "#featured-projects" }
+        },
+        "imageSide": "none"
+      },
+      {
+        "id": "feat_grid",
+        "type": "feature_grid",
+        "eyebrow": "What we build",
+        "heading": "A portfolio across every lifestyle",
+        "subheading": "From sky-high residences to integrated townships, our developments are shaped by craftsmanship and trust.",
+        "columns": 4,
+        "align": "center",
+        "iconStyle": "circle",
+        "items": [
+          { "id": "fg_res", "icon": "home", "title": "Residential", "description": "Thoughtfully designed homes in the most sought-after addresses." },
+          { "id": "fg_com", "icon": "building", "title": "Commercial", "description": "Grade-A workspaces and retail destinations that drive growth." },
+          { "id": "fg_twn", "icon": "map", "title": "Townships", "description": "Integrated communities with schools, retail and open green spaces." },
+          { "id": "fg_done", "icon": "check-circle", "title": "Completed", "description": "Decades of delivered landmarks across the country." }
+        ]
+      },
+      {
+        "id": "stats1",
+        "type": "stats",
+        "heading": "Trusted by generations",
+        "columns": 4,
+        "align": "center",
+        "background": "#F4F6FB",
+        "items": [
+          { "id": "s1", "value": "30", "suffix": "+", "label": "Years of legacy" },
+          { "id": "s2", "value": "120", "suffix": "+", "label": "Projects delivered" },
+          { "id": "s3", "value": "25M", "suffix": " sq.ft.", "label": "Built footprint" },
+          { "id": "s4", "value": "50K", "suffix": "+", "label": "Happy families" }
+        ]
+      },
+      {
+        "id": "feat_proj_heading",
+        "type": "heading",
+        "level": 2,
+        "text": "Featured Projects"
+      },
+      {
+        "id": "feat_proj_sub",
+        "type": "paragraph",
+        "text": "Hand-picked developments currently open for site visits and bookings."
+      },
+      {
+        "id": "feat_proj_grid",
+        "type": "card_grid",
+        "columns": 3,
+        "gap": 24,
+        "cards": [],
+        "bindings": {
+          "cards": { "source": "page_input", "name": "featured_projects", "fallback": [] }
+        }
+      },
+      {
+        "id": "enquiry_mini",
+        "type": "container",
+        "background": "#0B1F3A",
+        "padding": 32,
+        "rounded": 16,
+        "align": "center",
+        "text": "Quick Enquiry — leave your details and our team will get in touch within 24 hours.",
+        "textColor": "#FFFFFF"
+      },
+      {
+        "id": "enquiry_inputs",
+        "type": "input_group",
+        "layout": "inline",
+        "inputs": ["enquiry_name", "enquiry_phone", "enquiry_email", "enquiry_interest"]
+      },
+      {
+        "id": "enquiry_btn",
+        "type": "button",
+        "align": "center",
+        "button": {
+          "id": "enquiry_btn_b",
+          "label": "Send Enquiry",
+          "variant": "primary",
+          "size": "lg",
+          "on_click": { "kind": "run_action", "actionName": "submit_enquiry" }
+        }
+      },
+      {
+        "id": "enquiry_status",
+        "type": "callout",
+        "variant": "info",
+        "title": "{{submit_enquiry.status}}",
+        "body": "{{submit_enquiry.error}}"
+      },
+      {
+        "id": "why_grid",
+        "type": "feature_grid",
+        "eyebrow": "Why choose us",
+        "heading": "A foundation built on trust",
+        "columns": 3,
+        "align": "left",
+        "iconStyle": "square",
+        "items": [
+          { "id": "w1", "icon": "shield", "title": "On-time delivery", "description": "A track record of handing over homes when promised — and often earlier." },
+          { "id": "w2", "icon": "award", "title": "Design excellence", "description": "Collaborations with world-class architects and design studios." },
+          { "id": "w3", "icon": "leaf", "title": "Sustainable living", "description": "IGBC-certified communities with rainwater harvesting and solar integration." },
+          { "id": "w4", "icon": "users", "title": "Customer-first", "description": "Dedicated relationship managers from booking through possession and beyond." },
+          { "id": "w5", "icon": "trending-up", "title": "Strong appreciation", "description": "Our addresses consistently outperform local market benchmarks." },
+          { "id": "w6", "icon": "tool", "title": "Quality assurance", "description": "Multi-stage QA, premium fittings and lifetime structural warranty." }
+        ]
+      },
+      {
+        "id": "test1",
+        "type": "testimonial",
+        "quote": "Moving into our new home felt effortless — every promise made at the showroom was kept on the ground.",
+        "authorName": "Rohit & Anjali Mehta",
+        "authorRole": "Homeowners, Skyline Residences",
+        "rating": 5,
+        "align": "center"
+      },
+      {
+        "id": "news_heading",
+        "type": "heading",
+        "level": 2,
+        "text": "From the Newsroom"
+      },
+      {
+        "id": "news_strip",
+        "type": "card_grid",
+        "columns": 3,
+        "gap": 24,
+        "cards": [
+          { "id": "n1", "title": "Foundation laid for new township in Pune", "subtitle": "Press Release · Mar 2026", "body": "A 120-acre integrated township opens registrations for its first phase.", "cta": { "id": "n1c", "label": "Read more", "variant": "link", "on_click": { "kind": "external_url", "url": "/newsroom" } } },
+          { "id": "n2", "title": "Awarded Developer of the Year 2026", "subtitle": "Awards · Feb 2026", "body": "Recognised for excellence in residential and sustainable design.", "cta": { "id": "n2c", "label": "Read more", "variant": "link", "on_click": { "kind": "external_url", "url": "/newsroom" } } },
+          { "id": "n3", "title": "Crossed 25 million sq.ft. delivered", "subtitle": "Milestone · Jan 2026", "body": "Three decades of building landmarks across India.", "cta": { "id": "n3c", "label": "Read more", "variant": "link", "on_click": { "kind": "external_url", "url": "/newsroom" } } }
+        ]
+      },
+      {
+        "id": "cta_b",
+        "type": "cta_banner",
+        "eyebrow": "Ready to make a move?",
+        "title": "Find your next address with us",
+        "subtitle": "Talk to our advisory team about ongoing launches and exclusive site visits.",
+        "align": "center",
+        "background": { "kind": "gradient", "gradientFrom": "#1F4068", "gradientTo": "#0B1F3A", "gradientAngle": 90 },
+        "textColor": "#FFFFFF",
+        "primaryCta": {
+          "id": "ctab_p",
+          "label": "Enquire Now",
+          "variant": "primary",
+          "on_click": { "kind": "set_inputs", "values": { "enquiry_interest": "residential" } }
+        },
+        "secondaryCta": {
+          "id": "ctab_s",
+          "label": "Explore Projects",
+          "variant": "outline",
+          "on_click": { "kind": "external_url", "url": "#featured-projects" }
+        }
+      },
+      {
+        "id": "footer_heading",
+        "type": "heading",
+        "level": 2,
+        "text": "Get in touch"
+      },
+      {
+        "id": "footer_form",
+        "type": "contact_form",
+        "heading": "We'd love to hear from you",
+        "subheading": "Send us a note and our team will respond shortly.",
+        "buttonLabel": "Send Message",
+        "align": "left",
+        "fields": [
+          { "id": "cf_name", "name": "name", "label": "Full Name", "type": "text", "required": true },
+          { "id": "cf_email", "name": "email", "label": "Email", "type": "email", "required": true },
+          { "id": "cf_phone", "name": "phone", "label": "Phone", "type": "tel" },
+          { "id": "cf_msg", "name": "message", "label": "Message", "type": "textarea", "required": true }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "act_submit_enquiry",
+        "name": "submit_enquiry",
+        "description": "Submit the inline mini enquiry form.",
+        "steps": [
+          { "kind": "validate", "names": ["enquiry_name", "enquiry_phone", "enquiry_email"], "on_fail_focus": true },
+          {
+            "kind": "call_api",
+            "method": "POST",
+            "url": "/api/public/enquiries",
+            "body": {
+              "name": "{{enquiry_name}}",
+              "phone": "{{enquiry_phone}}",
+              "email": "{{enquiry_email}}",
+              "interest": "{{enquiry_interest}}"
+            },
+            "save_response_to": "enq",
+            "on_success": [
+              { "kind": "clear_inputs", "names": ["enquiry_name", "enquiry_phone", "enquiry_email"] },
+              { "kind": "show_message", "level": "success", "text": "Thank you {{enq.name}} — our team will reach out shortly." }
+            ],
+            "on_error": [
+              { "kind": "set_field_error", "name": "enquiry_email", "message": "We couldn't submit your enquiry. Please try again." },
+              { "kind": "focus_input", "name": "enquiry_email" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
