@@ -1,0 +1,1239 @@
+{
+  "transaction": {
+    "obj_name": "repm_project",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Project",
+          "form_descr": "Create and maintain real-estate development projects. Top-level container of phases, tasks, activities and action points.",
+          "columns": [
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project Code",
+                "descr": "Unique project identifier",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "validations": [
+                  "expression('unique(PROJ_CODE)')"
+                ],
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Full name of the project",
+                "mandatory": "true",
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_TYPE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project Type",
+                "descr": "Type of project",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "RAP",
+                      "display": "Residential Apartment"
+                    },
+                    {
+                      "data": "RVL",
+                      "display": "Residential Villa"
+                    },
+                    {
+                      "data": "COF",
+                      "display": "Commercial Office"
+                    },
+                    {
+                      "data": "CRT",
+                      "display": "Commercial Retail"
+                    },
+                    {
+                      "data": "MIX",
+                      "display": "Mixed-Use"
+                    },
+                    {
+                      "data": "TWN",
+                      "display": "Township"
+                    },
+                    {
+                      "data": "PLT",
+                      "display": "Plotted Development"
+                    },
+                    {
+                      "data": "RDV",
+                      "display": "Redevelopment"
+                    }
+                  ]
+                },
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "db_name": "PROJ_TYPE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "3",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CATEGORY",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project Category",
+                "descr": "Segment category",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "AFF",
+                      "display": "Affordable"
+                    },
+                    {
+                      "data": "MID",
+                      "display": "Mid-Segment"
+                    },
+                    {
+                      "data": "PRM",
+                      "display": "Premium"
+                    },
+                    {
+                      "data": "LUX",
+                      "display": "Luxury"
+                    },
+                    {
+                      "data": "ULX",
+                      "display": "Ultra-Luxury"
+                    }
+                  ]
+                },
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "PROJ_CATEGORY",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "3",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PRIORITY",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Priority",
+                "descr": "Project priority",
+                "mandatory": "true",
+                "default_value": "M",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "L",
+                      "display": "Low"
+                    },
+                    {
+                      "data": "M",
+                      "display": "Medium"
+                    },
+                    {
+                      "data": "H",
+                      "display": "High"
+                    },
+                    {
+                      "data": "C",
+                      "display": "Critical"
+                    }
+                  ]
+                },
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "db_name": "PRIORITY",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "1",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Project status",
+                "mandatory": "true",
+                "default_value": "DR",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "DR",
+                      "display": "Draft"
+                    },
+                    {
+                      "data": "PL",
+                      "display": "Planned"
+                    },
+                    {
+                      "data": "IP",
+                      "display": "In-Progress"
+                    },
+                    {
+                      "data": "OH",
+                      "display": "On-Hold"
+                    },
+                    {
+                      "data": "CM",
+                      "display": "Completed"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Cancelled"
+                    }
+                  ]
+                },
+                "x": "60",
+                "y": "60",
+                "col_id": "6",
+                "db_name": "STATUS",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "LOC_CODE",
+                "group_name": "Location",
+                "col_type": "CHAR",
+                "heading": "Project Location",
+                "descr": "Reference to project location master",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_LOCATION')"
+                ],
+                "lookup": "REPM_LOCATION(LOC_NAME, LOC_CODE)",
+                "x": "70",
+                "y": "70",
+                "col_id": "7",
+                "db_name": "LOC_CODE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "LOC_NAME",
+                "db_name": "LOC_NAME",
+                "table_name": "REPM_LOCATION",
+                "group_name": "Location",
+                "col_type": "VARCHAR",
+                "heading": "Location Name",
+                "descr": "Location name from master",
+                "protect": "1",
+                "x": "80",
+                "y": "80",
+                "col_id": "8",
+                "table_display_name": "Project location master",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "LAND_AREA",
+                "group_name": "Area & Configuration",
+                "col_type": "NUMBER(14,2)",
+                "heading": "Land Area (Sq.Ft)",
+                "descr": "Total land area in square feet",
+                "validations": [
+                  "expression('LAND_AREA >= 0')"
+                ],
+                "x": "90",
+                "y": "90",
+                "col_id": "9",
+                "db_name": "LAND_AREA",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "BUILTUP_AREA",
+                "group_name": "Area & Configuration",
+                "col_type": "NUMBER(14,2)",
+                "heading": "Built-up Area (Sq.Ft)",
+                "descr": "Total built-up area in square feet",
+                "validations": [
+                  "expression('BUILTUP_AREA >= 0')"
+                ],
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "BUILTUP_AREA",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "NUM_TOWERS",
+                "group_name": "Area & Configuration",
+                "col_type": "NUMBER(4)",
+                "heading": "Number of Towers",
+                "descr": "Total number of towers",
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "NUM_TOWERS",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "NUM_UNITS",
+                "group_name": "Area & Configuration",
+                "col_type": "NUMBER(6)",
+                "heading": "Number of Units",
+                "descr": "Total number of saleable units",
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "NUM_UNITS",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned Start Date",
+                "descr": "Planned start date of project",
+                "mandatory": "true",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "db_name": "PLAN_START_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned End Date",
+                "descr": "Planned end date of project",
+                "mandatory": "true",
+                "validations": [
+                  "expression('PLAN_END_DT >= PLAN_START_DT')"
+                ],
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "PLAN_END_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual Start Date",
+                "descr": "Actual start date of project",
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "ACT_START_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual End Date",
+                "descr": "Actual end date of project",
+                "validations": [
+                  "expression('ACT_END_DT >= ACT_START_DT')"
+                ],
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "ACT_END_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "EST_BUDGET",
+                "group_name": "Budget",
+                "col_type": "NUMBER(16,2)",
+                "heading": "Estimated Budget",
+                "descr": "Estimated budget amount",
+                "mandatory": "true",
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "db_name": "EST_BUDGET",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "APPR_BUDGET",
+                "group_name": "Budget",
+                "col_type": "NUMBER(16,2)",
+                "heading": "Approved Budget",
+                "descr": "Approved budget amount",
+                "validations": [
+                  "business_logic('validate_budget_tolerance','Approved Budget cannot exceed Estimated Budget by more than 20% without explicit Approve action')"
+                ],
+                "x": "180",
+                "y": "180",
+                "col_id": "18",
+                "db_name": "APPR_BUDGET",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PM_EMP_CODE",
+                "group_name": "Ownership",
+                "col_type": "CHAR",
+                "heading": "Project Manager",
+                "descr": "Employee code of project manager",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')"
+                ],
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "x": "190",
+                "y": "190",
+                "col_id": "19",
+                "db_name": "PM_EMP_CODE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PM_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Ownership",
+                "col_type": "VARCHAR",
+                "heading": "PM Name",
+                "descr": "Project manager name from employee master",
+                "protect": "1",
+                "x": "200",
+                "y": "200",
+                "col_id": "20",
+                "table_display_name": "Employee master for project manager",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "RERA_NUMBER",
+                "group_name": "Statutory",
+                "col_type": "VARCHAR",
+                "heading": "RERA Number",
+                "descr": "RERA registration number",
+                "x": "210",
+                "y": "210",
+                "col_id": "21",
+                "db_name": "RERA_NUMBER",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "30",
+                "width": 300,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "APPR_AUTHORITY",
+                "group_name": "Statutory",
+                "col_type": "VARCHAR",
+                "heading": "Approval Authority",
+                "descr": "Statutory approval authority",
+                "x": "220",
+                "y": "220",
+                "col_id": "22",
+                "db_name": "APPR_AUTHORITY",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "60",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PCT_COMPLETE",
+                "group_name": "Progress",
+                "col_type": "NUMBER(5,2)",
+                "heading": "% Complete",
+                "descr": "Overall project percent complete computed from phase weightages",
+                "protect": "1",
+                "default_value": "0",
+                "validations": [
+                  "expression('PCT_COMPLETE between 0 and 100')"
+                ],
+                "x": "230",
+                "y": "230",
+                "col_id": "23",
+                "db_name": "PCT_COMPLETE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "DESCRIPTION",
+                "group_name": "Notes",
+                "col_type": "VARCHAR",
+                "heading": "Description",
+                "descr": "Project description",
+                "x": "240",
+                "y": "240",
+                "col_id": "24",
+                "db_name": "DESCRIPTION",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "2000",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Notes",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Free-form remarks",
+                "x": "250",
+                "y": "250",
+                "col_id": "25",
+                "db_name": "REMARKS",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "SUBMIT_DT",
+                "group_name": "Approval",
+                "col_type": "DATE",
+                "heading": "Submitted On",
+                "descr": "Date when submitted for approval",
+                "protect": "1",
+                "x": "260",
+                "y": "260",
+                "col_id": "26",
+                "db_name": "SUBMIT_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "SUBMIT_USER",
+                "group_name": "Approval",
+                "col_type": "CHAR",
+                "heading": "Submitted By",
+                "descr": "User who submitted for approval",
+                "protect": "1",
+                "x": "270",
+                "y": "270",
+                "col_id": "27",
+                "db_name": "SUBMIT_USER",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "APPR_DT",
+                "group_name": "Approval",
+                "col_type": "DATE",
+                "heading": "Approved On",
+                "descr": "Date of approval",
+                "protect": "1",
+                "x": "280",
+                "y": "280",
+                "col_id": "28",
+                "db_name": "APPR_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "APPR_USER",
+                "group_name": "Approval",
+                "col_type": "CHAR",
+                "heading": "Approved By",
+                "descr": "User who approved the project",
+                "protect": "1",
+                "x": "290",
+                "y": "290",
+                "col_id": "29",
+                "db_name": "APPR_USER",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_DT",
+                "group_name": "Approval",
+                "col_type": "DATE",
+                "heading": "Cancelled On",
+                "descr": "Date of cancellation",
+                "protect": "1",
+                "x": "300",
+                "y": "300",
+                "col_id": "30",
+                "db_name": "CANCEL_DT",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_REASON",
+                "group_name": "Approval",
+                "col_type": "VARCHAR",
+                "heading": "Cancel Reason",
+                "descr": "Reason for cancellation",
+                "x": "310",
+                "y": "310",
+                "col_id": "31",
+                "db_name": "CANCEL_REASON",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Add Date",
+                "descr": "Record creation date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "320",
+                "y": "320",
+                "col_id": "32",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Add User",
+                "descr": "User who created the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "330",
+                "y": "330",
+                "col_id": "33",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal of creation",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "340",
+                "y": "340",
+                "col_id": "34",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Change Date",
+                "descr": "Last change date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "350",
+                "y": "350",
+                "col_id": "35",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Change User",
+                "descr": "User who last changed the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "360",
+                "y": "360",
+                "col_id": "36",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Terminal of last change",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "370",
+                "y": "370",
+                "col_id": "37",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_PROJECT",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": true,
+                  "table_descr": "Real-estate project header table"
+                },
+                {
+                  "table": "REPM_LOCATION",
+                  "main_table": false,
+                  "table_descr": "Project location master",
+                  "column": "LOC_CODE",
+                  "join_table": "REPM_PROJECT",
+                  "join_column": "LOC_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master for project manager",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_PROJECT",
+                  "join_column": "PM_EMP_CODE",
+                  "join_type": "inner"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_project_dates','Planned End Date must be on or after Planned Start Date')",
+            "business_logic('validate_budget_tolerance','Approved Budget cannot exceed Estimated Budget by more than 20% without approval')",
+            "business_logic('validate_completion_rules','Project cannot be marked Completed unless all phases are Completed or Cancelled')",
+            "business_logic('validate_cancelled_readonly','Cancelled projects become read-only')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "search",
+      "add",
+      "edit",
+      "delete",
+      "submit_for_approval:business_logic('submit_project_approval','Validate draft state, set Status to Submitted, stamp SUBMIT_DT and SUBMIT_USER, notify approver')",
+      "approve:business_logic('approve_project','Set Status to Planned, stamp APPR_DT and APPR_USER, validate budget tolerance')",
+      "cancel:business_logic('cancel_project','Set Status to Cancelled, stamp CANCEL_DT, cascade-cancel all open phases, tasks, activities and action points')"
+    ],
+    "cross_updates": [
+      "business_logic('cascade_cancel_children','On Cancel, cascade-cancel all open phases, tasks, activities and action points belonging to this project')",
+      "business_logic('recompute_project_progress','Recompute project % complete from phase weightages whenever phase status or % complete changes')"
+    ],
+    "attach_docs": [
+      "Project Charter",
+      "RERA Certificate",
+      "Approval Letter",
+      "Layout Plan",
+      "Budget Sheet"
+    ],
+    "follow_up_actions": [
+      "on-submit_for_approval,notify_approver:email(get_role('approver'),'project_submit_for_approval','Project Code, Name, Estimated Budget, Approved Budget, Project Manager, Planned dates and submission details')",
+      "on-approve,notify_pm:email(get_role('project_manager'),'project_approved','Project approved with stamped approval date and user; status set to Planned')",
+      "on-cancel,notify_stakeholders:email(get_role('project_manager'),'project_cancelled','Project cancelled; all open child phases/tasks/activities/action points cascade-cancelled')",
+      "on-add-edit,refresh_progress:business_logic('refresh_progress_rollup','Recompute % complete rollup from child phases')"
+    ]
+  }
+}

@@ -1,0 +1,1015 @@
+{
+  "transaction": {
+    "obj_name": "repm_activity",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Activity",
+          "form_descr": "Define activities within a task. Activity % complete is derived from action points and rolls up to task, phase and project.",
+          "columns": [
+            {
+              "column": {
+                "name": "ACTIVITY_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Activity ID",
+                "descr": "Unique system-generated identifier of the activity",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "protect": "1",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "ACTIVITY_ID",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project to which the activity belongs",
+                "mandatory": "true",
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "x": "40",
+                "y": "40",
+                "col_id": "2",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Name of the project (from REPM_PROJECT)",
+                "protect": "1",
+                "x": "50",
+                "y": "50",
+                "col_id": "3",
+                "table_display_name": "Project master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_ID",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Phase",
+                "descr": "Phase under the project",
+                "mandatory": "true",
+                "lookup": "REPM_PHASE(PHASE_NAME, PHASE_ID)",
+                "validations": [
+                  "must_exist_in('REPM_PHASE')",
+                  "business_logic('validate_phase_project','Phase must belong to the selected project')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PHASE",
+                  "match_table_col": "PHASE_ID",
+                  "fill": [
+                    {
+                      "form_col": "PHASE_NAME",
+                      "table_col": "PHASE_NAME"
+                    }
+                  ]
+                },
+                "x": "60",
+                "y": "60",
+                "col_id": "4",
+                "db_name": "PHASE_ID",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_NAME",
+                "db_name": "PHASE_NAME",
+                "table_name": "REPM_PHASE",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Phase Name",
+                "descr": "Name of the phase (from REPM_PHASE)",
+                "protect": "1",
+                "x": "70",
+                "y": "70",
+                "col_id": "5",
+                "table_display_name": "Phase master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_ID",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Task",
+                "descr": "Task under which the activity is defined",
+                "mandatory": "true",
+                "lookup": "REPM_TASK(TASK_NAME, TASK_ID)",
+                "validations": [
+                  "must_exist_in('REPM_TASK')",
+                  "business_logic('validate_task_phase','Task must belong to the selected phase')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_TASK",
+                  "match_table_col": "TASK_ID",
+                  "fill": [
+                    {
+                      "form_col": "TASK_NAME",
+                      "table_col": "TASK_NAME"
+                    }
+                  ]
+                },
+                "x": "80",
+                "y": "80",
+                "col_id": "6",
+                "db_name": "TASK_ID",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_NAME",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Task Name",
+                "descr": "Name of the task (from REPM_TASK)",
+                "protect": "1",
+                "x": "90",
+                "y": "90",
+                "col_id": "7",
+                "table_display_name": "Task master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Activity Code",
+                "descr": "User-defined activity code, unique within a task",
+                "mandatory": "true",
+                "validations": [
+                  "business_logic('validate_unique_activity_code','Activity Code must be unique within the task')"
+                ],
+                "x": "20",
+                "y": "20",
+                "col_id": "8",
+                "db_name": "ACTIVITY_CODE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Activity Name",
+                "descr": "Descriptive name of the activity",
+                "mandatory": "true",
+                "x": "30",
+                "y": "30",
+                "col_id": "9",
+                "db_name": "ACTIVITY_NAME",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_TYPE",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Activity Type",
+                "descr": "Type of activity",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "SUR",
+                      "display": "Survey"
+                    },
+                    {
+                      "data": "DRW",
+                      "display": "Drawing"
+                    },
+                    {
+                      "data": "APR",
+                      "display": "Approval"
+                    },
+                    {
+                      "data": "PRC",
+                      "display": "Procurement"
+                    },
+                    {
+                      "data": "EXE",
+                      "display": "Execution"
+                    },
+                    {
+                      "data": "INS",
+                      "display": "Inspection"
+                    },
+                    {
+                      "data": "TST",
+                      "display": "Testing"
+                    },
+                    {
+                      "data": "HND",
+                      "display": "Handover"
+                    },
+                    {
+                      "data": "DOC",
+                      "display": "Documentation"
+                    },
+                    {
+                      "data": "MTG",
+                      "display": "Meeting"
+                    }
+                  ]
+                },
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "ACTIVITY_TYPE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "3",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PRIORITY",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Priority",
+                "descr": "Priority of the activity",
+                "mandatory": "true",
+                "default_value": "M",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "L",
+                      "display": "Low"
+                    },
+                    {
+                      "data": "M",
+                      "display": "Medium"
+                    },
+                    {
+                      "data": "H",
+                      "display": "High"
+                    },
+                    {
+                      "data": "C",
+                      "display": "Critical"
+                    }
+                  ]
+                },
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "PRIORITY",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "1",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned Start",
+                "descr": "Planned start date of the activity",
+                "mandatory": "true",
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "PLAN_START_DT",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned End",
+                "descr": "Planned end date of the activity",
+                "mandatory": "true",
+                "validations": [
+                  "expression('PLAN_END_DT >= PLAN_START_DT')"
+                ],
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "db_name": "PLAN_END_DT",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual Start",
+                "descr": "Actual start date of the activity",
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "ACT_START_DT",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual End",
+                "descr": "Actual end date of the activity",
+                "validations": [
+                  "expression('ACT_END_DT is null or ACT_START_DT is null or ACT_END_DT >= ACT_START_DT')"
+                ],
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "ACT_END_DT",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ASSIGNED_EMP_CODE",
+                "group_name": "Assignment",
+                "col_type": "CHAR",
+                "heading": "Assigned To",
+                "descr": "Employee assigned to the activity",
+                "mandatory": "true",
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')",
+                  "business_logic('validate_active_employee','Assigned employee must be Active')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "ASSIGNED_EMP_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ]
+                },
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "ASSIGNED_EMP_CODE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ASSIGNED_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Assignment",
+                "col_type": "VARCHAR",
+                "heading": "Assignee Name",
+                "descr": "Name of the assigned employee (from REPM_EMPLOYEE)",
+                "protect": "1",
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "table_display_name": "Employee master (lookup for assignee)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Status",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Current status of the activity",
+                "mandatory": "true",
+                "default_value": "NS",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "NS",
+                      "display": "Not-Started"
+                    },
+                    {
+                      "data": "IP",
+                      "display": "In-Progress"
+                    },
+                    {
+                      "data": "OH",
+                      "display": "On-Hold"
+                    },
+                    {
+                      "data": "CO",
+                      "display": "Completed"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Cancelled"
+                    }
+                  ]
+                },
+                "validations": [
+                  "business_logic('validate_status_completion','Activity cannot be Completed unless all action points are Done or Cancelled')"
+                ],
+                "x": "180",
+                "y": "180",
+                "col_id": "18",
+                "db_name": "STATUS",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PCT_COMPLETE",
+                "group_name": "Status",
+                "col_type": "NUMBER(5,2)",
+                "heading": "% Complete",
+                "descr": "Derived percentage complete from action points (Done / total non-cancelled action points)",
+                "default_value": "0",
+                "protect": "1",
+                "validations": [
+                  "expression('PCT_COMPLETE >= 0 and PCT_COMPLETE <= 100')"
+                ],
+                "x": "190",
+                "y": "190",
+                "col_id": "19",
+                "db_name": "PCT_COMPLETE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Other",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Free-text remarks",
+                "x": "280",
+                "y": "280",
+                "col_id": "20",
+                "db_name": "REMARKS",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_DT",
+                "group_name": "Cancellation",
+                "col_type": "DATE",
+                "heading": "Cancel Date",
+                "descr": "Date when the activity was cancelled",
+                "protect": "1",
+                "x": "200",
+                "y": "200",
+                "col_id": "21",
+                "db_name": "CANCEL_DT",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_REASON",
+                "group_name": "Cancellation",
+                "col_type": "VARCHAR",
+                "heading": "Cancel Reason",
+                "descr": "Reason for cancellation",
+                "x": "210",
+                "y": "210",
+                "col_id": "22",
+                "db_name": "CANCEL_REASON",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Added On",
+                "descr": "Record creation date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "220",
+                "y": "220",
+                "col_id": "23",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Added By",
+                "descr": "User who created the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "230",
+                "y": "230",
+                "col_id": "24",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal from which record was added",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "240",
+                "y": "240",
+                "col_id": "25",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Changed On",
+                "descr": "Last change date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "250",
+                "y": "250",
+                "col_id": "26",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Changed By",
+                "descr": "User who last changed the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "260",
+                "y": "260",
+                "col_id": "27",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Terminal from which record was last changed",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "270",
+                "y": "270",
+                "col_id": "28",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_ACTIVITY",
+                "table_display_name": "Activity master table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_ACTIVITY",
+                  "main_table": true,
+                  "table_descr": "Activity master table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Project master (lookup)",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_ACTIVITY",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_PHASE",
+                  "main_table": false,
+                  "table_descr": "Phase master (lookup)",
+                  "column": "PHASE_ID",
+                  "join_table": "REPM_ACTIVITY",
+                  "join_column": "PHASE_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_TASK",
+                  "main_table": false,
+                  "table_descr": "Task master (lookup)",
+                  "column": "TASK_ID",
+                  "join_table": "REPM_ACTIVITY",
+                  "join_column": "TASK_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master (lookup for assignee)",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_ACTIVITY",
+                  "join_column": "ASSIGNED_EMP_CODE",
+                  "join_type": "left"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "expression('PLAN_END_DT >= PLAN_START_DT')",
+            "business_logic('validate_unique_activity_code','Activity Code must be unique within the task')",
+            "business_logic('validate_status_completion','Activity cannot be Completed unless all action points are Done or Cancelled')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "delete",
+      "search",
+      "cancel:business_logic('cancel_activity','Cancel activity, stamp CANCEL_DT and cascade-cancel its action points')"
+    ],
+    "cross_updates": [
+      "business_logic('recompute_activity_pct','Recompute activity PCT_COMPLETE from action points on action-point status change')",
+      "business_logic('rollup_to_task','Roll up activity % complete to parent task PCT_COMPLETE')",
+      "business_logic('rollup_to_phase','Roll up task % complete to parent phase PCT_COMPLETE using task weightages')",
+      "business_logic('rollup_to_project','Roll up phase % complete to project PCT_COMPLETE using phase weightages')"
+    ],
+    "attach_docs": [
+      "Activity Supporting Document"
+    ],
+    "follow_up_actions": [
+      "on-add,trigger_email:email(get_emp_email('ASSIGNED_EMP_CODE'),'activity_assigned','Activity assigned with code, name, planned dates and parent task')",
+      "on-edit-status-CO,trigger_email:email(get_emp_email(get_task_owner('TASK_ID')),'activity_completed','Activity completed notification to task owner')",
+      "on-cancel,trigger_email:email(get_emp_email(get_project_manager('PROJ_CODE')),'activity_cancelled','Activity cancellation notification to Project Manager')"
+    ]
+  }
+}

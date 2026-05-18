@@ -1,0 +1,151 @@
+{
+  "table_name": "REPM_PROGRESS_UPD",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "UPDATE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique progress update identifier",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project code",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Phase identifier",
+      "sequence": 3
+    },
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Task identifier",
+      "sequence": 4
+    },
+    {
+      "column_name": "ACTIVITY_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Activity identifier (optional)",
+      "sequence": 5
+    },
+    {
+      "column_name": "UPDATE_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date of the progress update",
+      "sequence": 6
+    },
+    {
+      "column_name": "REPORTED_BY_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee who reported the update",
+      "sequence": 7
+    },
+    {
+      "column_name": "PROGRESS_NOTES",
+      "data_type": "VARCHAR",
+      "size": "2000",
+      "key": false,
+      "description": "Daily progress notes",
+      "sequence": 8
+    },
+    {
+      "column_name": "ISSUES_FACED",
+      "data_type": "VARCHAR",
+      "size": "2000",
+      "key": false,
+      "description": "Any issues faced during execution",
+      "sequence": 9
+    },
+    {
+      "column_name": "PCT_COMPLETE_UPD",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Updated percentage complete for activity/task",
+      "sequence": 10
+    },
+    {
+      "column_name": "PHOTOGRAPHS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Attached photograph file references",
+      "sequence": 11
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Additional remarks",
+      "sequence": 12
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record created date",
+      "sequence": 13
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Record created by user",
+      "sequence": 14
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of creation",
+      "sequence": 15
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last changed date",
+      "sequence": 16
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Last changed by user",
+      "sequence": 17
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of last change",
+      "sequence": 18
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "object_name": "repm_issue",
+  "tables": {
+    "REPM_ISSUE": [
+      "PHASE_ID",
+      "REPORTED_DT",
+      "ADD_TERM",
+      "TASK_ID",
+      "MITIGATION_PLAN",
+      "ISSUE_ID",
+      "ISSUE_TYPE",
+      "STATUS",
+      "CHG_DATE",
+      "PRIORITY",
+      "CLOSURE_REMARKS",
+      "CATEGORY",
+      "CHG_USER",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "REPORTED_BY_EMP_CODE",
+      "TARGET_CLOSURE_DT",
+      "DESCRIPTION",
+      "CHG_TERM",
+      "OWNER_EMP_CODE",
+      "ADD_USER",
+      "CLOSURE_DT",
+      "REMARKS"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_PHASE": [
+      "PHASE_NAME",
+      "PHASE_ID"
+    ],
+    "REPM_TASK": [
+      "TASK_ID",
+      "TASK_NAME"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ]
+  }
+}

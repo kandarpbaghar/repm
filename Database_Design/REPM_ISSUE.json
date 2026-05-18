@@ -1,0 +1,191 @@
+{
+  "table_name": "REPM_ISSUE",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "ISSUE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique identifier for the issue/risk",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project reference",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Phase reference",
+      "sequence": 3
+    },
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Optional task reference",
+      "sequence": 4
+    },
+    {
+      "column_name": "ISSUE_TYPE",
+      "data_type": "CHAR",
+      "size": "1",
+      "key": false,
+      "description": "Issue or Risk",
+      "sequence": 5
+    },
+    {
+      "column_name": "CATEGORY",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Issue category",
+      "sequence": 6
+    },
+    {
+      "column_name": "PRIORITY",
+      "data_type": "CHAR",
+      "size": "1",
+      "key": false,
+      "description": "Issue priority",
+      "sequence": 7
+    },
+    {
+      "column_name": "REPORTED_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date the issue was reported",
+      "sequence": 8
+    },
+    {
+      "column_name": "REPORTED_BY_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee who reported the issue",
+      "sequence": 9
+    },
+    {
+      "column_name": "DESCRIPTION",
+      "data_type": "VARCHAR",
+      "size": "2000",
+      "key": false,
+      "description": "Detailed description of the issue/risk",
+      "sequence": 10
+    },
+    {
+      "column_name": "MITIGATION_PLAN",
+      "data_type": "VARCHAR",
+      "size": "2000",
+      "key": false,
+      "description": "Planned mitigation actions",
+      "sequence": 11
+    },
+    {
+      "column_name": "OWNER_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee owning the issue",
+      "sequence": 12
+    },
+    {
+      "column_name": "TARGET_CLOSURE_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Target closure date",
+      "sequence": 13
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Issue status",
+      "sequence": 14
+    },
+    {
+      "column_name": "CLOSURE_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date the issue was closed",
+      "sequence": 15
+    },
+    {
+      "column_name": "CLOSURE_REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Remarks on closure",
+      "sequence": 16
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Additional remarks",
+      "sequence": 17
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 18
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Creating user",
+      "sequence": 19
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Creating terminal",
+      "sequence": 20
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last change date",
+      "sequence": 21
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Last change user",
+      "sequence": 22
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Last change terminal",
+      "sequence": 23
+    }
+  ]
+}

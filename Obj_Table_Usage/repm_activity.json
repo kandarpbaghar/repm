@@ -1,0 +1,47 @@
+{
+  "object_name": "repm_activity",
+  "tables": {
+    "REPM_ACTIVITY": [
+      "PHASE_ID",
+      "ADD_TERM",
+      "TASK_ID",
+      "PCT_COMPLETE",
+      "ACTIVITY_NAME",
+      "ACT_START_DT",
+      "ASSIGNED_EMP_CODE",
+      "STATUS",
+      "CHG_DATE",
+      "PRIORITY",
+      "ACTIVITY_ID",
+      "ACT_END_DT",
+      "CHG_USER",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "ACTIVITY_TYPE",
+      "CANCEL_REASON",
+      "PLAN_END_DT",
+      "CHG_TERM",
+      "PLAN_START_DT",
+      "ADD_USER",
+      "ACTIVITY_CODE",
+      "CANCEL_DT",
+      "REMARKS"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_PHASE": [
+      "PHASE_NAME",
+      "PHASE_ID"
+    ],
+    "REPM_TASK": [
+      "TASK_ID",
+      "TASK_NAME"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ]
+  }
+}

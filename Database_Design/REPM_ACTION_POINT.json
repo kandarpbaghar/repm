@@ -1,0 +1,167 @@
+{
+  "table_name": "REPM_ACTION_POINT",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "ACTION_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique identifier of the action point",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project to which this action point belongs",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Phase under the project",
+      "sequence": 3
+    },
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Task under the phase",
+      "sequence": 4
+    },
+    {
+      "column_name": "ACTIVITY_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Parent activity under which this action point falls",
+      "sequence": 5
+    },
+    {
+      "column_name": "SEQ_NO",
+      "data_type": "NUMBER(4)",
+      "size": "",
+      "key": false,
+      "description": "Sequence number of action point within the activity",
+      "sequence": 6
+    },
+    {
+      "column_name": "ACTION_DESCR",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Action point description",
+      "sequence": 7
+    },
+    {
+      "column_name": "ASSIGNED_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee to whom action point is assigned",
+      "sequence": 8
+    },
+    {
+      "column_name": "DUE_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Due date for the action point",
+      "sequence": 9
+    },
+    {
+      "column_name": "COMPLETED_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date when action point was marked Done",
+      "sequence": 10
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Status of action point",
+      "sequence": 11
+    },
+    {
+      "column_name": "BLOCKING_REASON",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Reason if action point is blocked",
+      "sequence": 12
+    },
+    {
+      "column_name": "ATTACHMENT",
+      "data_type": "VARCHAR",
+      "size": "250",
+      "key": false,
+      "description": "Supporting attachment for the action point",
+      "sequence": 13
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Free text remarks",
+      "sequence": 14
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 15
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Record creation user",
+      "sequence": 16
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Record creation terminal",
+      "sequence": 17
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last change date",
+      "sequence": 18
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Last change user",
+      "sequence": 19
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Last change terminal",
+      "sequence": 20
+    }
+  ]
+}

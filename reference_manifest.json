@@ -1,7 +1,7 @@
 {
   "project_name": "Real Estate Project Management",
   "project_description": "End-to-end project management for real-estate developers covering masters, project planning, phases, tasks, activities, action point check-lists, daily progress, issues/risks, dashboards, reports and a public marketing website.",
-  "generated_at": "2026-05-18T07:07:11.351385+00:00",
+  "generated_at": "2026-05-18T07:38:44.482698+00:00",
   "owner_user_id": "",
   "navigation_summary": [
     {
@@ -203,5 +203,260 @@
       "description": "Contact page with form."
     }
   ],
-  "tables": []
+  "tables": [
+    {
+      "table_name": "REPM_ACTION_POINT",
+      "description": "",
+      "key_columns": [
+        "ACTION_ID CHAR"
+      ],
+      "other_columns": [
+        "PROJ_CODE CHAR",
+        "PHASE_ID CHAR",
+        "TASK_ID CHAR",
+        "ACTIVITY_ID CHAR",
+        "SEQ_NO NUMBER(4)",
+        "ACTION_DESCR VARCHAR",
+        "ASSIGNED_EMP_CODE CHAR",
+        "DUE_DT DATE",
+        "COMPLETED_DT DATE",
+        "STATUS CHAR",
+        "BLOCKING_REASON VARCHAR",
+        "ATTACHMENT VARCHAR",
+        "REMARKS VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_ACTIVITY",
+      "description": "",
+      "key_columns": [
+        "ACTIVITY_ID CHAR"
+      ],
+      "other_columns": [
+        "PROJ_CODE CHAR",
+        "ACTIVITY_NAME VARCHAR",
+        "PHASE_ID CHAR",
+        "PLAN_START_DT DATE",
+        "TASK_ID CHAR",
+        "PLAN_END_DT DATE",
+        "ACTIVITY_CODE CHAR",
+        "ACTIVITY_TYPE CHAR",
+        "PRIORITY CHAR",
+        "ACT_START_DT DATE",
+        "ACT_END_DT DATE",
+        "ASSIGNED_EMP_CODE CHAR",
+        "STATUS CHAR",
+        "PCT_COMPLETE NUMBER(5,2)",
+        "REMARKS VARCHAR",
+        "CANCEL_DT DATE",
+        "CANCEL_REASON VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_EMPLOYEE",
+      "description": "",
+      "key_columns": [
+        "EMP_CODE CHAR"
+      ],
+      "other_columns": [
+        "EMP_NAME VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_ISSUE",
+      "description": "",
+      "key_columns": [
+        "ISSUE_ID CHAR"
+      ],
+      "other_columns": [
+        "PROJ_CODE CHAR",
+        "PHASE_ID CHAR",
+        "TASK_ID CHAR",
+        "ISSUE_TYPE CHAR",
+        "CATEGORY CHAR",
+        "PRIORITY CHAR",
+        "REPORTED_DT DATE",
+        "REPORTED_BY_EMP_CODE CHAR",
+        "DESCRIPTION VARCHAR",
+        "MITIGATION_PLAN VARCHAR",
+        "OWNER_EMP_CODE CHAR",
+        "TARGET_CLOSURE_DT DATE",
+        "STATUS CHAR",
+        "CLOSURE_DT DATE",
+        "CLOSURE_REMARKS VARCHAR",
+        "REMARKS VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_LOCATION",
+      "description": "",
+      "key_columns": [
+        "LOC_CODE CHAR"
+      ],
+      "other_columns": [
+        "LOC_NAME VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_PHASE",
+      "description": "",
+      "key_columns": [
+        "PHASE_ID CHAR"
+      ],
+      "other_columns": [
+        "PROJ_CODE CHAR",
+        "PHASE_NAME VARCHAR",
+        "PHASE_CODE CHAR",
+        "PHASE_TYPE CHAR",
+        "SEQ_NO NUMBER(4)",
+        "PLAN_START_DT DATE",
+        "PLAN_END_DT DATE",
+        "ACT_START_DT DATE",
+        "ACT_END_DT DATE",
+        "OWNER_EMP_CODE CHAR",
+        "STATUS CHAR",
+        "WEIGHTAGE_PCT NUMBER(5,2)",
+        "PCT_COMPLETE NUMBER(5,2)",
+        "REMARKS VARCHAR",
+        "CANCEL_DT DATE",
+        "CANCEL_REASON VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_PROGRESS_UPD",
+      "description": "",
+      "key_columns": [
+        "UPDATE_ID CHAR"
+      ],
+      "other_columns": [
+        "PROJ_CODE CHAR",
+        "PHASE_ID CHAR",
+        "TASK_ID CHAR",
+        "ACTIVITY_ID CHAR",
+        "UPDATE_DT DATE",
+        "REPORTED_BY_EMP_CODE CHAR",
+        "PROGRESS_NOTES VARCHAR",
+        "ISSUES_FACED VARCHAR",
+        "PCT_COMPLETE_UPD NUMBER(5,2)",
+        "PHOTOGRAPHS VARCHAR",
+        "REMARKS VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_PROJECT",
+      "description": "",
+      "key_columns": [
+        "PROJ_CODE CHAR"
+      ],
+      "other_columns": [
+        "PROJ_NAME VARCHAR",
+        "PROJ_TYPE CHAR",
+        "PROJ_CATEGORY CHAR",
+        "PRIORITY CHAR",
+        "STATUS CHAR",
+        "LOC_CODE CHAR",
+        "LAND_AREA NUMBER(14,2)",
+        "BUILTUP_AREA NUMBER(14,2)",
+        "NUM_TOWERS NUMBER(4)",
+        "NUM_UNITS NUMBER(6)",
+        "PLAN_START_DT DATE",
+        "PLAN_END_DT DATE",
+        "ACT_START_DT DATE",
+        "ACT_END_DT DATE",
+        "EST_BUDGET NUMBER(16,2)",
+        "APPR_BUDGET NUMBER(16,2)",
+        "PM_EMP_CODE CHAR",
+        "RERA_NUMBER VARCHAR",
+        "APPR_AUTHORITY VARCHAR",
+        "PCT_COMPLETE NUMBER(5,2)",
+        "DESCRIPTION VARCHAR",
+        "REMARKS VARCHAR",
+        "SUBMIT_DT DATE",
+        "SUBMIT_USER CHAR",
+        "APPR_DT DATE",
+        "APPR_USER CHAR",
+        "CANCEL_DT DATE",
+        "CANCEL_REASON VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_TASK",
+      "description": "",
+      "key_columns": [
+        "TASK_ID CHAR"
+      ],
+      "other_columns": [
+        "PROJ_CODE CHAR",
+        "TASK_NAME VARCHAR",
+        "PHASE_ID CHAR",
+        "TASK_CODE CHAR",
+        "TASK_CATEGORY CHAR",
+        "PRIORITY CHAR",
+        "PLAN_START_DT DATE",
+        "PLAN_END_DT DATE",
+        "ACT_START_DT DATE",
+        "ACT_END_DT DATE",
+        "ASSIGNED_EMP_CODE CHAR",
+        "STATUS CHAR",
+        "PCT_COMPLETE NUMBER(5,2)",
+        "PREDECESSOR_TASK_ID CHAR",
+        "WEIGHTAGE_PCT NUMBER(5,2)",
+        "REMARKS VARCHAR",
+        "CANCEL_DT DATE",
+        "CANCEL_REASON VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_TASK_PRED",
+      "description": "",
+      "key_columns": [
+        "TASK_ID CHAR"
+      ],
+      "other_columns": [
+        "TASK_NAME VARCHAR"
+      ]
+    }
+  ]
 }

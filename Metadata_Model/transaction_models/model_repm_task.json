@@ -1,0 +1,1070 @@
+{
+  "transaction": {
+    "obj_name": "repm_task",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Task",
+          "form_descr": "Define tasks within a phase. Tasks are the work breakdown of a phase and contain activities.",
+          "columns": [
+            {
+              "column": {
+                "name": "TASK_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Task ID",
+                "descr": "Unique task identifier",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "hidden": "1",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "TASK_ID",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project code",
+                "mandatory": "true",
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PROJECT",
+                  "match_table_col": "PROJ_CODE",
+                  "fill": [
+                    {
+                      "form_col": "PROJ_NAME",
+                      "table_col": "PROJ_NAME"
+                    }
+                  ]
+                },
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Project name from lookup",
+                "protect": "1",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "table_display_name": "Project master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Phase",
+                "descr": "Phase identifier",
+                "mandatory": "true",
+                "lookup": "REPM_PHASE(PHASE_NAME, PHASE_ID)",
+                "validations": [
+                  "must_exist_in('REPM_PHASE')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PHASE",
+                  "match_table_col": "PHASE_ID",
+                  "fill": [
+                    {
+                      "form_col": "PHASE_NAME",
+                      "table_col": "PHASE_NAME"
+                    }
+                  ]
+                },
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "PHASE_ID",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_NAME",
+                "db_name": "PHASE_NAME",
+                "table_name": "REPM_PHASE",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Phase Name",
+                "descr": "Phase name from lookup",
+                "protect": "1",
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "table_display_name": "Phase master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Task Code",
+                "descr": "Task code unique within phase",
+                "mandatory": "true",
+                "validations": [
+                  "business_logic('validate_task_code_unique','Task Code must be unique within phase')"
+                ],
+                "x": "60",
+                "y": "60",
+                "col_id": "6",
+                "db_name": "TASK_CODE",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Task Name",
+                "descr": "Task name",
+                "mandatory": "true",
+                "x": "70",
+                "y": "70",
+                "col_id": "7",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_CATEGORY",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Category",
+                "descr": "Task category",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "CIV",
+                      "display": "Civil"
+                    },
+                    {
+                      "data": "STR",
+                      "display": "Structural"
+                    },
+                    {
+                      "data": "ARC",
+                      "display": "Architectural"
+                    },
+                    {
+                      "data": "MEE",
+                      "display": "MEP - Electrical"
+                    },
+                    {
+                      "data": "MEP",
+                      "display": "MEP - Plumbing"
+                    },
+                    {
+                      "data": "MEH",
+                      "display": "MEP - HVAC"
+                    },
+                    {
+                      "data": "INT",
+                      "display": "Interior"
+                    },
+                    {
+                      "data": "EXT",
+                      "display": "External"
+                    },
+                    {
+                      "data": "APP",
+                      "display": "Approvals"
+                    },
+                    {
+                      "data": "PRO",
+                      "display": "Procurement"
+                    },
+                    {
+                      "data": "QLT",
+                      "display": "Quality"
+                    },
+                    {
+                      "data": "SAF",
+                      "display": "Safety"
+                    },
+                    {
+                      "data": "HND",
+                      "display": "Handover"
+                    },
+                    {
+                      "data": "DOC",
+                      "display": "Documentation"
+                    }
+                  ]
+                },
+                "x": "80",
+                "y": "80",
+                "col_id": "8",
+                "db_name": "TASK_CATEGORY",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "3",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PRIORITY",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Priority",
+                "descr": "Task priority",
+                "mandatory": "true",
+                "default_value": "M",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "L",
+                      "display": "Low"
+                    },
+                    {
+                      "data": "M",
+                      "display": "Medium"
+                    },
+                    {
+                      "data": "H",
+                      "display": "High"
+                    },
+                    {
+                      "data": "C",
+                      "display": "Critical"
+                    }
+                  ]
+                },
+                "x": "90",
+                "y": "90",
+                "col_id": "9",
+                "db_name": "PRIORITY",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "1",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned Start",
+                "descr": "Planned start date",
+                "mandatory": "true",
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "PLAN_START_DT",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned End",
+                "descr": "Planned end date",
+                "mandatory": "true",
+                "validations": [
+                  "expression('PLAN_END_DT >= PLAN_START_DT')"
+                ],
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "PLAN_END_DT",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual Start",
+                "descr": "Actual start date",
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "ACT_START_DT",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual End",
+                "descr": "Actual end date",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "db_name": "ACT_END_DT",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ASSIGNED_EMP_CODE",
+                "group_name": "Assignment",
+                "col_type": "CHAR",
+                "heading": "Assigned To",
+                "descr": "Employee assigned to task",
+                "mandatory": "true",
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "ASSIGNED_EMP_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ]
+                },
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "ASSIGNED_EMP_CODE",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ASSIGNED_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Assignment",
+                "col_type": "VARCHAR",
+                "heading": "Assignee Name",
+                "descr": "Assigned employee name",
+                "protect": "1",
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "table_display_name": "Employee master for assignee",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Status",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Task status",
+                "mandatory": "true",
+                "default_value": "NS",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "NS",
+                      "display": "Not-Started"
+                    },
+                    {
+                      "data": "IP",
+                      "display": "In-Progress"
+                    },
+                    {
+                      "data": "OH",
+                      "display": "On-Hold"
+                    },
+                    {
+                      "data": "CP",
+                      "display": "Completed"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Cancelled"
+                    }
+                  ]
+                },
+                "validations": [
+                  "business_logic('validate_predecessor_completed','Task cannot be In-Progress unless predecessor is Completed')"
+                ],
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "STATUS",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PCT_COMPLETE",
+                "group_name": "Status",
+                "col_type": "NUMBER(5,2)",
+                "heading": "% Complete",
+                "descr": "Percent complete (0-100)",
+                "default_value": "0",
+                "validations": [
+                  "expression('PCT_COMPLETE >= 0 and PCT_COMPLETE <= 100')",
+                  "business_logic('validate_pct_complete','100 only when Status is Completed')"
+                ],
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "db_name": "PCT_COMPLETE",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PREDECESSOR_TASK_ID",
+                "group_name": "Dependency",
+                "col_type": "CHAR",
+                "heading": "Predecessor",
+                "descr": "Predecessor task",
+                "lookup": "REPM_TASK(TASK_NAME, TASK_ID)",
+                "validations": [
+                  "business_logic('validate_predecessor_same_project','Predecessor must belong to same project')"
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_TASK",
+                  "match_table_col": "TASK_ID",
+                  "fill": [
+                    {
+                      "form_col": "PREDECESSOR_TASK_NAME",
+                      "table_col": "TASK_NAME"
+                    }
+                  ]
+                },
+                "x": "190",
+                "y": "190",
+                "col_id": "18",
+                "db_name": "PREDECESSOR_TASK_ID",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PREDECESSOR_TASK_NAME",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK_PRED",
+                "group_name": "Dependency",
+                "col_type": "VARCHAR",
+                "heading": "Predecessor Name",
+                "descr": "Predecessor task name",
+                "protect": "1",
+                "x": "200",
+                "y": "200",
+                "col_id": "19",
+                "table_display_name": "Predecessor task self-join",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "WEIGHTAGE_PCT",
+                "group_name": "Status",
+                "col_type": "NUMBER(5,2)",
+                "heading": "Weightage %",
+                "descr": "Weightage within phase",
+                "mandatory": "true",
+                "default_value": "0",
+                "validations": [
+                  "expression('WEIGHTAGE_PCT >= 0 and WEIGHTAGE_PCT <= 100')",
+                  "business_logic('validate_phase_weightage_sum','Sum of weightage across non-cancelled tasks in phase should equal 100')"
+                ],
+                "x": "180",
+                "y": "180",
+                "col_id": "20",
+                "db_name": "WEIGHTAGE_PCT",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Other",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Remarks",
+                "x": "290",
+                "y": "290",
+                "col_id": "21",
+                "db_name": "REMARKS",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_DT",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Cancel Date",
+                "descr": "Cancellation date",
+                "protect": "1",
+                "x": "210",
+                "y": "210",
+                "col_id": "22",
+                "db_name": "CANCEL_DT",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_REASON",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Cancel Reason",
+                "descr": "Cancellation reason",
+                "x": "220",
+                "y": "220",
+                "col_id": "23",
+                "db_name": "CANCEL_REASON",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Add Date",
+                "descr": "Record creation date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "230",
+                "y": "230",
+                "col_id": "24",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Add User",
+                "descr": "User who created",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "240",
+                "y": "240",
+                "col_id": "25",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal of creation",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "250",
+                "y": "250",
+                "col_id": "26",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Change Date",
+                "descr": "Last change date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "260",
+                "y": "260",
+                "col_id": "27",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Change User",
+                "descr": "User who last changed",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "270",
+                "y": "270",
+                "col_id": "28",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Terminal of last change",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "280",
+                "y": "280",
+                "col_id": "29",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_TASK",
+                "table_display_name": "Task main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_TASK",
+                  "main_table": true,
+                  "table_descr": "Task main table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Project master lookup",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_TASK",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_PHASE",
+                  "main_table": false,
+                  "table_descr": "Phase master lookup",
+                  "column": "PHASE_ID",
+                  "join_table": "REPM_TASK",
+                  "join_column": "PHASE_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master for assignee",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_TASK",
+                  "join_column": "ASSIGNED_EMP_CODE",
+                  "join_type": "left"
+                },
+                {
+                  "table": "REPM_TASK_PRED",
+                  "main_table": false,
+                  "table_descr": "Predecessor task self-join",
+                  "column": "TASK_ID",
+                  "join_table": "REPM_TASK",
+                  "join_column": "PREDECESSOR_TASK_ID",
+                  "join_type": "left"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_task_code_unique','Task Code unique within phase')",
+            "business_logic('validate_predecessor_same_project','Predecessor task must belong to same project')",
+            "business_logic('validate_predecessor_completed','Task cannot move to In-Progress unless predecessor is Completed')",
+            "expression('PLAN_END_DT >= PLAN_START_DT')",
+            "business_logic('validate_pct_complete_status','% Complete 100 only when Status Completed')",
+            "business_logic('validate_phase_weightage_sum','Sum of weightage in phase equals 100')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "delete",
+      "cancel:business_logic('cancel_task','Cancel task and cascade cancel child activities and action points')"
+    ],
+    "cross_updates": [
+      "business_logic('recompute_phase_pct_complete','Recompute phase % complete from task weightages on task update')",
+      "business_logic('recompute_project_pct_complete','Roll-up phase recompute to project % complete')"
+    ],
+    "attach_docs": [
+      "Task Specification",
+      "Drawing",
+      "Reference Document"
+    ],
+    "follow_up_actions": [
+      "on-add-edit,trigger_email:email(get_emp_email('ASSIGNED_EMP_CODE'),'task_assignment','Notify assignee of new/updated task')",
+      "on-status-change-completed,trigger_rollup:business_logic('rollup_phase_project','Recompute phase and project % complete')"
+    ]
+  }
+}

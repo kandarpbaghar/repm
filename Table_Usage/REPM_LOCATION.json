@@ -1,0 +1,19 @@
+{
+  "table_name": "REPM_LOCATION",
+  "objects": [
+    {
+      "object_name": "repm_project",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "LOC_NAME",
+        "LOC_CODE"
+      ],
+      "join_info": {
+        "column": "LOC_CODE",
+        "join_table": "REPM_PROJECT",
+        "join_column": "LOC_CODE"
+      }
+    }
+  ]
+}

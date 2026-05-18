@@ -1,0 +1,287 @@
+{
+  "table_name": "REPM_PROJECT",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique project identifier",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Full name of the project",
+      "sequence": 2
+    },
+    {
+      "column_name": "PROJ_TYPE",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Type of project",
+      "sequence": 3
+    },
+    {
+      "column_name": "PROJ_CATEGORY",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Segment category",
+      "sequence": 4
+    },
+    {
+      "column_name": "PRIORITY",
+      "data_type": "CHAR",
+      "size": "1",
+      "key": false,
+      "description": "Project priority",
+      "sequence": 5
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Project status",
+      "sequence": 6
+    },
+    {
+      "column_name": "LOC_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Reference to project location master",
+      "sequence": 7
+    },
+    {
+      "column_name": "LAND_AREA",
+      "data_type": "NUMBER(14,2)",
+      "size": "",
+      "key": false,
+      "description": "Total land area in square feet",
+      "sequence": 8
+    },
+    {
+      "column_name": "BUILTUP_AREA",
+      "data_type": "NUMBER(14,2)",
+      "size": "",
+      "key": false,
+      "description": "Total built-up area in square feet",
+      "sequence": 9
+    },
+    {
+      "column_name": "NUM_TOWERS",
+      "data_type": "NUMBER(4)",
+      "size": "",
+      "key": false,
+      "description": "Total number of towers",
+      "sequence": 10
+    },
+    {
+      "column_name": "NUM_UNITS",
+      "data_type": "NUMBER(6)",
+      "size": "",
+      "key": false,
+      "description": "Total number of saleable units",
+      "sequence": 11
+    },
+    {
+      "column_name": "PLAN_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned start date of project",
+      "sequence": 12
+    },
+    {
+      "column_name": "PLAN_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned end date of project",
+      "sequence": 13
+    },
+    {
+      "column_name": "ACT_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual start date of project",
+      "sequence": 14
+    },
+    {
+      "column_name": "ACT_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual end date of project",
+      "sequence": 15
+    },
+    {
+      "column_name": "EST_BUDGET",
+      "data_type": "NUMBER(16,2)",
+      "size": "",
+      "key": false,
+      "description": "Estimated budget amount",
+      "sequence": 16
+    },
+    {
+      "column_name": "APPR_BUDGET",
+      "data_type": "NUMBER(16,2)",
+      "size": "",
+      "key": false,
+      "description": "Approved budget amount",
+      "sequence": 17
+    },
+    {
+      "column_name": "PM_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee code of project manager",
+      "sequence": 18
+    },
+    {
+      "column_name": "RERA_NUMBER",
+      "data_type": "VARCHAR",
+      "size": "30",
+      "key": false,
+      "description": "RERA registration number",
+      "sequence": 19
+    },
+    {
+      "column_name": "APPR_AUTHORITY",
+      "data_type": "VARCHAR",
+      "size": "60",
+      "key": false,
+      "description": "Statutory approval authority",
+      "sequence": 20
+    },
+    {
+      "column_name": "PCT_COMPLETE",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Overall project percent complete computed from phase weightages",
+      "sequence": 21
+    },
+    {
+      "column_name": "DESCRIPTION",
+      "data_type": "VARCHAR",
+      "size": "2000",
+      "key": false,
+      "description": "Project description",
+      "sequence": 22
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Free-form remarks",
+      "sequence": 23
+    },
+    {
+      "column_name": "SUBMIT_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date when submitted for approval",
+      "sequence": 24
+    },
+    {
+      "column_name": "SUBMIT_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who submitted for approval",
+      "sequence": 25
+    },
+    {
+      "column_name": "APPR_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date of approval",
+      "sequence": 26
+    },
+    {
+      "column_name": "APPR_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who approved the project",
+      "sequence": 27
+    },
+    {
+      "column_name": "CANCEL_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date of cancellation",
+      "sequence": 28
+    },
+    {
+      "column_name": "CANCEL_REASON",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Reason for cancellation",
+      "sequence": 29
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 30
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who created the record",
+      "sequence": 31
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of creation",
+      "sequence": 32
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last change date",
+      "sequence": 33
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who last changed the record",
+      "sequence": 34
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of last change",
+      "sequence": 35
+    }
+  ]
+}

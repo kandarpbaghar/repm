@@ -1,0 +1,35 @@
+{
+  "table_name": "REPM_PROGRESS_UPD",
+  "objects": [
+    {
+      "object_name": "repm_progress_update",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_ID",
+        "PHOTOGRAPHS",
+        "UPDATE_ID",
+        "ISSUES_FACED",
+        "ACTIVITY_ID",
+        "ADD_TERM",
+        "PCT_COMPLETE_UPD",
+        "CHG_TERM",
+        "UPDATE_DT",
+        "PROGRESS_NOTES",
+        "CHG_USER",
+        "ADD_USER",
+        "ADD_DATE",
+        "PROJ_CODE",
+        "REPORTED_BY_EMP_CODE",
+        "TASK_ID",
+        "REMARKS",
+        "CHG_DATE"
+      ],
+      "join_info": {
+        "column": "REPORTED_BY_EMP_CODE",
+        "join_table": "REPM_EMPLOYEE",
+        "join_column": "EMP_CODE"
+      }
+    }
+  ]
+}

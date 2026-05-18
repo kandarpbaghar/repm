@@ -1,0 +1,110 @@
+{
+  "table_name": "REPM_PHASE",
+  "objects": [
+    {
+      "object_name": "repm_phase",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_ID",
+        "ADD_TERM",
+        "PCT_COMPLETE",
+        "PHASE_TYPE",
+        "ACT_START_DT",
+        "SEQ_NO",
+        "STATUS",
+        "CHG_DATE",
+        "ACT_END_DT",
+        "WEIGHTAGE_PCT",
+        "CHG_USER",
+        "ADD_DATE",
+        "PROJ_CODE",
+        "PHASE_CODE",
+        "CANCEL_REASON",
+        "PLAN_END_DT",
+        "CHG_TERM",
+        "PHASE_NAME",
+        "PLAN_START_DT",
+        "OWNER_EMP_CODE",
+        "ADD_USER",
+        "CANCEL_DT",
+        "REMARKS"
+      ],
+      "join_info": {
+        "column": "OWNER_EMP_CODE",
+        "join_table": "REPM_EMPLOYEE",
+        "join_column": "EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_task",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_NAME",
+        "PHASE_ID"
+      ],
+      "join_info": {
+        "column": "PHASE_ID",
+        "join_table": "REPM_TASK",
+        "join_column": "PHASE_ID"
+      }
+    },
+    {
+      "object_name": "repm_activity",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_NAME",
+        "PHASE_ID"
+      ],
+      "join_info": {
+        "column": "PHASE_ID",
+        "join_table": "REPM_ACTIVITY",
+        "join_column": "PHASE_ID"
+      }
+    },
+    {
+      "object_name": "repm_action_point",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_NAME",
+        "PHASE_ID"
+      ],
+      "join_info": {
+        "column": "PHASE_ID",
+        "join_table": "REPM_ACTION_POINT",
+        "join_column": "PHASE_ID"
+      }
+    },
+    {
+      "object_name": "repm_progress_update",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_NAME",
+        "PHASE_ID"
+      ],
+      "join_info": {
+        "column": "PHASE_ID",
+        "join_table": "REPM_PROGRESS_UPD",
+        "join_column": "PHASE_ID"
+      }
+    },
+    {
+      "object_name": "repm_issue",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_NAME",
+        "PHASE_ID"
+      ],
+      "join_info": {
+        "column": "PHASE_ID",
+        "join_table": "REPM_ISSUE",
+        "join_column": "PHASE_ID"
+      }
+    }
+  ]
+}

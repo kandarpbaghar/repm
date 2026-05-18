@@ -1,0 +1,45 @@
+{
+  "object_name": "repm_progress_update",
+  "tables": {
+    "REPM_PROGRESS_UPD": [
+      "PHASE_ID",
+      "PHOTOGRAPHS",
+      "UPDATE_ID",
+      "ISSUES_FACED",
+      "ACTIVITY_ID",
+      "ADD_TERM",
+      "PCT_COMPLETE_UPD",
+      "CHG_TERM",
+      "UPDATE_DT",
+      "PROGRESS_NOTES",
+      "CHG_USER",
+      "ADD_USER",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "REPORTED_BY_EMP_CODE",
+      "TASK_ID",
+      "REMARKS",
+      "CHG_DATE"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_PHASE": [
+      "PHASE_NAME",
+      "PHASE_ID"
+    ],
+    "REPM_TASK": [
+      "TASK_ID",
+      "TASK_NAME"
+    ],
+    "REPM_ACTIVITY": [
+      "ACTIVITY_NAME",
+      "ACTIVITY_ID"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ]
+  }
+}

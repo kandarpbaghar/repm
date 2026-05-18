@@ -1,0 +1,19 @@
+{
+  "table_name": "REPM_TASK_PRED",
+  "objects": [
+    {
+      "object_name": "repm_task",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "TASK_ID",
+        "TASK_NAME"
+      ],
+      "join_info": {
+        "column": "TASK_ID",
+        "join_table": "REPM_TASK",
+        "join_column": "PREDECESSOR_TASK_ID"
+      }
+    }
+  ]
+}

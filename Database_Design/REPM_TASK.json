@@ -1,0 +1,207 @@
+{
+  "table_name": "REPM_TASK",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique task identifier",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project code",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Phase identifier",
+      "sequence": 3
+    },
+    {
+      "column_name": "TASK_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Task code unique within phase",
+      "sequence": 4
+    },
+    {
+      "column_name": "TASK_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Task name",
+      "sequence": 2
+    },
+    {
+      "column_name": "TASK_CATEGORY",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Task category",
+      "sequence": 6
+    },
+    {
+      "column_name": "PRIORITY",
+      "data_type": "CHAR",
+      "size": "1",
+      "key": false,
+      "description": "Task priority",
+      "sequence": 7
+    },
+    {
+      "column_name": "PLAN_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned start date",
+      "sequence": 8
+    },
+    {
+      "column_name": "PLAN_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned end date",
+      "sequence": 9
+    },
+    {
+      "column_name": "ACT_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual start date",
+      "sequence": 10
+    },
+    {
+      "column_name": "ACT_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual end date",
+      "sequence": 11
+    },
+    {
+      "column_name": "ASSIGNED_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee assigned to task",
+      "sequence": 12
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Task status",
+      "sequence": 13
+    },
+    {
+      "column_name": "PCT_COMPLETE",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Percent complete (0-100)",
+      "sequence": 14
+    },
+    {
+      "column_name": "PREDECESSOR_TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Predecessor task",
+      "sequence": 15
+    },
+    {
+      "column_name": "WEIGHTAGE_PCT",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Weightage within phase",
+      "sequence": 16
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Remarks",
+      "sequence": 17
+    },
+    {
+      "column_name": "CANCEL_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Cancellation date",
+      "sequence": 18
+    },
+    {
+      "column_name": "CANCEL_REASON",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Cancellation reason",
+      "sequence": 19
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 20
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who created",
+      "sequence": 21
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of creation",
+      "sequence": 22
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last change date",
+      "sequence": 23
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who last changed",
+      "sequence": 24
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of last change",
+      "sequence": 25
+    }
+  ]
+}

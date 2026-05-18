@@ -1,0 +1,98 @@
+{
+  "table_name": "REPM_TASK",
+  "objects": [
+    {
+      "object_name": "repm_task",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_ID",
+        "ADD_TERM",
+        "TASK_ID",
+        "PCT_COMPLETE",
+        "ACT_START_DT",
+        "PREDECESSOR_TASK_ID",
+        "ASSIGNED_EMP_CODE",
+        "STATUS",
+        "TASK_CATEGORY",
+        "TASK_NAME",
+        "CHG_DATE",
+        "PRIORITY",
+        "ACT_END_DT",
+        "WEIGHTAGE_PCT",
+        "CHG_USER",
+        "TASK_CODE",
+        "ADD_DATE",
+        "PROJ_CODE",
+        "CANCEL_REASON",
+        "PLAN_END_DT",
+        "CHG_TERM",
+        "PLAN_START_DT",
+        "ADD_USER",
+        "CANCEL_DT",
+        "REMARKS"
+      ],
+      "join_info": {
+        "column": "PREDECESSOR_TASK_ID",
+        "join_table": "REPM_TASK_PRED",
+        "join_column": "TASK_ID"
+      }
+    },
+    {
+      "object_name": "repm_activity",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "TASK_ID",
+        "TASK_NAME"
+      ],
+      "join_info": {
+        "column": "TASK_ID",
+        "join_table": "REPM_ACTIVITY",
+        "join_column": "TASK_ID"
+      }
+    },
+    {
+      "object_name": "repm_action_point",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "TASK_ID",
+        "TASK_NAME"
+      ],
+      "join_info": {
+        "column": "TASK_ID",
+        "join_table": "REPM_ACTION_POINT",
+        "join_column": "TASK_ID"
+      }
+    },
+    {
+      "object_name": "repm_progress_update",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "TASK_ID",
+        "TASK_NAME"
+      ],
+      "join_info": {
+        "column": "TASK_ID",
+        "join_table": "REPM_PROGRESS_UPD",
+        "join_column": "TASK_ID"
+      }
+    },
+    {
+      "object_name": "repm_issue",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "TASK_ID",
+        "TASK_NAME"
+      ],
+      "join_info": {
+        "column": "TASK_ID",
+        "join_table": "REPM_ISSUE",
+        "join_column": "TASK_ID"
+      }
+    }
+  ]
+}

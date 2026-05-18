@@ -1,0 +1,103 @@
+{
+  "table_name": "REPM_EMPLOYEE",
+  "objects": [
+    {
+      "object_name": "repm_project",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_PROJECT",
+        "join_column": "PM_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_phase",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_PHASE",
+        "join_column": "OWNER_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_task",
+      "form_no": "1",
+      "usage_type": "M",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_TASK",
+        "join_column": "ASSIGNED_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_activity",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_ACTIVITY",
+        "join_column": "ASSIGNED_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_action_point",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_ACTION_POINT",
+        "join_column": "ASSIGNED_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_progress_update",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_PROGRESS_UPD",
+        "join_column": "REPORTED_BY_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_issue",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_ISSUE",
+        "join_column": "OWNER_EMP_CODE"
+      }
+    }
+  ]
+}

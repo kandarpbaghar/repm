@@ -1,0 +1,880 @@
+{
+  "transaction": {
+    "obj_name": "repm_phase",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Project Phase",
+          "form_descr": "Define phases under a project with sequence, weightage, owner, dates and status.",
+          "columns": [
+            {
+              "column": {
+                "name": "PHASE_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Phase ID",
+                "descr": "Unique phase identifier",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "protect": "1",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "PHASE_ID",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "10",
+                "width": 100,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project to which this phase belongs",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PROJECT",
+                  "match_table_col": "PROJ_CODE",
+                  "fill": [
+                    {
+                      "form_col": "PROJ_NAME",
+                      "table_col": "PROJ_NAME"
+                    }
+                  ]
+                },
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Project name from project master",
+                "protect": "1",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "table_display_name": "Project master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Phase Code",
+                "descr": "Phase code (unique within project)",
+                "mandatory": "true",
+                "validations": [
+                  "business_logic('validate_phase_code_unique','Phase Code must be unique within a project')"
+                ],
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "PHASE_CODE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Phase Name",
+                "descr": "Descriptive name of the phase",
+                "mandatory": "true",
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "db_name": "PHASE_NAME",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_TYPE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Phase Type",
+                "descr": "Type of the phase",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "LAQ",
+                      "display": "Land Acquisition"
+                    },
+                    {
+                      "data": "FEA",
+                      "display": "Feasibility"
+                    },
+                    {
+                      "data": "DSP",
+                      "display": "Design & Planning"
+                    },
+                    {
+                      "data": "STA",
+                      "display": "Statutory Approvals"
+                    },
+                    {
+                      "data": "PCN",
+                      "display": "Pre-Construction"
+                    },
+                    {
+                      "data": "FND",
+                      "display": "Foundation"
+                    },
+                    {
+                      "data": "STR",
+                      "display": "Structure"
+                    },
+                    {
+                      "data": "MEP",
+                      "display": "MEP"
+                    },
+                    {
+                      "data": "FIN",
+                      "display": "Finishing"
+                    },
+                    {
+                      "data": "EXD",
+                      "display": "External Development"
+                    },
+                    {
+                      "data": "HDO",
+                      "display": "Handover"
+                    },
+                    {
+                      "data": "PHO",
+                      "display": "Post-Handover"
+                    }
+                  ]
+                },
+                "x": "60",
+                "y": "60",
+                "col_id": "6",
+                "db_name": "PHASE_TYPE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "3",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "SEQ_NO",
+                "group_name": "Schedule",
+                "col_type": "NUMBER(4)",
+                "heading": "Sequence No",
+                "descr": "Sequence number within project (unique)",
+                "mandatory": "true",
+                "validations": [
+                  "business_logic('validate_seq_unique','Sequence Number must be unique within a project')"
+                ],
+                "x": "70",
+                "y": "70",
+                "col_id": "7",
+                "db_name": "SEQ_NO",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned Start",
+                "descr": "Planned start date of the phase",
+                "mandatory": "true",
+                "x": "80",
+                "y": "80",
+                "col_id": "8",
+                "db_name": "PLAN_START_DT",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PLAN_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Planned End",
+                "descr": "Planned end date of the phase",
+                "mandatory": "true",
+                "validations": [
+                  "expression('PLAN_END_DT >= PLAN_START_DT')"
+                ],
+                "x": "90",
+                "y": "90",
+                "col_id": "9",
+                "db_name": "PLAN_END_DT",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_START_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual Start",
+                "descr": "Actual start date of the phase",
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "ACT_START_DT",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_END_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Actual End",
+                "descr": "Actual end date of the phase",
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "ACT_END_DT",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "OWNER_EMP_CODE",
+                "group_name": "Ownership",
+                "col_type": "CHAR",
+                "heading": "Phase Owner",
+                "descr": "Employee owning the phase",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')"
+                ],
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "OWNER_EMP_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ]
+                },
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "OWNER_EMP_CODE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "OWNER_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Ownership",
+                "col_type": "VARCHAR",
+                "heading": "Owner Name",
+                "descr": "Owner employee name",
+                "protect": "1",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "table_display_name": "Employee master (phase owner lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Status",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Phase status",
+                "default_value": "NS",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "NS",
+                      "display": "Not-Started"
+                    },
+                    {
+                      "data": "IP",
+                      "display": "In-Progress"
+                    },
+                    {
+                      "data": "OH",
+                      "display": "On-Hold"
+                    },
+                    {
+                      "data": "CO",
+                      "display": "Completed"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Cancelled"
+                    }
+                  ]
+                },
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "STATUS",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "WEIGHTAGE_PCT",
+                "group_name": "Progress",
+                "col_type": "NUMBER(5,2)",
+                "heading": "Weightage %",
+                "descr": "Phase contribution % to project progress",
+                "mandatory": "true",
+                "validations": [
+                  "expression('WEIGHTAGE_PCT >= 0 and WEIGHTAGE_PCT <= 100')"
+                ],
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "WEIGHTAGE_PCT",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PCT_COMPLETE",
+                "group_name": "Progress",
+                "col_type": "NUMBER(5,2)",
+                "heading": "% Complete",
+                "descr": "Computed phase percent complete from child tasks",
+                "default_value": "0",
+                "protect": "1",
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "PCT_COMPLETE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Other",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Free text remarks",
+                "x": "250",
+                "y": "250",
+                "col_id": "17",
+                "db_name": "REMARKS",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_DT",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Cancel Date",
+                "descr": "Date the phase was cancelled",
+                "protect": "1",
+                "x": "170",
+                "y": "170",
+                "col_id": "18",
+                "db_name": "CANCEL_DT",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CANCEL_REASON",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Cancel Reason",
+                "descr": "Reason for cancellation",
+                "x": "180",
+                "y": "180",
+                "col_id": "19",
+                "db_name": "CANCEL_REASON",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Added On",
+                "descr": "Record creation date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "190",
+                "y": "190",
+                "col_id": "20",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Added By",
+                "descr": "User who created the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "200",
+                "y": "200",
+                "col_id": "21",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal from which record was created",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "210",
+                "y": "210",
+                "col_id": "22",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Changed On",
+                "descr": "Last modification date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "220",
+                "y": "220",
+                "col_id": "23",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Changed By",
+                "descr": "User who last modified the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "230",
+                "y": "230",
+                "col_id": "24",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Chg Terminal",
+                "descr": "Terminal from which last change was made",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "240",
+                "y": "240",
+                "col_id": "25",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_PHASE",
+                "table_display_name": "Project phase main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_PHASE",
+                  "main_table": true,
+                  "table_descr": "Project phase main table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Project master (lookup)",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_PHASE",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master (phase owner lookup)",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_PHASE",
+                  "join_column": "OWNER_EMP_CODE",
+                  "join_type": "inner"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_phase_code_unique','Phase Code unique within project')",
+            "business_logic('validate_seq_unique','Sequence Number unique within project')",
+            "business_logic('validate_weightage_sum','Sum of Weightage % across non-cancelled phases of a project should equal 100')",
+            "expression('PLAN_END_DT >= PLAN_START_DT')",
+            "business_logic('validate_no_open_tasks_on_complete','A phase cannot be Completed if it has open tasks')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "delete",
+      "cancel:business_logic('cancel_phase','Cancel phase and cascade-cancel all child tasks, activities and action points')"
+    ],
+    "cross_updates": [
+      "business_logic('recompute_project_pct','On phase status change to Completed, recompute project % complete using phase weightages')",
+      "business_logic('cascade_cancel_tasks','On Cancel, cascade-cancel child tasks, activities and action points')"
+    ],
+    "attach_docs": [
+      "Phase Plan Document",
+      "Supporting Document"
+    ],
+    "follow_up_actions": [
+      "on-cancel,trigger_email:email(get_role('project_manager'),'phase_cancelled','Phase has been cancelled and child tasks are being cancelled')",
+      "on-complete,trigger_email:email(get_role('project_manager'),'phase_completed','Phase has been completed; project % complete has been recomputed')"
+    ]
+  }
+}

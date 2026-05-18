@@ -1,0 +1,23 @@
+{
+  "table_name": "REPM_TASK_PRED",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "",
+      "sequence": 1
+    },
+    {
+      "column_name": "TASK_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Predecessor task name",
+      "sequence": 2
+    }
+  ]
+}

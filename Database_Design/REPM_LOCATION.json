@@ -1,0 +1,23 @@
+{
+  "table_name": "REPM_LOCATION",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "LOC_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "",
+      "sequence": 1
+    },
+    {
+      "column_name": "LOC_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Location name from master",
+      "sequence": 2
+    }
+  ]
+}

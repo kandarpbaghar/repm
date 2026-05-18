@@ -1,0 +1,136 @@
+{
+  "table_name": "REPM_PROJECT",
+  "objects": [
+    {
+      "object_name": "repm_project",
+      "form_no": "1",
+      "usage_type": "M",
+      "referred_columns": [
+        "APPR_DT",
+        "ADD_TERM",
+        "PROJ_NAME",
+        "EST_BUDGET",
+        "BUILTUP_AREA",
+        "APPR_USER",
+        "PCT_COMPLETE",
+        "SUBMIT_USER",
+        "ACT_START_DT",
+        "STATUS",
+        "CHG_DATE",
+        "PRIORITY",
+        "APPR_BUDGET",
+        "NUM_TOWERS",
+        "PROJ_TYPE",
+        "RERA_NUMBER",
+        "SUBMIT_DT",
+        "ACT_END_DT",
+        "CHG_USER",
+        "ADD_DATE",
+        "PROJ_CODE",
+        "PM_EMP_CODE",
+        "DESCRIPTION",
+        "APPR_AUTHORITY",
+        "PROJ_CATEGORY",
+        "LOC_CODE",
+        "CANCEL_REASON",
+        "PLAN_END_DT",
+        "CHG_TERM",
+        "NUM_UNITS",
+        "PLAN_START_DT",
+        "ADD_USER",
+        "LAND_AREA",
+        "CANCEL_DT",
+        "REMARKS"
+      ],
+      "join_info": {
+        "column": "PM_EMP_CODE",
+        "join_table": "REPM_EMPLOYEE",
+        "join_column": "EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_phase",
+      "form_no": "1",
+      "usage_type": "M",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_PHASE",
+        "join_column": "PROJ_CODE"
+      }
+    },
+    {
+      "object_name": "repm_task",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_TASK",
+        "join_column": "PROJ_CODE"
+      }
+    },
+    {
+      "object_name": "repm_activity",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_ACTIVITY",
+        "join_column": "PROJ_CODE"
+      }
+    },
+    {
+      "object_name": "repm_action_point",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_ACTION_POINT",
+        "join_column": "PROJ_CODE"
+      }
+    },
+    {
+      "object_name": "repm_progress_update",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_PROGRESS_UPD",
+        "join_column": "PROJ_CODE"
+      }
+    },
+    {
+      "object_name": "repm_issue",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_ISSUE",
+        "join_column": "PROJ_CODE"
+      }
+    }
+  ]
+}

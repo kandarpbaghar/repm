@@ -1,0 +1,23 @@
+{
+  "table_name": "REPM_EMPLOYEE",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "",
+      "sequence": 1
+    },
+    {
+      "column_name": "EMP_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Project manager name from employee master",
+      "sequence": 2
+    }
+  ]
+}

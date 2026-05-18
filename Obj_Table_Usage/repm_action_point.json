@@ -1,0 +1,49 @@
+{
+  "object_name": "repm_action_point",
+  "tables": {
+    "REPM_ACTION_POINT": [
+      "PHASE_ID",
+      "ADD_TERM",
+      "BLOCKING_REASON",
+      "ACTION_DESCR",
+      "TASK_ID",
+      "DUE_DT",
+      "ATTACHMENT",
+      "ASSIGNED_EMP_CODE",
+      "SEQ_NO",
+      "STATUS",
+      "CHG_DATE",
+      "ACTIVITY_ID",
+      "CHG_USER",
+      "COMPLETED_DT",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "ACTION_ID",
+      "CHG_TERM",
+      "ADD_USER",
+      "REMARKS"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_PHASE": [
+      "PHASE_NAME",
+      "PHASE_ID"
+    ],
+    "REPM_TASK": [
+      "TASK_ID",
+      "TASK_NAME"
+    ],
+    "REPM_ACTIVITY": [
+      "ACTIVITY_NAME",
+      "ACTIVITY_ID",
+      "PLAN_END_DT",
+      "PLAN_START_DT"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ]
+  }
+}

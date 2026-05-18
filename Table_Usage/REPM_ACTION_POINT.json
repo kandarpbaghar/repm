@@ -1,0 +1,37 @@
+{
+  "table_name": "REPM_ACTION_POINT",
+  "objects": [
+    {
+      "object_name": "repm_action_point",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PHASE_ID",
+        "ADD_TERM",
+        "BLOCKING_REASON",
+        "ACTION_DESCR",
+        "TASK_ID",
+        "DUE_DT",
+        "ATTACHMENT",
+        "ASSIGNED_EMP_CODE",
+        "SEQ_NO",
+        "STATUS",
+        "CHG_DATE",
+        "ACTIVITY_ID",
+        "CHG_USER",
+        "COMPLETED_DT",
+        "ADD_DATE",
+        "PROJ_CODE",
+        "ACTION_ID",
+        "CHG_TERM",
+        "ADD_USER",
+        "REMARKS"
+      ],
+      "join_info": {
+        "column": "ASSIGNED_EMP_CODE",
+        "join_table": "REPM_EMPLOYEE",
+        "join_column": "EMP_CODE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "object_name": "repm_phase",
+  "tables": {
+    "REPM_PHASE": [
+      "PHASE_ID",
+      "ADD_TERM",
+      "PCT_COMPLETE",
+      "PHASE_TYPE",
+      "ACT_START_DT",
+      "SEQ_NO",
+      "STATUS",
+      "CHG_DATE",
+      "ACT_END_DT",
+      "WEIGHTAGE_PCT",
+      "CHG_USER",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "PHASE_CODE",
+      "CANCEL_REASON",
+      "PLAN_END_DT",
+      "CHG_TERM",
+      "PHASE_NAME",
+      "PLAN_START_DT",
+      "OWNER_EMP_CODE",
+      "ADD_USER",
+      "CANCEL_DT",
+      "REMARKS"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ]
+  }
+}

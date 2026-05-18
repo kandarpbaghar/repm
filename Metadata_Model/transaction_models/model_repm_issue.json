@@ -1,0 +1,1052 @@
+{
+  "transaction": {
+    "obj_name": "repm_issue",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Project Issue",
+          "form_descr": "Capture and track issues or risks that arise during project execution",
+          "columns": [
+            {
+              "column": {
+                "name": "ISSUE_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Issue ID",
+                "descr": "Unique identifier for the issue/risk",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "ISSUE_ID",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project reference",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PROJECT",
+                  "match_table_col": "PROJ_CODE",
+                  "fill": [
+                    {
+                      "form_col": "PROJ_NAME",
+                      "table_col": "PROJ_NAME"
+                    }
+                  ]
+                },
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Project name from master",
+                "protect": "1",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "table_display_name": "Project master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Phase",
+                "descr": "Phase reference",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_PHASE')"
+                ],
+                "lookup": "REPM_PHASE(PHASE_NAME, PHASE_ID)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PHASE",
+                  "match_table_col": "PHASE_ID",
+                  "fill": [
+                    {
+                      "form_col": "PHASE_NAME",
+                      "table_col": "PHASE_NAME"
+                    }
+                  ]
+                },
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "PHASE_ID",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_NAME",
+                "db_name": "PHASE_NAME",
+                "table_name": "REPM_PHASE",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Phase Name",
+                "descr": "Phase name from master",
+                "protect": "1",
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "table_display_name": "Phase master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Task",
+                "descr": "Optional task reference",
+                "validations": [
+                  "must_exist_in('REPM_TASK')"
+                ],
+                "lookup": "REPM_TASK(TASK_NAME, TASK_ID)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_TASK",
+                  "match_table_col": "TASK_ID",
+                  "fill": [
+                    {
+                      "form_col": "TASK_NAME",
+                      "table_col": "TASK_NAME"
+                    }
+                  ]
+                },
+                "x": "60",
+                "y": "60",
+                "col_id": "6",
+                "db_name": "TASK_ID",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_NAME",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Task Name",
+                "descr": "Task name from master",
+                "protect": "1",
+                "x": "70",
+                "y": "70",
+                "col_id": "7",
+                "table_display_name": "Task master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ISSUE_TYPE",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Issue Type",
+                "descr": "Issue or Risk",
+                "mandatory": "true",
+                "default_value": "I",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "I",
+                      "display": "Issue"
+                    },
+                    {
+                      "data": "R",
+                      "display": "Risk"
+                    }
+                  ]
+                },
+                "x": "80",
+                "y": "80",
+                "col_id": "8",
+                "db_name": "ISSUE_TYPE",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "1",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CATEGORY",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Category",
+                "descr": "Issue category",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "DSN",
+                      "display": "Design"
+                    },
+                    {
+                      "data": "APR",
+                      "display": "Approval"
+                    },
+                    {
+                      "data": "MAT",
+                      "display": "Material"
+                    },
+                    {
+                      "data": "MAN",
+                      "display": "Manpower"
+                    },
+                    {
+                      "data": "EQP",
+                      "display": "Equipment"
+                    },
+                    {
+                      "data": "QLY",
+                      "display": "Quality"
+                    },
+                    {
+                      "data": "SAF",
+                      "display": "Safety"
+                    },
+                    {
+                      "data": "FIN",
+                      "display": "Financial"
+                    },
+                    {
+                      "data": "STA",
+                      "display": "Statutory"
+                    },
+                    {
+                      "data": "WTH",
+                      "display": "Weather"
+                    },
+                    {
+                      "data": "OTH",
+                      "display": "Other"
+                    }
+                  ]
+                },
+                "x": "90",
+                "y": "90",
+                "col_id": "9",
+                "db_name": "CATEGORY",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "3",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PRIORITY",
+                "group_name": "Classification",
+                "col_type": "CHAR",
+                "heading": "Priority",
+                "descr": "Issue priority",
+                "mandatory": "true",
+                "default_value": "M",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "L",
+                      "display": "Low"
+                    },
+                    {
+                      "data": "M",
+                      "display": "Medium"
+                    },
+                    {
+                      "data": "H",
+                      "display": "High"
+                    },
+                    {
+                      "data": "C",
+                      "display": "Critical"
+                    }
+                  ]
+                },
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "PRIORITY",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "1",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REPORTED_DT",
+                "group_name": "Reporting",
+                "col_type": "DATE",
+                "heading": "Reported Date",
+                "descr": "Date the issue was reported",
+                "mandatory": "true",
+                "default_value": "today()",
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "REPORTED_DT",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REPORTED_BY_EMP_CODE",
+                "group_name": "Reporting",
+                "col_type": "CHAR",
+                "heading": "Reported By",
+                "descr": "Employee who reported the issue",
+                "mandatory": "true",
+                "default_value": "logged_in_user()",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')"
+                ],
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "REPORTED_BY_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ]
+                },
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "REPORTED_BY_EMP_CODE",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REPORTED_BY_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Reporting",
+                "col_type": "VARCHAR",
+                "heading": "Reporter Name",
+                "descr": "Reporter employee name",
+                "protect": "1",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "table_display_name": "Owner employee lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "DESCRIPTION",
+                "group_name": "Details",
+                "col_type": "VARCHAR",
+                "heading": "Description",
+                "descr": "Detailed description of the issue/risk",
+                "mandatory": "true",
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "DESCRIPTION",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "2000",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "MITIGATION_PLAN",
+                "group_name": "Details",
+                "col_type": "VARCHAR",
+                "heading": "Mitigation Plan",
+                "descr": "Planned mitigation actions",
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "MITIGATION_PLAN",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "2000",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "OWNER_EMP_CODE",
+                "group_name": "Ownership",
+                "col_type": "CHAR",
+                "heading": "Owner",
+                "descr": "Employee owning the issue",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')"
+                ],
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "OWNER_EMP_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ]
+                },
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "OWNER_EMP_CODE",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "OWNER_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Ownership",
+                "col_type": "VARCHAR",
+                "heading": "Owner Name",
+                "descr": "Owner employee name",
+                "protect": "1",
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "table_display_name": "Owner employee lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TARGET_CLOSURE_DT",
+                "group_name": "Ownership",
+                "col_type": "DATE",
+                "heading": "Target Closure",
+                "descr": "Target closure date",
+                "mandatory": "true",
+                "validations": [
+                  "expression('TARGET_CLOSURE_DT >= REPORTED_DT')"
+                ],
+                "x": "180",
+                "y": "180",
+                "col_id": "18",
+                "db_name": "TARGET_CLOSURE_DT",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Status",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Issue status",
+                "mandatory": "true",
+                "default_value": "OP",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "OP",
+                      "display": "Open"
+                    },
+                    {
+                      "data": "IP",
+                      "display": "In-Progress"
+                    },
+                    {
+                      "data": "MT",
+                      "display": "Mitigated"
+                    },
+                    {
+                      "data": "CL",
+                      "display": "Closed"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Cancelled"
+                    }
+                  ]
+                },
+                "x": "190",
+                "y": "190",
+                "col_id": "19",
+                "db_name": "STATUS",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CLOSURE_DT",
+                "group_name": "Status",
+                "col_type": "DATE",
+                "heading": "Closure Date",
+                "descr": "Date the issue was closed",
+                "x": "200",
+                "y": "200",
+                "col_id": "20",
+                "db_name": "CLOSURE_DT",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CLOSURE_REMARKS",
+                "group_name": "Status",
+                "col_type": "VARCHAR",
+                "heading": "Closure Remarks",
+                "descr": "Remarks on closure",
+                "x": "210",
+                "y": "210",
+                "col_id": "21",
+                "db_name": "CLOSURE_REMARKS",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Status",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Additional remarks",
+                "x": "220",
+                "y": "220",
+                "col_id": "22",
+                "db_name": "REMARKS",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Add Date",
+                "descr": "Record creation date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "230",
+                "y": "230",
+                "col_id": "23",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Add User",
+                "descr": "Creating user",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "240",
+                "y": "240",
+                "col_id": "24",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Creating terminal",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "250",
+                "y": "250",
+                "col_id": "25",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Change Date",
+                "descr": "Last change date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "260",
+                "y": "260",
+                "col_id": "26",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Change User",
+                "descr": "Last change user",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "270",
+                "y": "270",
+                "col_id": "27",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Last change terminal",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "280",
+                "y": "280",
+                "col_id": "28",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_ISSUE",
+                "table_display_name": "Project issue/risk main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_ISSUE",
+                  "main_table": true,
+                  "table_descr": "Project issue/risk main table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Project master lookup",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_ISSUE",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_PHASE",
+                  "main_table": false,
+                  "table_descr": "Phase master lookup",
+                  "column": "PHASE_ID",
+                  "join_table": "REPM_ISSUE",
+                  "join_column": "PHASE_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_TASK",
+                  "main_table": false,
+                  "table_descr": "Task master lookup",
+                  "column": "TASK_ID",
+                  "join_table": "REPM_ISSUE",
+                  "join_column": "TASK_ID",
+                  "join_type": "left"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Reporter employee lookup",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_ISSUE",
+                  "join_column": "REPORTED_BY_EMP_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Owner employee lookup",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_ISSUE",
+                  "join_column": "OWNER_EMP_CODE",
+                  "join_type": "inner"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "expression('TARGET_CLOSURE_DT >= REPORTED_DT')",
+            "business_logic('validate_closure','Status Closed requires Closure Date and Closure Remarks')",
+            "business_logic('validate_critical_delete','Critical issues cannot be deleted, only Cancelled')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "search",
+      "delete:business_logic('check_critical_protect','Block delete when PRIORITY=Critical; allow Cancel only')",
+      "close:business_logic('close_issue','Set STATUS=Closed, stamp CLOSURE_DT and require CLOSURE_REMARKS')",
+      "cancel:business_logic('cancel_issue','Set STATUS=Cancelled with reason')"
+    ],
+    "cross_updates": [
+      "business_logic('update_project_issue_kpi','Refresh project open/critical issue counters for dashboards')"
+    ],
+    "attach_docs": [
+      "Issue Evidence",
+      "Mitigation Document",
+      "Closure Proof"
+    ],
+    "follow_up_actions": [
+      "on-add,trigger_notify_email_critical:business_logic('notify_pm_critical','When PRIORITY=Critical send notification and email to Project Manager with issue details')",
+      "on-close,trigger_notify_reporter:notify(get_user('REPORTED_BY_EMP_CODE'),'issue_closed','Notify reporter that issue has been closed with closure remarks')"
+    ]
+  }
+}

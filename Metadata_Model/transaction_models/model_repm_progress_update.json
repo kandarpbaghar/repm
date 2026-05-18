@@ -1,0 +1,826 @@
+{
+  "transaction": {
+    "obj_name": "repm_progress_update",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Progress Update",
+          "form_descr": "Daily progress notes with photos against task/activity",
+          "columns": [
+            {
+              "column": {
+                "name": "UPDATE_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Update ID",
+                "descr": "Unique progress update identifier",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "protect": "1",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "UPDATE_ID",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project code",
+                "mandatory": "true",
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Project name from lookup",
+                "protect": "1",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "table_display_name": "Project master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Phase",
+                "descr": "Phase identifier",
+                "mandatory": "true",
+                "lookup": "REPM_PHASE(PHASE_NAME, PHASE_ID)",
+                "validations": [
+                  "must_exist_in('REPM_PHASE')"
+                ],
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "PHASE_ID",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_NAME",
+                "db_name": "PHASE_NAME",
+                "table_name": "REPM_PHASE",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Phase Name",
+                "descr": "Phase name from lookup",
+                "protect": "1",
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "table_display_name": "Phase master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Task",
+                "descr": "Task identifier",
+                "mandatory": "true",
+                "lookup": "REPM_TASK(TASK_NAME, TASK_ID)",
+                "validations": [
+                  "must_exist_in('REPM_TASK')"
+                ],
+                "x": "60",
+                "y": "60",
+                "col_id": "6",
+                "db_name": "TASK_ID",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_NAME",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Task Name",
+                "descr": "Task name from lookup",
+                "protect": "1",
+                "x": "70",
+                "y": "70",
+                "col_id": "7",
+                "table_display_name": "Task master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Activity",
+                "descr": "Activity identifier (optional)",
+                "lookup": "REPM_ACTIVITY(ACTIVITY_NAME, ACTIVITY_ID)",
+                "validations": [
+                  "must_exist_in('REPM_ACTIVITY')"
+                ],
+                "x": "80",
+                "y": "80",
+                "col_id": "8",
+                "db_name": "ACTIVITY_ID",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_NAME",
+                "db_name": "ACTIVITY_NAME",
+                "table_name": "REPM_ACTIVITY",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Activity Name",
+                "descr": "Activity name from lookup",
+                "protect": "1",
+                "x": "90",
+                "y": "90",
+                "col_id": "9",
+                "table_display_name": "Activity master lookup",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "UPDATE_DT",
+                "group_name": "Basic",
+                "col_type": "DATE",
+                "heading": "Update Date",
+                "descr": "Date of the progress update",
+                "mandatory": "true",
+                "default_value": "today()",
+                "validations": [
+                  "expression('UPDATE_DT <= today()')"
+                ],
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "UPDATE_DT",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REPORTED_BY_EMP_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Reported By",
+                "descr": "Employee who reported the update",
+                "mandatory": "true",
+                "default_value": "logged_in_user()",
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')",
+                  "business_logic('validate_active_emp','Reported By must be an Active employee')"
+                ],
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "REPORTED_BY_EMP_CODE",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REPORTED_BY_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Reporter Name",
+                "descr": "Reporter employee name",
+                "protect": "1",
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "table_display_name": "Employee master lookup for reporter",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROGRESS_NOTES",
+                "group_name": "Details",
+                "col_type": "VARCHAR",
+                "heading": "Progress Notes",
+                "descr": "Daily progress notes",
+                "mandatory": "true",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "db_name": "PROGRESS_NOTES",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "2000",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ISSUES_FACED",
+                "group_name": "Details",
+                "col_type": "VARCHAR",
+                "heading": "Issues Faced",
+                "descr": "Any issues faced during execution",
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "ISSUES_FACED",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "2000",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PCT_COMPLETE_UPD",
+                "group_name": "Details",
+                "col_type": "NUMBER(5,2)",
+                "heading": "% Complete",
+                "descr": "Updated percentage complete for activity/task",
+                "mandatory": "true",
+                "validations": [
+                  "expression('PCT_COMPLETE_UPD >= 0 and PCT_COMPLETE_UPD <= 100')",
+                  "business_logic('validate_pct_not_decrease','% Complete Update must be >= existing % Complete of activity/task')"
+                ],
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "PCT_COMPLETE_UPD",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHOTOGRAPHS",
+                "group_name": "Details",
+                "col_type": "VARCHAR",
+                "heading": "Photographs",
+                "descr": "Attached photograph file references",
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "PHOTOGRAPHS",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Details",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Additional remarks",
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "db_name": "REMARKS",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Added On",
+                "descr": "Record created date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "180",
+                "y": "180",
+                "col_id": "18",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Added By",
+                "descr": "Record created by user",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "190",
+                "y": "190",
+                "col_id": "19",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal of creation",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "200",
+                "y": "200",
+                "col_id": "20",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Changed On",
+                "descr": "Last changed date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "210",
+                "y": "210",
+                "col_id": "21",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Changed By",
+                "descr": "Last changed by user",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "220",
+                "y": "220",
+                "col_id": "22",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Terminal of last change",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "230",
+                "y": "230",
+                "col_id": "23",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_PROGRESS_UPD",
+                "table_display_name": "Progress update header table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "item_change": [
+            {
+              "column": "PROJ_CODE",
+              "rule": {
+                "mode": "rule",
+                "source_table": "REPM_PROJECT",
+                "match_table_col": "PROJ_CODE",
+                "fill": [
+                  {
+                    "form_col": "PROJ_NAME",
+                    "table_col": "PROJ_NAME"
+                  }
+                ]
+              }
+            },
+            {
+              "column": "PHASE_ID",
+              "rule": {
+                "mode": "rule",
+                "source_table": "REPM_PHASE",
+                "match_table_col": "PHASE_ID",
+                "fill": [
+                  {
+                    "form_col": "PHASE_NAME",
+                    "table_col": "PHASE_NAME"
+                  }
+                ]
+              }
+            },
+            {
+              "column": "TASK_ID",
+              "rule": {
+                "mode": "rule",
+                "source_table": "REPM_TASK",
+                "match_table_col": "TASK_ID",
+                "fill": [
+                  {
+                    "form_col": "TASK_NAME",
+                    "table_col": "TASK_NAME"
+                  }
+                ]
+              }
+            },
+            {
+              "column": "ACTIVITY_ID",
+              "rule": {
+                "mode": "rule",
+                "source_table": "REPM_ACTIVITY",
+                "match_table_col": "ACTIVITY_ID",
+                "fill": [
+                  {
+                    "form_col": "ACTIVITY_NAME",
+                    "table_col": "ACTIVITY_NAME"
+                  }
+                ]
+              }
+            },
+            {
+              "column": "REPORTED_BY_EMP_CODE",
+              "rule": {
+                "mode": "rule",
+                "source_table": "REPM_EMPLOYEE",
+                "match_table_col": "EMP_CODE",
+                "fill": [
+                  {
+                    "form_col": "REPORTED_BY_NAME",
+                    "table_col": "EMP_NAME"
+                  }
+                ]
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_PROGRESS_UPD",
+                  "main_table": true,
+                  "table_descr": "Progress update header table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Project master lookup",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_PROGRESS_UPD",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_PHASE",
+                  "main_table": false,
+                  "table_descr": "Phase master lookup",
+                  "column": "PHASE_ID",
+                  "join_table": "REPM_PROGRESS_UPD",
+                  "join_column": "PHASE_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_TASK",
+                  "main_table": false,
+                  "table_descr": "Task master lookup",
+                  "column": "TASK_ID",
+                  "join_table": "REPM_PROGRESS_UPD",
+                  "join_column": "TASK_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_ACTIVITY",
+                  "main_table": false,
+                  "table_descr": "Activity master lookup",
+                  "column": "ACTIVITY_ID",
+                  "join_table": "REPM_PROGRESS_UPD",
+                  "join_column": "ACTIVITY_ID",
+                  "join_type": "outer"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master lookup for reporter",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_PROGRESS_UPD",
+                  "join_column": "REPORTED_BY_EMP_CODE",
+                  "join_type": "inner"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_progress_update','Validate update date not future and pct complete not decreasing')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "delete",
+      "search"
+    ],
+    "cross_updates": [
+      "business_logic('update_activity_task_pct','Update % Complete of linked activity/task with PCT_COMPLETE_UPD')",
+      "business_logic('rollup_phase_project','Roll up % complete to phase and project using weightages')"
+    ],
+    "attach_docs": [
+      "Progress Photographs",
+      "Site Photos",
+      "Supporting Document"
+    ],
+    "follow_up_actions": [
+      "on-add-edit,trigger_notify_pm:business_logic('notify_pm_on_issue','If Issues Faced is non-blank, notify Project Manager via notification and email')",
+      "on-add-edit,trigger_rollup:business_logic('progress_rollup','Recompute activity/task/phase/project % complete')"
+    ]
+  }
+}

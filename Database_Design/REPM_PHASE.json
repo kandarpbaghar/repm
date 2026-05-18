@@ -1,0 +1,191 @@
+{
+  "table_name": "REPM_PHASE",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "PHASE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique phase identifier",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project to which this phase belongs",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Phase code (unique within project)",
+      "sequence": 3
+    },
+    {
+      "column_name": "PHASE_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Descriptive name of the phase",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_TYPE",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Type of the phase",
+      "sequence": 5
+    },
+    {
+      "column_name": "SEQ_NO",
+      "data_type": "NUMBER(4)",
+      "size": "",
+      "key": false,
+      "description": "Sequence number within project (unique)",
+      "sequence": 6
+    },
+    {
+      "column_name": "PLAN_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned start date of the phase",
+      "sequence": 7
+    },
+    {
+      "column_name": "PLAN_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned end date of the phase",
+      "sequence": 8
+    },
+    {
+      "column_name": "ACT_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual start date of the phase",
+      "sequence": 9
+    },
+    {
+      "column_name": "ACT_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual end date of the phase",
+      "sequence": 10
+    },
+    {
+      "column_name": "OWNER_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee owning the phase",
+      "sequence": 11
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Phase status",
+      "sequence": 12
+    },
+    {
+      "column_name": "WEIGHTAGE_PCT",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Phase contribution % to project progress",
+      "sequence": 13
+    },
+    {
+      "column_name": "PCT_COMPLETE",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Computed phase percent complete from child tasks",
+      "sequence": 14
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Free text remarks",
+      "sequence": 15
+    },
+    {
+      "column_name": "CANCEL_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date the phase was cancelled",
+      "sequence": 16
+    },
+    {
+      "column_name": "CANCEL_REASON",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Reason for cancellation",
+      "sequence": 17
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 18
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who created the record",
+      "sequence": 19
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal from which record was created",
+      "sequence": 20
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last modification date",
+      "sequence": 21
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who last modified the record",
+      "sequence": 22
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal from which last change was made",
+      "sequence": 23
+    }
+  ]
+}

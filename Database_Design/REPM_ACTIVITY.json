@@ -1,0 +1,199 @@
+{
+  "table_name": "REPM_ACTIVITY",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "ACTIVITY_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique system-generated identifier of the activity",
+      "sequence": 1
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project to which the activity belongs",
+      "sequence": 2
+    },
+    {
+      "column_name": "PHASE_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Phase under the project",
+      "sequence": 3
+    },
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Task under which the activity is defined",
+      "sequence": 4
+    },
+    {
+      "column_name": "ACTIVITY_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User-defined activity code, unique within a task",
+      "sequence": 5
+    },
+    {
+      "column_name": "ACTIVITY_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Descriptive name of the activity",
+      "sequence": 2
+    },
+    {
+      "column_name": "ACTIVITY_TYPE",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Type of activity",
+      "sequence": 7
+    },
+    {
+      "column_name": "PRIORITY",
+      "data_type": "CHAR",
+      "size": "1",
+      "key": false,
+      "description": "Priority of the activity",
+      "sequence": 8
+    },
+    {
+      "column_name": "PLAN_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned start date of the activity",
+      "sequence": 3
+    },
+    {
+      "column_name": "PLAN_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Planned end date of the activity",
+      "sequence": 4
+    },
+    {
+      "column_name": "ACT_START_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual start date of the activity",
+      "sequence": 11
+    },
+    {
+      "column_name": "ACT_END_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Actual end date of the activity",
+      "sequence": 12
+    },
+    {
+      "column_name": "ASSIGNED_EMP_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Employee assigned to the activity",
+      "sequence": 13
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Current status of the activity",
+      "sequence": 14
+    },
+    {
+      "column_name": "PCT_COMPLETE",
+      "data_type": "NUMBER(5,2)",
+      "size": "",
+      "key": false,
+      "description": "Derived percentage complete from action points (Done / total non-cancelled action points)",
+      "sequence": 15
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Free-text remarks",
+      "sequence": 16
+    },
+    {
+      "column_name": "CANCEL_DT",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date when the activity was cancelled",
+      "sequence": 17
+    },
+    {
+      "column_name": "CANCEL_REASON",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Reason for cancellation",
+      "sequence": 18
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 19
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who created the record",
+      "sequence": 20
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal from which record was added",
+      "sequence": 21
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last change date",
+      "sequence": 22
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who last changed the record",
+      "sequence": 23
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal from which record was last changed",
+      "sequence": 24
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "object_name": "repm_project",
+  "tables": {
+    "REPM_PROJECT": [
+      "APPR_DT",
+      "ADD_TERM",
+      "PROJ_NAME",
+      "EST_BUDGET",
+      "BUILTUP_AREA",
+      "APPR_USER",
+      "PCT_COMPLETE",
+      "SUBMIT_USER",
+      "ACT_START_DT",
+      "STATUS",
+      "CHG_DATE",
+      "PRIORITY",
+      "APPR_BUDGET",
+      "NUM_TOWERS",
+      "PROJ_TYPE",
+      "RERA_NUMBER",
+      "SUBMIT_DT",
+      "ACT_END_DT",
+      "CHG_USER",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "PM_EMP_CODE",
+      "DESCRIPTION",
+      "APPR_AUTHORITY",
+      "PROJ_CATEGORY",
+      "LOC_CODE",
+      "CANCEL_REASON",
+      "PLAN_END_DT",
+      "CHG_TERM",
+      "NUM_UNITS",
+      "PLAN_START_DT",
+      "ADD_USER",
+      "LAND_AREA",
+      "CANCEL_DT",
+      "REMARKS"
+    ],
+    "REPM_LOCATION": [
+      "LOC_NAME",
+      "LOC_CODE"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ]
+  }
+}

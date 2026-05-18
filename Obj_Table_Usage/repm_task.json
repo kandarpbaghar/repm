@@ -1,0 +1,48 @@
+{
+  "object_name": "repm_task",
+  "tables": {
+    "REPM_TASK": [
+      "PHASE_ID",
+      "ADD_TERM",
+      "TASK_ID",
+      "PCT_COMPLETE",
+      "ACT_START_DT",
+      "PREDECESSOR_TASK_ID",
+      "ASSIGNED_EMP_CODE",
+      "STATUS",
+      "TASK_CATEGORY",
+      "TASK_NAME",
+      "CHG_DATE",
+      "PRIORITY",
+      "ACT_END_DT",
+      "WEIGHTAGE_PCT",
+      "CHG_USER",
+      "TASK_CODE",
+      "ADD_DATE",
+      "PROJ_CODE",
+      "CANCEL_REASON",
+      "PLAN_END_DT",
+      "CHG_TERM",
+      "PLAN_START_DT",
+      "ADD_USER",
+      "CANCEL_DT",
+      "REMARKS"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_PHASE": [
+      "PHASE_NAME",
+      "PHASE_ID"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_CODE",
+      "EMP_NAME"
+    ],
+    "REPM_TASK_PRED": [
+      "TASK_ID",
+      "TASK_NAME"
+    ]
+  }
+}
