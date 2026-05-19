@@ -19,7 +19,7 @@
 ### Manage Project
 - Description: Create and maintain real-estate development projects. Each project is the top-level container of phases, tasks, activities and action points.
 - Data points: Project Code, Project Name, Project Type (dropdown: Residential Apartment / Residential Villa / Commercial Office / Commercial Retail / Mixed-Use / Township / Plotted Development / Redevelopment), Project Category (dropdown: Affordable / Mid-Segment / Premium / Luxury / Ultra-Luxury), Priority (dropdown: Low / Medium / High / Critical), Status (dropdown: Draft / Planned / In-Progress / On-Hold / Completed / Cancelled), Project Location, Land Area (Sq.Ft), Built-up Area (Sq.Ft), Number of Towers, Number of Units, Planned Start Date, Planned End Date, Actual Start Date, Actual End Date, Estimated Budget, Approved Budget, Project Manager (Employee), RERA Number, Approval Authority, Description, Remarks.
-- Business rules: Project Code is mandatory and unique. Planned End Date must be on or after Planned Start Date. Approved Budget cannot exceed Estimated Budget by more than 20% without an Approve action. A project cannot be marked Completed unless all phases are Completed or Cancelled. Cancelled projects become read-only.
+- Business rules: Project Code is mandatory and unique. Project Location is optional (non-mandatory) and may be left blank at project creation or edit. Planned End Date must be on or after Planned Start Date. Approved Budget cannot exceed Estimated Budget by more than 20% without an Approve action. A project cannot be marked Completed unless all phases are Completed or Cancelled. Cancelled projects become read-only.
 - Actions: Search, Add, Edit, Delete, Submit-for-Approval, Approve, Cancel.
 - Additional data management: On Submit-for-Approval, send notification to the approver role. On Approve, set Status to Planned and stamp approval date/user. On Cancel, cascade-cancel all open phases, tasks, activities and action points.
 
@@ -50,6 +50,14 @@
 - Business rules: Action Point Description and Assigned Employee are mandatory. Due Date must lie between the parent activity's Planned Start and End Dates. Status Done requires Completed Date. Status Blocked requires Blocking Reason. Cancelled action points are excluded from progress computation.
 - Actions: Search, Add, Edit, Delete, Mark-Done, Mark-Blocked, Cancel.
 - Additional data management: On Mark-Done, stamp Completed Date and trigger notification to the Activity owner. On Mark-Blocked, send notification to the Task owner and Project Manager. Recompute parent activity/task/phase/project % complete.
+
+### Manage Checklist
+- Description: Maintain a tabular checklist of multiple items linked to a Project, Task, and Activity. Used to capture granular verification items for an activity.
+- Data points (header): Checklist Code, Checklist Name, Project (FK repm_project), Task (FK repm_task), Activity (FK repm_activity), Status (Draft/Active/Closed), Remarks.
+- Data points (line items - tabular multi-row): Seq No, Item Description, Responsible Employee (FK repm_employee), Due Date, Completed Date, Status (Pending/Done/Blocked/NA), Blocking Reason, Remarks.
+- Business rules: Checklist Code mandatory and unique. Project, Task and Activity are mandatory and must be related (Task belongs to Project; Activity belongs to Task). At least one line item required. Completed Date cannot be before Due Date entry day and only set when Status=Done. Blocking Reason mandatory when Status=Blocked.
+- Actions: Search, Add, Edit, Delete, Close.
+- Additional data management: On Close, all pending items auto-set to NA. Roll-up: count of Done vs total reflected on linked activity.
 
 ## Project Execution & Monitoring
 

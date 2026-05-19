@@ -192,6 +192,101 @@
               "selectedIdVar": "selected_project_id",
               "selectedDataVar": "selected_project"
             }
+          },
+          {
+            "id": "block_checklist",
+            "type": "embed",
+            "title": "Checklist",
+            "obj_name": "repm_checklist",
+            "obj_type": "T",
+            "view_mode": "tabular_multi_row",
+            "parent_link": "activity",
+            "depends_on": "embed_activities",
+            "layout": "grid-inline",
+            "link_context": {
+              "project": "{{context.project}}",
+              "task": "{{context.task}}",
+              "activity": "{{context.activity}}"
+            },
+            "show_header_fields": [
+              "checklist_name",
+              "status"
+            ],
+            "show_line_columns": [
+              "seq_no",
+              "item_descr",
+              "resp_emp_code",
+              "due_dt",
+              "completed_dt",
+              "status",
+              "remarks"
+            ],
+            "embed": {
+              "obj_name": "repm_checklist",
+              "obj_type": "T",
+              "mode": "add",
+              "renderMode": "capture",
+              "captureTemplate": "multi-tabular",
+              "filters": [
+                {
+                  "id": "f_checklist_proj",
+                  "column": "PROJ_CODE",
+                  "op": "eq",
+                  "value": {
+                    "source": "page_input",
+                    "name": "selected_project_id"
+                  }
+                },
+                {
+                  "id": "f_checklist_task",
+                  "column": "TASK_ID",
+                  "op": "eq",
+                  "value": {
+                    "source": "page_input",
+                    "name": "selected_task_id"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "paragraph_1",
+            "type": "heading",
+            "text": "Write a notes",
+            "size": {
+              "height": {
+                "value": 23,
+                "unit": "px"
+              }
+            },
+            "level": 2
+          },
+          {
+            "id": "notepad_1",
+            "type": "notepad",
+            "html": "",
+            "minHeight": 160,
+            "documentEditable": true,
+            "documentRequired": true
+          },
+          {
+            "id": "paragraph_2",
+            "type": "paragraph",
+            "text": "Write anything that you want to track"
+          },
+          {
+            "id": "todo_1",
+            "type": "todo",
+            "items": [
+              {
+                "id": "todo_mpcf8irp_177",
+                "text": "",
+                "checked": false
+              }
+            ],
+            "documentEditable": true,
+            "documentRequired": true,
+            "documentExtensible": true
           }
         ]
       }

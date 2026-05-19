@@ -1,7 +1,7 @@
 {
   "project_name": "Real Estate Project Management",
   "project_description": "End-to-end project management for real-estate developers covering masters, project planning, phases, tasks, activities, action point check-lists, daily progress, issues/risks, dashboards, reports and a public marketing website.",
-  "generated_at": "2026-05-19T05:12:53.110449+00:00",
+  "generated_at": "2026-05-19T09:32:07.098018+00:00",
   "owner_user_id": "",
   "navigation_summary": [
     {
@@ -51,6 +51,12 @@
       "obj_type": "T",
       "title": "Manage Action Point",
       "description": "Maintain check-list of action points under an activity."
+    },
+    {
+      "obj_name": "repm_checklist",
+      "obj_type": "T",
+      "title": "Manage Checklist",
+      "description": "Maintain tabular checklists for project/task/activity."
     },
     {
       "obj_name": "repm_progress_update",
@@ -256,6 +262,51 @@
         "REMARKS VARCHAR",
         "CANCEL_DT DATE",
         "CANCEL_REASON VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_CHECKLIST",
+      "description": "",
+      "key_columns": [
+        "CHECKLIST_ID CHAR"
+      ],
+      "other_columns": [
+        "CHECKLIST_CODE CHAR",
+        "CHECKLIST_NAME VARCHAR",
+        "PROJ_CODE CHAR",
+        "TASK_ID CHAR",
+        "ACTIVITY_ID CHAR",
+        "STATUS CHAR",
+        "REMARKS VARCHAR",
+        "ADD_DATE DATE",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATE",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
+      ]
+    },
+    {
+      "table_name": "REPM_CHECKLIST_ITEM",
+      "description": "",
+      "key_columns": [
+        "CHECKLIST_ID CHAR",
+        "SEQ_NO NUMBER(4)"
+      ],
+      "other_columns": [
+        "ITEM_DESCR VARCHAR",
+        "RESP_EMP_CODE CHAR",
+        "DUE_DT DATE",
+        "COMPLETED_DT DATE",
+        "STATUS CHAR",
+        "BLOCKING_REASON VARCHAR",
+        "REMARKS VARCHAR",
         "ADD_DATE DATE",
         "ADD_USER CHAR",
         "ADD_TERM VARCHAR",

@@ -1,0 +1,32 @@
+{
+  "table_name": "REPM_CHECKLIST_ITEM",
+  "objects": [
+    {
+      "object_name": "repm_checklist",
+      "form_no": "2",
+      "usage_type": "M",
+      "referred_columns": [
+        "CHECKLIST_ID",
+        "ADD_USER",
+        "ADD_DATE",
+        "CHG_USER",
+        "BLOCKING_REASON",
+        "ITEM_DESCR",
+        "REMARKS",
+        "RESP_EMP_CODE",
+        "ADD_TERM",
+        "CHG_DATE",
+        "CHG_TERM",
+        "SEQ_NO",
+        "COMPLETED_DT",
+        "STATUS",
+        "DUE_DT"
+      ],
+      "join_info": {
+        "column": "RESP_EMP_CODE",
+        "join_table": "REPM_EMPLOYEE",
+        "join_column": "EMP_CODE"
+      }
+    }
+  ]
+}

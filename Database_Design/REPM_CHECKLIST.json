@@ -1,0 +1,119 @@
+{
+  "table_name": "REPM_CHECKLIST",
+  "table_description": "",
+  "project": "repm",
+  "columns": [
+    {
+      "column_name": "CHECKLIST_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": true,
+      "description": "Unique internal checklist identifier",
+      "sequence": 1
+    },
+    {
+      "column_name": "CHECKLIST_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User-facing unique checklist code",
+      "sequence": 2
+    },
+    {
+      "column_name": "CHECKLIST_NAME",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Name of the checklist",
+      "sequence": 3
+    },
+    {
+      "column_name": "PROJ_CODE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Project to which this checklist belongs",
+      "sequence": 4
+    },
+    {
+      "column_name": "TASK_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Task within the selected project",
+      "sequence": 5
+    },
+    {
+      "column_name": "ACTIVITY_ID",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Activity under the selected task",
+      "sequence": 6
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "2",
+      "key": false,
+      "description": "Checklist status",
+      "sequence": 7
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Free-form remarks",
+      "sequence": 8
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Record creation date",
+      "sequence": 9
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who created the record",
+      "sequence": 10
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of creation",
+      "sequence": 11
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Last change date",
+      "sequence": 12
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who last changed the record",
+      "sequence": 13
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of last change",
+      "sequence": 14
+    }
+  ]
+}

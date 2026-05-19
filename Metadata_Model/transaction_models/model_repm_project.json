@@ -27,7 +27,7 @@
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "10",
-                "width": 139,
+                "width": 100,
                 "hidden": "",
                 "format": "",
                 "default_function": "",
@@ -46,13 +46,13 @@
                 "descr": "Full name of the project",
                 "mandatory": "true",
                 "x": "20",
-                "y": "20",
+                "y": "110",
                 "col_id": "2",
                 "db_name": "PROJ_NAME",
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "120",
-                "width": 403,
+                "width": 500,
                 "key": false,
                 "hidden": "",
                 "format": "",
@@ -60,70 +60,6 @@
                 "default_value": "",
                 "expression": "",
                 "edit_mask": "",
-                "protect": "",
-                "validations": "",
-                "lookup": ""
-              }
-            },
-            {
-              "column": {
-                "name": "PROJ_TYPE",
-                "group_name": "Basic",
-                "col_type": "CHAR",
-                "heading": "Project Type",
-                "descr": "Type of project",
-                "mandatory": "true",
-                "edit_mask": {
-                  "mask": "ddlb",
-                  "values": [
-                    {
-                      "data": "RAP",
-                      "display": "Residential Apartment"
-                    },
-                    {
-                      "data": "RVL",
-                      "display": "Residential Villa"
-                    },
-                    {
-                      "data": "COF",
-                      "display": "Commercial Office"
-                    },
-                    {
-                      "data": "CRT",
-                      "display": "Commercial Retail"
-                    },
-                    {
-                      "data": "MIX",
-                      "display": "Mixed-Use"
-                    },
-                    {
-                      "data": "TWN",
-                      "display": "Township"
-                    },
-                    {
-                      "data": "PLT",
-                      "display": "Plotted Development"
-                    },
-                    {
-                      "data": "RDV",
-                      "display": "Redevelopment"
-                    }
-                  ]
-                },
-                "x": "30",
-                "y": "30",
-                "col_id": "3",
-                "db_name": "PROJ_TYPE",
-                "table_name": "REPM_PROJECT",
-                "table_display_name": "Real-estate project header table",
-                "db_size": "3",
-                "width": 119,
-                "key": false,
-                "hidden": "",
-                "format": "",
-                "default_function": "",
-                "default_value": "RAP",
-                "expression": "",
                 "protect": "",
                 "validations": "",
                 "lookup": ""
@@ -163,13 +99,13 @@
                   ]
                 },
                 "x": "40",
-                "y": "40",
+                "y": "310",
                 "col_id": "4",
                 "db_name": "PROJ_CATEGORY",
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "3",
-                "width": 113,
+                "width": 50,
                 "key": false,
                 "hidden": "",
                 "format": "",
@@ -212,13 +148,13 @@
                   ]
                 },
                 "x": "50",
-                "y": "50",
+                "y": "410",
                 "col_id": "5",
                 "db_name": "PRIORITY",
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "1",
-                "width": 100,
+                "width": 50,
                 "key": false,
                 "hidden": "",
                 "format": "",
@@ -268,13 +204,13 @@
                   ]
                 },
                 "x": "60",
-                "y": "60",
+                "y": "510",
                 "col_id": "6",
                 "db_name": "STATUS",
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "2",
-                "width": 115,
+                "width": 50,
                 "key": false,
                 "hidden": "",
                 "format": "",
@@ -292,7 +228,7 @@
                 "col_type": "CHAR",
                 "heading": "Project Location",
                 "descr": "Reference to project location master",
-                "mandatory": "true",
+                "mandatory": false,
                 "validations": [
                   "must_exist_in('REPM_LOCATION')"
                 ],
@@ -312,7 +248,19 @@
                 "default_value": "",
                 "expression": "",
                 "edit_mask": "",
-                "protect": ""
+                "protect": "",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_LOCATION",
+                  "match_mode": "simple",
+                  "fill": [
+                    {
+                      "form_col": "LOC_NAME",
+                      "table_col": "LOC_NAME"
+                    }
+                  ],
+                  "match_table_col": "LOC_CODE"
+                }
               }
             },
             {
@@ -360,7 +308,7 @@
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "",
-                "width": 107,
+                "width": 50,
                 "key": false,
                 "mandatory": false,
                 "hidden": "",
@@ -378,7 +326,7 @@
                 "name": "BUILTUP_AREA",
                 "group_name": "Area & Configuration",
                 "col_type": "NUMBER(14,2)",
-                "heading": "Built-up Area (Sq.Ft)",
+                "heading": "Area",
                 "descr": "Total built-up area in square feet",
                 "validations": [
                   "expression('BUILTUP_AREA >= 0')"
@@ -390,7 +338,7 @@
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "",
-                "width": 103,
+                "width": 78,
                 "key": false,
                 "mandatory": false,
                 "hidden": "",
@@ -408,7 +356,7 @@
                 "name": "NUM_TOWERS",
                 "group_name": "Area & Configuration",
                 "col_type": "NUMBER(4)",
-                "heading": "Number of Towers",
+                "heading": "No of owers",
                 "descr": "Total number of towers",
                 "x": "110",
                 "y": "110",
@@ -417,7 +365,7 @@
                 "table_name": "REPM_PROJECT",
                 "table_display_name": "Real-estate project header table",
                 "db_size": "",
-                "width": 51,
+                "width": 102,
                 "key": false,
                 "mandatory": false,
                 "hidden": "",
@@ -1167,6 +1115,34 @@
                 "edit_mask": "",
                 "validations": "",
                 "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_TYPE",
+                "col_id": "37",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Project Type",
+                "descr": "",
+                "key": false,
+                "default_value": "",
+                "protect": false,
+                "mandatory": false,
+                "db_name": "PROJ_TYPE",
+                "db_size": "5",
+                "width": 200,
+                "x": "10",
+                "y": "210",
+                "hidden": false,
+                "format": "",
+                "edit_mask": {
+                  "mask": "",
+                  "values": []
+                },
+                "lookup": "",
+                "item_change": "",
+                "validations": []
               }
             }
           ],

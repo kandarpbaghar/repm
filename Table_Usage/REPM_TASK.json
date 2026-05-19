@@ -93,6 +93,20 @@
         "join_table": "REPM_ISSUE",
         "join_column": "TASK_ID"
       }
+    },
+    {
+      "object_name": "repm_checklist",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "TASK_NAME",
+        "TASK_ID"
+      ],
+      "join_info": {
+        "column": "TASK_ID",
+        "join_table": "REPM_CHECKLIST",
+        "join_column": "TASK_ID"
+      }
     }
   ]
 }

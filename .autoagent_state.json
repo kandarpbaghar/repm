@@ -1,0 +1,79 @@
+{
+  "project": "repm",
+  "description": "",
+  "profile_id": null,
+  "status": "running",
+  "todos": [
+    {
+      "id": "change_1",
+      "step": "change",
+      "label": "Update FRS to mark Project Location as non-mandatory for projects",
+      "status": "completed",
+      "error": null,
+      "obj_name": "repm_project",
+      "obj_type": null,
+      "started_at": 1779182152.279031,
+      "completed_at": 1779182994.976649
+    },
+    {
+      "id": "change_2",
+      "step": "change",
+      "label": "Update application.json spec for repm_project to note Location is optional",
+      "status": "completed",
+      "error": null,
+      "obj_name": "repm_project",
+      "obj_type": "T",
+      "started_at": 1779182173.05867,
+      "completed_at": 1779183016.351101
+    },
+    {
+      "id": "change_3",
+      "step": "change",
+      "label": "Set Project Location field to non-mandatory in repm_project transaction model",
+      "status": "completed",
+      "error": null,
+      "obj_name": "repm_project",
+      "obj_type": "T",
+      "started_at": 1779182191.087214,
+      "completed_at": 1779183127.101194
+    },
+    {
+      "id": "change_1",
+      "step": "change",
+      "label": "Add Manage Checklist requirement to FRS",
+      "status": "pending",
+      "error": null,
+      "obj_name": null,
+      "obj_type": null
+    },
+    {
+      "id": "change_2",
+      "step": "change",
+      "label": "Register repm_checklist navigation object in application.json",
+      "status": "pending",
+      "error": null,
+      "obj_name": "repm_checklist",
+      "obj_type": "T"
+    },
+    {
+      "id": "change_3",
+      "step": "change",
+      "label": "Create repm_checklist transaction model",
+      "status": "pending",
+      "error": null,
+      "obj_name": "repm_checklist",
+      "obj_type": "T"
+    },
+    {
+      "id": "change_4",
+      "step": "change",
+      "label": "Embed checklist block below activity in repm_home smart page",
+      "status": "completed",
+      "error": null,
+      "obj_name": "repm_home",
+      "obj_type": "S",
+      "started_at": 1779183127.103192,
+      "completed_at": 1779183160.408399
+    }
+  ]
+}

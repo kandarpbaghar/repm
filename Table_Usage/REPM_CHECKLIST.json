@@ -1,0 +1,44 @@
+{
+  "table_name": "REPM_CHECKLIST",
+  "objects": [
+    {
+      "object_name": "repm_checklist",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "CHECKLIST_ID",
+        "PROJ_CODE",
+        "ADD_USER",
+        "ADD_DATE",
+        "ACTIVITY_ID",
+        "CHG_USER",
+        "TASK_ID",
+        "CHECKLIST_NAME",
+        "REMARKS",
+        "CHG_TERM",
+        "ADD_TERM",
+        "STATUS",
+        "CHECKLIST_CODE",
+        "CHG_DATE"
+      ],
+      "join_info": {
+        "column": "ACTIVITY_ID",
+        "join_table": "REPM_ACTIVITY",
+        "join_column": "ACTIVITY_ID"
+      }
+    },
+    {
+      "object_name": "repm_checklist",
+      "form_no": "2",
+      "usage_type": "R",
+      "referred_columns": [
+        "CHECKLIST_ID"
+      ],
+      "join_info": {
+        "column": "CHECKLIST_ID",
+        "join_table": "REPM_CHECKLIST_ITEM",
+        "join_column": "CHECKLIST_ID"
+      }
+    }
+  ]
+}

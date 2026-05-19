@@ -66,6 +66,20 @@
         "join_table": "REPM_PROGRESS_UPD",
         "join_column": "ACTIVITY_ID"
       }
+    },
+    {
+      "object_name": "repm_checklist",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "ACTIVITY_ID",
+        "ACTIVITY_NAME"
+      ],
+      "join_info": {
+        "column": "ACTIVITY_ID",
+        "join_table": "REPM_CHECKLIST",
+        "join_column": "ACTIVITY_ID"
+      }
     }
   ]
 }

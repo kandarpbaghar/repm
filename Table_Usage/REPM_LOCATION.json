@@ -4,10 +4,10 @@
     {
       "object_name": "repm_project",
       "form_no": "1",
-      "usage_type": "R",
+      "usage_type": "M",
       "referred_columns": [
-        "LOC_NAME",
-        "LOC_CODE"
+        "LOC_CODE",
+        "LOC_NAME"
       ],
       "join_info": {
         "column": "LOC_CODE",

@@ -1,0 +1,54 @@
+{
+  "object_name": "repm_checklist",
+  "tables": {
+    "REPM_CHECKLIST": [
+      "ADD_USER",
+      "CHECKLIST_ID",
+      "PROJ_CODE",
+      "ADD_DATE",
+      "ACTIVITY_ID",
+      "CHG_USER",
+      "TASK_ID",
+      "CHECKLIST_NAME",
+      "REMARKS",
+      "ADD_TERM",
+      "CHG_TERM",
+      "CHECKLIST_CODE",
+      "STATUS",
+      "CHG_DATE"
+    ],
+    "REPM_PROJECT": [
+      "PROJ_NAME",
+      "PROJ_CODE"
+    ],
+    "REPM_TASK": [
+      "TASK_NAME",
+      "TASK_ID"
+    ],
+    "REPM_ACTIVITY": [
+      "ACTIVITY_ID",
+      "ACTIVITY_NAME"
+    ],
+    "REPM_CHECKLIST_ITEM": [
+      "STATUS",
+      "ADD_USER",
+      "CHECKLIST_ID",
+      "ADD_DATE",
+      "CHG_USER",
+      "BLOCKING_REASON",
+      "REMARKS",
+      "RESP_EMP_CODE",
+      "ADD_TERM",
+      "CHG_DATE",
+      "CHG_TERM",
+      "ITEM_DESCR",
+      "COMPLETED_DT",
+      "SEQ_NO",
+      "DUE_DT"
+    ],
+    "REPM_EMPLOYEE": [
+      "EMP_NAME",
+      "EMP_CODE"
+    ]
+  }
+}

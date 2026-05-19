@@ -74,7 +74,7 @@
       "obj_name": "repm_project",
       "obj_type": "T",
       "menu_path": "repm.3.1",
-      "functional_specs": "Actions: Search, Add, Edit, Delete, Submit-for-Approval, Approve, Cancel. Validations on dates, budget tolerance, completion rules. Triggers: send-notification to approver on submit; update-status & stamp approval on approve; cascade-cancel on cancel."
+      "functional_specs": "Actions: Search, Add, Edit, Delete, Submit-for-Approval, Approve, Cancel. Project Location is an optional (non-mandatory) field. Validations on dates, budget tolerance, completion rules. Triggers: send-notification to approver on submit; update-status & stamp approval on approve; cascade-cancel on cancel."
     },
     {
       "id": "repm.3.2",
@@ -119,6 +119,17 @@
       "obj_type": "T",
       "menu_path": "repm.3.5",
       "functional_specs": "Actions: Search, Add, Edit, Delete, Mark-Done, Mark-Blocked, Cancel. Validations on due date range, completed date, blocking reason. Triggers: notify activity owner on done; notify task owner & PM on blocked; recompute progress roll-up."
+    },
+    {
+      "id": "repm.3.6",
+      "title": "Manage Checklist",
+      "parent_id": "repm.3",
+      "icon_image": "fact_check",
+      "description": "Maintain tabular checklists for project/task/activity.",
+      "obj_name": "repm_checklist",
+      "obj_type": "T",
+      "menu_path": "repm.3.6",
+      "functional_specs": "Actions: Search, Add, Edit, Delete, Close. Header fields: Code, Name, Project, Task, Activity, Status, Remarks. Tabular line items: Seq, Description, Responsible Employee, Due Date, Completed Date, Status, Blocking Reason, Remarks. Mandatory Project/Task/Activity linkage; at least one line item; Blocking Reason required when Blocked."
     },
     {
       "id": "repm.4",

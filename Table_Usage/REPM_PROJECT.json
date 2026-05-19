@@ -2,53 +2,6 @@
   "table_name": "REPM_PROJECT",
   "objects": [
     {
-      "object_name": "repm_project",
-      "form_no": "1",
-      "usage_type": "M",
-      "referred_columns": [
-        "APPR_DT",
-        "ADD_TERM",
-        "PROJ_NAME",
-        "EST_BUDGET",
-        "BUILTUP_AREA",
-        "APPR_USER",
-        "PCT_COMPLETE",
-        "SUBMIT_USER",
-        "ACT_START_DT",
-        "STATUS",
-        "CHG_DATE",
-        "PRIORITY",
-        "APPR_BUDGET",
-        "NUM_TOWERS",
-        "PROJ_TYPE",
-        "RERA_NUMBER",
-        "SUBMIT_DT",
-        "ACT_END_DT",
-        "CHG_USER",
-        "ADD_DATE",
-        "PROJ_CODE",
-        "PM_EMP_CODE",
-        "DESCRIPTION",
-        "APPR_AUTHORITY",
-        "PROJ_CATEGORY",
-        "LOC_CODE",
-        "CANCEL_REASON",
-        "PLAN_END_DT",
-        "CHG_TERM",
-        "NUM_UNITS",
-        "PLAN_START_DT",
-        "ADD_USER",
-        "LAND_AREA",
-        "CANCEL_DT",
-        "REMARKS"
-      ],
-      "join_info": {
-        "column": "PM_EMP_CODE",
-        "join_table": "REPM_EMPLOYEE",
-        "join_column": "EMP_CODE"
-      }
-    },
-    {
       "object_name": "repm_phase",
       "form_no": "1",
       "usage_type": "M",
@@ -129,6 +82,67 @@
       "join_info": {
         "column": "PROJ_CODE",
         "join_table": "REPM_ISSUE",
+        "join_column": "PROJ_CODE"
+      }
+    },
+    {
+      "object_name": "repm_project",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "PROJ_NAME",
+        "APPR_BUDGET",
+        "APPR_AUTHORITY",
+        "NUM_TOWERS",
+        "LAND_AREA",
+        "PROJ_TYPE",
+        "EST_BUDGET",
+        "STATUS",
+        "PROJ_CATEGORY",
+        "PRIORITY",
+        "ADD_USER",
+        "PCT_COMPLETE",
+        "SUBMIT_USER",
+        "CANCEL_REASON",
+        "ADD_DATE",
+        "PLAN_END_DT",
+        "LOC_CODE",
+        "ADD_TERM",
+        "ACT_END_DT",
+        "CHG_TERM",
+        "BUILTUP_AREA",
+        "PROJ_CODE",
+        "ACT_START_DT",
+        "SUBMIT_DT",
+        "CHG_USER",
+        "APPR_USER",
+        "CHG_DATE",
+        "RERA_NUMBER",
+        "DESCRIPTION",
+        "PM_EMP_CODE",
+        "REMARKS",
+        "NUM_UNITS",
+        "PLAN_START_DT",
+        "CANCEL_DT",
+        "APPR_DT"
+      ],
+      "join_info": {
+        "column": "PM_EMP_CODE",
+        "join_table": "REPM_EMPLOYEE",
+        "join_column": "EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_checklist",
+      "form_no": "1",
+      "usage_type": "M",
+      "referred_columns": [
+        "PROJ_NAME",
+        "PROJ_CODE"
+      ],
+      "join_info": {
+        "column": "PROJ_CODE",
+        "join_table": "REPM_CHECKLIST",
         "join_column": "PROJ_CODE"
       }
     }

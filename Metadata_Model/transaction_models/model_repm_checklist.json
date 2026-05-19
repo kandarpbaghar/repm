@@ -1,0 +1,1153 @@
+{
+  "transaction": {
+    "obj_name": "repm_checklist",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Manage Checklist",
+          "form_descr": "Maintain checklists for project activities. Each checklist is tied to a Project, Task and Activity and contains a set of items to be completed.",
+          "columns": [
+            {
+              "column": {
+                "name": "CHECKLIST_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Checklist ID",
+                "descr": "Unique internal checklist identifier",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "protect": "1",
+                "hidden": "1",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "CHECKLIST_ID",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHECKLIST_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Checklist Code",
+                "descr": "User-facing unique checklist code",
+                "mandatory": "true",
+                "validations": [
+                  "expression('unique(CHECKLIST_CODE)')"
+                ],
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "CHECKLIST_CODE",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHECKLIST_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Checklist Name",
+                "descr": "Name of the checklist",
+                "mandatory": "true",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "db_name": "CHECKLIST_NAME",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Linkage",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project to which this checklist belongs",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "x": "50",
+                "y": "50",
+                "col_id": "4",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PROJECT",
+                  "match_mode": "simple",
+                  "match_table_col": "PROJ_CODE",
+                  "fill": [
+                    {
+                      "form_col": "PROJ_NAME",
+                      "table_col": "PROJ_NAME"
+                    }
+                  ],
+                  "on_no_match": "clear"
+                },
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Linkage",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Project name from master",
+                "protect": "1",
+                "x": "60",
+                "y": "60",
+                "col_id": "5",
+                "table_display_name": "Real-estate project header table",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_ID",
+                "group_name": "Linkage",
+                "col_type": "CHAR",
+                "heading": "Task",
+                "descr": "Task within the selected project",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_TASK')"
+                ],
+                "lookup": "REPM_TASK(TASK_NAME, TASK_ID) where PROJ_CODE={form.PROJ_CODE}",
+                "x": "70",
+                "y": "70",
+                "col_id": "6",
+                "db_name": "TASK_ID",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_TASK",
+                  "match_mode": "simple",
+                  "match_table_col": "TASK_ID",
+                  "fill": [
+                    {
+                      "form_col": "TASK_NAME",
+                      "table_col": "TASK_NAME"
+                    }
+                  ],
+                  "on_no_match": "clear"
+                },
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_NAME",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK",
+                "group_name": "Linkage",
+                "col_type": "VARCHAR",
+                "heading": "Task Name",
+                "descr": "Task name from master",
+                "protect": "1",
+                "x": "80",
+                "y": "80",
+                "col_id": "7",
+                "table_display_name": "Project task master",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_ID",
+                "group_name": "Linkage",
+                "col_type": "CHAR",
+                "heading": "Activity",
+                "descr": "Activity under the selected task",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_ACTIVITY')"
+                ],
+                "lookup": "REPM_ACTIVITY(ACTIVITY_NAME, ACTIVITY_ID) where TASK_ID={form.TASK_ID}",
+                "x": "90",
+                "y": "90",
+                "col_id": "8",
+                "db_name": "ACTIVITY_ID",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_ACTIVITY",
+                  "match_mode": "simple",
+                  "match_table_col": "ACTIVITY_ID",
+                  "fill": [
+                    {
+                      "form_col": "ACTIVITY_NAME",
+                      "table_col": "ACTIVITY_NAME"
+                    }
+                  ],
+                  "on_no_match": "clear"
+                },
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_NAME",
+                "db_name": "ACTIVITY_NAME",
+                "table_name": "REPM_ACTIVITY",
+                "group_name": "Linkage",
+                "col_type": "VARCHAR",
+                "heading": "Activity Name",
+                "descr": "Activity name from master",
+                "protect": "1",
+                "x": "100",
+                "y": "100",
+                "col_id": "9",
+                "table_display_name": "Project activity master",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Checklist status",
+                "mandatory": "true",
+                "default_value": "DR",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "DR",
+                      "display": "Draft"
+                    },
+                    {
+                      "data": "AC",
+                      "display": "Active"
+                    },
+                    {
+                      "data": "CL",
+                      "display": "Closed"
+                    }
+                  ]
+                },
+                "x": "40",
+                "y": "40",
+                "col_id": "10",
+                "db_name": "STATUS",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Notes",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Free-form remarks",
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "REMARKS",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "500",
+                "width": 500,
+                "mandatory": false,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Add Date",
+                "descr": "Record creation date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "width": 50,
+                "db_size": "",
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Add User",
+                "descr": "User who created the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal of creation",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Change Date",
+                "descr": "Last change date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "width": 50,
+                "db_size": "",
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Change User",
+                "descr": "User who last changed the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Terminal of last change",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_CHECKLIST",
+                "table_display_name": "Project checklist header table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_CHECKLIST",
+                  "main_table": true,
+                  "table_descr": "Project checklist header table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Real-estate project header table",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_CHECKLIST",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_TASK",
+                  "main_table": false,
+                  "table_descr": "Project task master",
+                  "column": "TASK_ID",
+                  "join_table": "REPM_CHECKLIST",
+                  "join_column": "TASK_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_ACTIVITY",
+                  "main_table": false,
+                  "table_descr": "Project activity master",
+                  "column": "ACTIVITY_ID",
+                  "join_table": "REPM_CHECKLIST",
+                  "join_column": "ACTIVITY_ID",
+                  "join_type": "inner"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_checklist_code_unique','Checklist Code must be unique across all checklists')",
+            "business_logic('validate_checklist_linkage','Project, Task and Activity are mandatory and Task must belong to Project and Activity must belong to Task')",
+            "business_logic('validate_at_least_one_item','A checklist must have at least one line item before save')"
+          ],
+          "form_no": "1"
+        }
+      },
+      {
+        "sql_model": {
+          "form_title": "Checklist Items",
+          "form_descr": "Line items of the checklist captured as a tabular multi-row entry grid below the header.",
+          "columns": [
+            {
+              "column": {
+                "name": "CHECKLIST_ID",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Checklist ID",
+                "descr": "Parent checklist identifier",
+                "key": true,
+                "hidden": "1",
+                "protect": "1",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_CHECKLIST')"
+                ],
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "CHECKLIST_ID",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "10",
+                "width": 100,
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "SEQ_NO",
+                "group_name": "Basic",
+                "col_type": "NUMBER(4)",
+                "heading": "Seq",
+                "descr": "Sequence number of the line item within the checklist",
+                "key": true,
+                "mandatory": "true",
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "SEQ_NO",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "width": 50,
+                "db_size": "",
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ITEM_DESCR",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Item Description",
+                "descr": "Description of the checklist line item",
+                "mandatory": "true",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "db_name": "ITEM_DESCR",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "RESP_EMP_CODE",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Responsible Employee",
+                "descr": "Employee responsible for the line item",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')"
+                ],
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "RESP_EMP_CODE",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "10",
+                "width": 100,
+                "mandatory": false,
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_mode": "simple",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "RESP_EMP_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ],
+                  "on_no_match": "clear"
+                },
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "RESP_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Employee Name",
+                "descr": "Responsible employee name from master",
+                "protect": "1",
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "table_display_name": "Employee master for responsible employee",
+                "db_size": "120",
+                "width": 500,
+                "mandatory": false,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "DUE_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Due Date",
+                "descr": "Date by which the item is to be completed",
+                "x": "70",
+                "y": "70",
+                "col_id": "6",
+                "db_name": "DUE_DT",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "width": 50,
+                "mandatory": false,
+                "db_size": "",
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "COMPLETED_DT",
+                "group_name": "Schedule",
+                "col_type": "DATE",
+                "heading": "Completed Date",
+                "descr": "Date when the item was actually completed",
+                "validations": [
+                  "business_logic('validate_completed_dt','Completed Date can be set only when Status is DN (Done)')"
+                ],
+                "x": "80",
+                "y": "80",
+                "col_id": "7",
+                "db_name": "COMPLETED_DT",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "width": 50,
+                "mandatory": false,
+                "db_size": "",
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Basic",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Status of the line item",
+                "mandatory": "true",
+                "default_value": "PN",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "PN",
+                      "display": "Pending"
+                    },
+                    {
+                      "data": "DN",
+                      "display": "Done"
+                    },
+                    {
+                      "data": "BL",
+                      "display": "Blocked"
+                    },
+                    {
+                      "data": "NA",
+                      "display": "Not Applicable"
+                    }
+                  ]
+                },
+                "x": "60",
+                "y": "60",
+                "col_id": "8",
+                "db_name": "STATUS",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "BLOCKING_REASON",
+                "group_name": "Notes",
+                "col_type": "VARCHAR",
+                "heading": "Blocking Reason",
+                "descr": "Reason if the item is blocked",
+                "validations": [
+                  "business_logic('validate_blocking_reason','Blocking Reason is required when item Status is BL (Blocked)')"
+                ],
+                "x": "90",
+                "y": "90",
+                "col_id": "9",
+                "db_name": "BLOCKING_REASON",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "500",
+                "width": 500,
+                "mandatory": false,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Notes",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Free-form remarks for the line item",
+                "x": "100",
+                "y": "100",
+                "col_id": "10",
+                "db_name": "REMARKS",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "500",
+                "width": 500,
+                "mandatory": false,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Add Date",
+                "descr": "Record creation date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "110",
+                "y": "110",
+                "col_id": "11",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "width": 50,
+                "db_size": "",
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Add User",
+                "descr": "User who created the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "120",
+                "y": "120",
+                "col_id": "12",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Add Terminal",
+                "descr": "Terminal of creation",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "130",
+                "y": "130",
+                "col_id": "13",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Change Date",
+                "descr": "Last change date",
+                "default_value": "now()",
+                "protect": "1",
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "width": 50,
+                "db_size": "",
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Change User",
+                "descr": "User who last changed the record",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Change Terminal",
+                "descr": "Terminal of last change",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_CHECKLIST_ITEM",
+                "table_display_name": "Project checklist line items table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_CHECKLIST_ITEM",
+                  "main_table": true,
+                  "table_descr": "Project checklist line items table"
+                },
+                {
+                  "table": "REPM_CHECKLIST",
+                  "main_table": false,
+                  "table_descr": "Project checklist header table",
+                  "column": "CHECKLIST_ID",
+                  "join_table": "REPM_CHECKLIST_ITEM",
+                  "join_column": "CHECKLIST_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master for responsible employee",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_CHECKLIST_ITEM",
+                  "join_column": "RESP_EMP_CODE",
+                  "join_type": "left"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "business_logic('validate_blocking_reason','Blocking Reason is mandatory when line item Status is BL (Blocked)')",
+            "business_logic('validate_completed_dt','Completed Date may be set only when line item Status is DN (Done)')",
+            "business_logic('validate_seq_no_unique','Seq No must be unique within a checklist')"
+          ],
+          "form_no": "2",
+          "actions": [
+            "add",
+            "edit",
+            "delete"
+          ]
+        }
+      }
+    ],
+    "actions": [
+      "search",
+      "add",
+      "edit",
+      "delete",
+      "close:business_logic('close_checklist','Validate that all line items are in DN (Done) or NA (Not Applicable) status, then set header Status to CL (Closed)')"
+    ],
+    "cross_updates": [
+      "business_logic('rollup_checklist_status','Recompute header Status when all line items reach a terminal state (Done/NA)')"
+    ],
+    "attach_docs": [
+      "Checklist Template",
+      "Supporting Document"
+    ],
+    "follow_up_actions": [
+      "on-add-edit,notify_responsible:email(get_role('responsible_employee'),'checklist_item_assigned','Checklist Code, Project, Task, Activity, Item Description and Due Date for items assigned to the employee')",
+      "on-close,notify_pm:email(get_role('project_manager'),'checklist_closed','Checklist has been closed; summary of items and completion status')"
+    ]
+  }
+}
