@@ -2,39 +2,18 @@
   "page": {
     "obj_name": "repm_x_home",
     "title": "Building Landmarks, Crafting Lifestyles",
-    "description": "Corporate website home page for a real estate developer — hero carousel, project highlights, why-choose-us, testimonials, newsroom and contact.",
+    "description": "Corporate website home page showcasing residential, commercial and township projects.",
     "kind": "external",
     "inputs": [
-      {
-        "name": "featured_projects",
-        "label": "Featured projects",
-        "type": "json",
-        "display": true,
-        "api": {
-          "method": "GET",
-          "url": "/api/public/projects/featured",
-          "autoload": true
-        }
-      },
       {
         "name": "enquiry_name",
         "label": "Full Name",
         "type": "text",
         "placeholder": "Your name",
         "isInput": true,
+        "display": false,
         "validations": [
           { "rule": "required", "message": "Please enter your name" }
-        ]
-      },
-      {
-        "name": "enquiry_phone",
-        "label": "Phone",
-        "type": "text",
-        "placeholder": "+91 98xxxxxxxx",
-        "isInput": true,
-        "validations": [
-          { "rule": "required", "message": "Phone is required" },
-          { "rule": "min_length", "arg": 10, "message": "Enter a valid phone number" }
         ]
       },
       {
@@ -43,252 +22,394 @@
         "type": "text",
         "placeholder": "you@example.com",
         "isInput": true,
+        "display": false,
         "validations": [
           { "rule": "required", "message": "Email is required" },
-          { "rule": "email", "message": "Enter a valid email" }
+          { "rule": "email", "message": "Enter a valid email address" }
+        ]
+      },
+      {
+        "name": "enquiry_phone",
+        "label": "Phone",
+        "type": "text",
+        "placeholder": "+91 98xxxxxxxx",
+        "isInput": true,
+        "display": false,
+        "validations": [
+          { "rule": "required", "message": "Phone is required" }
         ]
       },
       {
         "name": "enquiry_interest",
-        "label": "I am interested in",
+        "label": "Interested In",
         "type": "select",
         "isInput": true,
+        "display": false,
         "options": [
           { "value": "residential", "label": "Residential" },
           { "value": "commercial", "label": "Commercial" },
-          { "value": "townships", "label": "Townships" },
-          { "value": "completed", "label": "Completed Projects" }
+          { "value": "township", "label": "Township" },
+          { "value": "investment", "label": "Investment Opportunities" }
         ],
         "default": "residential"
+      },
+      {
+        "name": "enquiry_message",
+        "label": "Message",
+        "type": "textarea",
+        "placeholder": "Tell us what you're looking for...",
+        "isInput": true,
+        "display": false
+      },
+      {
+        "name": "featured_projects",
+        "label": "Featured Projects",
+        "type": "json",
+        "display": true,
+        "api": {
+          "method": "GET",
+          "url": "/api/public/repm/featured-projects",
+          "autoload": true
+        }
       }
     ],
     "blocks": [
       {
-        "id": "hero1",
+        "id": "hero_main",
         "type": "hero",
-        "eyebrow": "Welcome to our world",
+        "eyebrow": "Premium Real Estate Since 1998",
         "title": "Building Landmarks, Crafting Lifestyles",
-        "subtitle": "Premium residential, commercial and township developments — designed for the way you live, work and grow.",
+        "subtitle": "Discover thoughtfully designed homes, workspaces and townships across India — engineered for tomorrow, delivered today.",
         "align": "left",
         "height": "tall",
         "background": {
-          "kind": "gradient",
+          "kind": "image",
+          "imageUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80",
+          "overlay": true,
           "gradientFrom": "#0B1F3A",
-          "gradientTo": "#1F4068",
-          "gradientAngle": 135,
-          "overlay": "rgba(11,31,58,0.45)"
+          "gradientTo": "#1A3A6B"
         },
         "textColor": "#FFFFFF",
         "primaryCta": {
           "id": "hero_cta_primary",
           "label": "Enquire Now",
           "variant": "primary",
-          "on_click": { "kind": "set_inputs", "values": { "enquiry_interest": "residential" } }
+          "size": "lg",
+          "on_click": {
+            "kind": "set_inputs",
+            "values": { "enquiry_interest": "residential" }
+          }
         },
         "secondaryCta": {
           "id": "hero_cta_secondary",
           "label": "Explore Projects",
           "variant": "outline",
-          "on_click": { "kind": "external_url", "url": "#featured-projects" }
+          "size": "lg",
+          "on_click": {
+            "kind": "external_url",
+            "url": "#featured_projects"
+          }
         },
         "imageSide": "none"
       },
       {
-        "id": "feat_grid",
+        "id": "feature_grid_segments",
         "type": "feature_grid",
-        "eyebrow": "What we build",
-        "heading": "A portfolio across every lifestyle",
-        "subheading": "From sky-high residences to integrated townships, our developments are shaped by craftsmanship and trust.",
+        "eyebrow": "What We Build",
+        "heading": "A Portfolio Across Every Lifestyle",
+        "subheading": "From skyline-defining towers to integrated townships, our developments set new benchmarks in design, sustainability and value.",
         "columns": 4,
         "align": "center",
         "iconStyle": "circle",
         "items": [
-          { "id": "fg_res", "icon": "home", "title": "Residential", "description": "Thoughtfully designed homes in the most sought-after addresses." },
-          { "id": "fg_com", "icon": "building", "title": "Commercial", "description": "Grade-A workspaces and retail destinations that drive growth." },
-          { "id": "fg_twn", "icon": "map", "title": "Townships", "description": "Integrated communities with schools, retail and open green spaces." },
-          { "id": "fg_done", "icon": "check-circle", "title": "Completed", "description": "Decades of delivered landmarks across the country." }
+          { "id": "seg_res", "icon": "home", "title": "Residential", "description": "Premium apartments, villas and luxury residences in prime locations." },
+          { "id": "seg_com", "icon": "building", "title": "Commercial", "description": "Grade-A office spaces, retail destinations and business parks." },
+          { "id": "seg_town", "icon": "map", "title": "Townships", "description": "Master-planned integrated communities with schools, retail and green spaces." },
+          { "id": "seg_done", "icon": "check-circle", "title": "Completed", "description": "30+ delivered landmarks housing over 25,000 happy families." }
         ]
       },
       {
-        "id": "stats1",
+        "id": "stats_strip",
         "type": "stats",
-        "heading": "Trusted by generations",
         "columns": 4,
         "align": "center",
-        "background": "#F4F6FB",
+        "background": "#F5F7FA",
         "items": [
-          { "id": "s1", "value": "30", "suffix": "+", "label": "Years of legacy" },
-          { "id": "s2", "value": "120", "suffix": "+", "label": "Projects delivered" },
-          { "id": "s3", "value": "25M", "suffix": " sq.ft.", "label": "Built footprint" },
-          { "id": "s4", "value": "50K", "suffix": "+", "label": "Happy families" }
+          { "id": "stat_years", "value": "27+", "label": "Years of Excellence" },
+          { "id": "stat_projects", "value": "60", "suffix": "+", "label": "Projects Delivered" },
+          { "id": "stat_families", "value": "25,000", "suffix": "+", "label": "Happy Families" },
+          { "id": "stat_sqft", "value": "45", "suffix": "M Sq.Ft.", "label": "Developed Area" }
         ]
       },
       {
-        "id": "feat_proj_heading",
+        "id": "featured_projects_heading",
         "type": "heading",
         "level": 2,
         "text": "Featured Projects"
       },
       {
-        "id": "feat_proj_sub",
+        "id": "featured_projects_sub",
         "type": "paragraph",
-        "text": "Hand-picked developments currently open for site visits and bookings."
+        "text": "Explore our flagship developments — each one a testament to architectural ambition and uncompromising quality."
       },
       {
-        "id": "feat_proj_grid",
+        "id": "featured_projects",
         "type": "card_grid",
         "columns": 3,
         "gap": 24,
-        "cards": [],
+        "cards": [
+          {
+            "id": "fp_placeholder",
+            "title": "Loading featured projects...",
+            "subtitle": "Please wait",
+            "body": "Our latest projects will appear here shortly."
+          }
+        ],
         "bindings": {
           "cards": { "source": "page_input", "name": "featured_projects", "fallback": [] }
         }
       },
       {
-        "id": "enquiry_mini",
-        "type": "container",
-        "background": "#0B1F3A",
-        "padding": 32,
-        "rounded": 16,
-        "align": "center",
-        "text": "Quick Enquiry — leave your details and our team will get in touch within 24 hours.",
-        "textColor": "#FFFFFF"
+        "id": "divider_1",
+        "type": "divider"
       },
       {
-        "id": "enquiry_inputs",
-        "type": "input_group",
-        "layout": "inline",
-        "inputs": ["enquiry_name", "enquiry_phone", "enquiry_email", "enquiry_interest"]
-      },
-      {
-        "id": "enquiry_btn",
-        "type": "button",
-        "align": "center",
-        "button": {
-          "id": "enquiry_btn_b",
-          "label": "Send Enquiry",
-          "variant": "primary",
-          "size": "lg",
-          "on_click": { "kind": "run_action", "actionName": "submit_enquiry" }
-        }
-      },
-      {
-        "id": "enquiry_status",
-        "type": "callout",
-        "variant": "info",
-        "title": "{{submit_enquiry.status}}",
-        "body": "{{submit_enquiry.error}}"
-      },
-      {
-        "id": "why_grid",
+        "id": "why_choose_us",
         "type": "feature_grid",
-        "eyebrow": "Why choose us",
-        "heading": "A foundation built on trust",
+        "eyebrow": "Why Choose Us",
+        "heading": "Trust, Built Brick by Brick",
+        "subheading": "Three decades of delivering homes and workspaces that stand the test of time.",
         "columns": 3,
         "align": "left",
         "iconStyle": "square",
         "items": [
-          { "id": "w1", "icon": "shield", "title": "On-time delivery", "description": "A track record of handing over homes when promised — and often earlier." },
-          { "id": "w2", "icon": "award", "title": "Design excellence", "description": "Collaborations with world-class architects and design studios." },
-          { "id": "w3", "icon": "leaf", "title": "Sustainable living", "description": "IGBC-certified communities with rainwater harvesting and solar integration." },
-          { "id": "w4", "icon": "users", "title": "Customer-first", "description": "Dedicated relationship managers from booking through possession and beyond." },
-          { "id": "w5", "icon": "trending-up", "title": "Strong appreciation", "description": "Our addresses consistently outperform local market benchmarks." },
-          { "id": "w6", "icon": "tool", "title": "Quality assurance", "description": "Multi-stage QA, premium fittings and lifetime structural warranty." }
+          { "id": "wcu_quality", "icon": "shield-check", "title": "Uncompromising Quality", "description": "RERA-compliant builds with premium materials, audited workmanship and lifetime structural warranties." },
+          { "id": "wcu_ontime", "icon": "clock", "title": "On-Time Delivery", "description": "98% of our projects have been handed over on or ahead of schedule — backed by a delivery guarantee." },
+          { "id": "wcu_design", "icon": "sparkles", "title": "Award-Winning Design", "description": "Collaborations with globally acclaimed architects and landscape designers." },
+          { "id": "wcu_sustain", "icon": "leaf", "title": "Sustainable Living", "description": "IGBC Gold-rated developments with rainwater harvesting, solar power and EV-ready infrastructure." },
+          { "id": "wcu_finance", "icon": "credit-card", "title": "Flexible Financing", "description": "Pre-approved home loans from 12+ leading banks with attractive interest rates." },
+          { "id": "wcu_service", "icon": "users", "title": "Lifetime Service", "description": "Dedicated facility management and customer care for every home, even after handover." }
         ]
       },
       {
-        "id": "test1",
+        "id": "inline_enquiry_section",
+        "type": "container",
+        "background": "#0B1F3A",
+        "padding": 40,
+        "rounded": true,
+        "align": "center",
+        "text": "Looking for your next home or investment? Drop us a line — our team responds within 24 hours.",
+        "textColor": "#FFFFFF"
+      },
+      {
+        "id": "inline_enquiry_inputs",
+        "type": "input_group",
+        "layout": "inline",
+        "inputs": ["enquiry_name", "enquiry_phone", "enquiry_interest"]
+      },
+      {
+        "id": "inline_enquiry_button",
+        "type": "button",
+        "align": "center",
+        "button": {
+          "id": "btn_inline_enquire",
+          "label": "Request a Call Back",
+          "variant": "primary",
+          "size": "lg",
+          "on_click": { "kind": "run_action", "actionName": "submit_quick_enquiry" }
+        }
+      },
+      {
+        "id": "testimonials_heading",
+        "type": "heading",
+        "level": 2,
+        "text": "What Our Residents Say"
+      },
+      {
+        "id": "testimonial_1",
         "type": "testimonial",
-        "quote": "Moving into our new home felt effortless — every promise made at the showroom was kept on the ground.",
-        "authorName": "Rohit & Anjali Mehta",
-        "authorRole": "Homeowners, Skyline Residences",
+        "quote": "Moving into our new home was the smoothest experience we could have imagined. Quality, attention to detail and after-sales service have exceeded every expectation.",
+        "authorName": "Anjali & Rohan Mehta",
+        "authorRole": "Residents, Skyline Heights",
         "rating": 5,
         "align": "center"
       },
       {
-        "id": "news_heading",
+        "id": "testimonial_2",
+        "type": "testimonial",
+        "quote": "As an investor, the transparency and timely possession set this developer apart. My property has appreciated 40% in three years.",
+        "authorName": "Vikram Shah",
+        "authorRole": "Investor, Greenwood Township",
+        "rating": 5,
+        "align": "center"
+      },
+      {
+        "id": "testimonial_3",
+        "type": "testimonial",
+        "quote": "Our commercial space at the business park has helped us scale rapidly — the location, amenities and management are world-class.",
+        "authorName": "Priya Kapoor",
+        "authorRole": "CEO, Lumen Technologies",
+        "rating": 5,
+        "align": "center"
+      },
+      {
+        "id": "newsroom_heading",
         "type": "heading",
         "level": 2,
         "text": "From the Newsroom"
       },
       {
-        "id": "news_strip",
+        "id": "newsroom_strip",
         "type": "card_grid",
         "columns": 3,
-        "gap": 24,
+        "gap": 20,
         "cards": [
-          { "id": "n1", "title": "Foundation laid for new township in Pune", "subtitle": "Press Release · Mar 2026", "body": "A 120-acre integrated township opens registrations for its first phase.", "cta": { "id": "n1c", "label": "Read more", "variant": "link", "on_click": { "kind": "external_url", "url": "/newsroom" } } },
-          { "id": "n2", "title": "Awarded Developer of the Year 2026", "subtitle": "Awards · Feb 2026", "body": "Recognised for excellence in residential and sustainable design.", "cta": { "id": "n2c", "label": "Read more", "variant": "link", "on_click": { "kind": "external_url", "url": "/newsroom" } } },
-          { "id": "n3", "title": "Crossed 25 million sq.ft. delivered", "subtitle": "Milestone · Jan 2026", "body": "Three decades of building landmarks across India.", "cta": { "id": "n3c", "label": "Read more", "variant": "link", "on_click": { "kind": "external_url", "url": "/newsroom" } } }
+          {
+            "id": "news_1",
+            "title": "Skyline Heights Phase II Launched",
+            "subtitle": "May 2026",
+            "body": "Our newest residential tower opens for bookings, featuring 3 & 4 BHK sky residences with panoramic city views.",
+            "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+            "cta": { "id": "news1_cta", "label": "Read More", "variant": "link", "on_click": { "kind": "none" } }
+          },
+          {
+            "id": "news_2",
+            "title": "IGBC Gold Certification for Greenwood",
+            "subtitle": "April 2026",
+            "body": "Greenwood Township becomes our 12th project to receive the prestigious IGBC Gold sustainability rating.",
+            "imageUrl": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80",
+            "cta": { "id": "news2_cta", "label": "Read More", "variant": "link", "on_click": { "kind": "none" } }
+          },
+          {
+            "id": "news_3",
+            "title": "Awarded Developer of the Year",
+            "subtitle": "March 2026",
+            "body": "Recognized at the National Real Estate Excellence Awards for innovation in integrated township development.",
+            "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+            "cta": { "id": "news3_cta", "label": "Read More", "variant": "link", "on_click": { "kind": "none" } }
+          }
         ]
       },
       {
-        "id": "cta_b",
+        "id": "cta_banner_main",
         "type": "cta_banner",
-        "eyebrow": "Ready to make a move?",
-        "title": "Find your next address with us",
-        "subtitle": "Talk to our advisory team about ongoing launches and exclusive site visits.",
+        "eyebrow": "Ready to find your dream home?",
+        "title": "Let's Build Your Future, Together.",
+        "subtitle": "Speak to our property advisors and discover homes tailored to your lifestyle and budget.",
         "align": "center",
-        "background": { "kind": "gradient", "gradientFrom": "#1F4068", "gradientTo": "#0B1F3A", "gradientAngle": 90 },
+        "background": {
+          "kind": "gradient",
+          "gradientFrom": "#0B1F3A",
+          "gradientTo": "#C9A961",
+          "gradientAngle": 135
+        },
         "textColor": "#FFFFFF",
         "primaryCta": {
-          "id": "ctab_p",
+          "id": "banner_cta_primary",
           "label": "Enquire Now",
           "variant": "primary",
-          "on_click": { "kind": "set_inputs", "values": { "enquiry_interest": "residential" } }
+          "size": "lg",
+          "on_click": { "kind": "external_url", "url": "#contact_form" }
         },
         "secondaryCta": {
-          "id": "ctab_s",
+          "id": "banner_cta_secondary",
           "label": "Explore Projects",
           "variant": "outline",
-          "on_click": { "kind": "external_url", "url": "#featured-projects" }
+          "size": "lg",
+          "on_click": { "kind": "external_url", "url": "#featured_projects" }
         }
       },
       {
-        "id": "footer_heading",
+        "id": "contact_form_heading",
         "type": "heading",
         "level": 2,
-        "text": "Get in touch"
+        "text": "Get in Touch"
       },
       {
-        "id": "footer_form",
-        "type": "contact_form",
-        "heading": "We'd love to hear from you",
-        "subheading": "Send us a note and our team will respond shortly.",
-        "buttonLabel": "Send Message",
+        "id": "contact_form_sub",
+        "type": "paragraph",
+        "text": "Fill in your details and one of our property consultants will reach out within 24 hours."
+      },
+      {
+        "id": "contact_form_inputs",
+        "type": "input_group",
+        "layout": "stacked",
+        "inputs": ["enquiry_name", "enquiry_email", "enquiry_phone", "enquiry_interest", "enquiry_message"]
+      },
+      {
+        "id": "contact_form_button",
+        "type": "button",
         "align": "left",
-        "fields": [
-          { "id": "cf_name", "name": "name", "label": "Full Name", "type": "text", "required": true },
-          { "id": "cf_email", "name": "email", "label": "Email", "type": "email", "required": true },
-          { "id": "cf_phone", "name": "phone", "label": "Phone", "type": "tel" },
-          { "id": "cf_msg", "name": "message", "label": "Message", "type": "textarea", "required": true }
-        ]
+        "button": {
+          "id": "btn_full_enquire",
+          "label": "Send Enquiry",
+          "variant": "primary",
+          "size": "lg",
+          "on_click": { "kind": "run_action", "actionName": "submit_full_enquiry" }
+        }
+      },
+      {
+        "id": "footer_contact_callout",
+        "type": "callout",
+        "variant": "info",
+        "title": "Visit Our Corporate Office",
+        "body": "Head Office: 12th Floor, Landmark Tower, Bandra-Kurla Complex, Mumbai 400051 | +91 22 6789 4500 | sales@realestate.com",
+        "align": "center"
       }
     ],
     "actions": [
       {
-        "id": "act_submit_enquiry",
-        "name": "submit_enquiry",
+        "id": "act_quick",
+        "name": "submit_quick_enquiry",
         "description": "Submit the inline mini enquiry form.",
         "steps": [
-          { "kind": "validate", "names": ["enquiry_name", "enquiry_phone", "enquiry_email"], "on_fail_focus": true },
+          { "kind": "validate", "names": ["enquiry_name", "enquiry_phone"], "on_fail_focus": true },
           {
             "kind": "call_api",
             "method": "POST",
-            "url": "/api/public/enquiries",
+            "url": "/api/public/repm/enquiry",
             "body": {
               "name": "{{enquiry_name}}",
               "phone": "{{enquiry_phone}}",
-              "email": "{{enquiry_email}}",
-              "interest": "{{enquiry_interest}}"
+              "interest": "{{enquiry_interest}}",
+              "source": "home_inline"
             },
-            "save_response_to": "enq",
+            "save_response_to": "quick_resp",
             "on_success": [
-              { "kind": "clear_inputs", "names": ["enquiry_name", "enquiry_phone", "enquiry_email"] },
-              { "kind": "show_message", "level": "success", "text": "Thank you {{enq.name}} — our team will reach out shortly." }
+              { "kind": "clear_inputs", "names": ["enquiry_name", "enquiry_phone"] },
+              { "kind": "show_message", "level": "success", "text": "Thank you! Our team will call you within 24 hours." }
             ],
             "on_error": [
-              { "kind": "set_field_error", "name": "enquiry_email", "message": "We couldn't submit your enquiry. Please try again." },
+              { "kind": "show_message", "level": "error", "text": "Could not submit. Please try again or call +91 22 6789 4500." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "act_full",
+        "name": "submit_full_enquiry",
+        "description": "Submit the detailed contact form.",
+        "steps": [
+          { "kind": "validate", "names": ["enquiry_name", "enquiry_email", "enquiry_phone"], "on_fail_focus": true },
+          {
+            "kind": "call_api",
+            "method": "POST",
+            "url": "/api/public/repm/enquiry",
+            "body": {
+              "name": "{{enquiry_name}}",
+              "email": "{{enquiry_email}}",
+              "phone": "{{enquiry_phone}}",
+              "interest": "{{enquiry_interest}}",
+              "message": "{{enquiry_message}}",
+              "source": "home_contact"
+            },
+            "save_response_to": "full_resp",
+            "on_success": [
+              { "kind": "clear_inputs" },
+              { "kind": "show_message", "level": "success", "text": "Thanks for reaching out! A property consultant will contact you shortly." }
+            ],
+            "on_error": [
+              { "kind": "set_field_error", "name": "enquiry_email", "message": "Submission failed — please verify your details." },
               { "kind": "focus_input", "name": "enquiry_email" }
             ]
           }

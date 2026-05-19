@@ -1,0 +1,203 @@
+{
+  "page": {
+    "obj_name": "repm_home",
+    "title": "REPM \u2014 Project Workspace",
+    "description": "Pick a project to see its tasks, then a task to see its activities. All editing happens inline against the live preview database.",
+    "inputs": [
+      {
+        "name": "current_user",
+        "label": "Current user",
+        "type": "json",
+        "display": true,
+        "api": {
+          "method": "GET",
+          "url": "/api/auth/me",
+          "autoload": true
+        }
+      },
+      {
+        "name": "selected_project_id",
+        "label": "Selected project (PROJ_CODE)",
+        "type": "text",
+        "display": true,
+        "default": ""
+      },
+      {
+        "name": "selected_project",
+        "label": "Selected project row",
+        "type": "json",
+        "display": true
+      },
+      {
+        "name": "selected_task_id",
+        "label": "Selected task (TASK_ID)",
+        "type": "text",
+        "display": true,
+        "default": ""
+      },
+      {
+        "name": "selected_task",
+        "label": "Selected task row",
+        "type": "json",
+        "display": true
+      }
+    ],
+    "pageSchemaVersion": 2,
+    "sections": [
+      {
+        "id": "sec_main",
+        "name": "Main",
+        "tag": "main",
+        "blocks": [
+          {
+            "id": "hero_home",
+            "type": "hero",
+            "eyebrow": "REPM \u2022 REAL ESTATE PROJECT MANAGEMENT",
+            "title": "Project workspace",
+            "subtitle": "Browse active projects, drill into tasks, and capture activity updates \u2014 all from one screen.",
+            "align": "left",
+            "height": "compact",
+            "background": {
+              "kind": "gradient",
+              "gradientFrom": "#0F2A5B",
+              "gradientTo": "#2563EB",
+              "gradientAngle": 135
+            },
+            "textColor": "#FFFFFF",
+            "imageSide": "none",
+            "documentEditable": true
+          },
+          {
+            "id": "projects_heading",
+            "type": "heading",
+            "level": 2,
+            "text": "Active Projects",
+            "documentEditable": true
+          },
+          {
+            "id": "projects_subtitle",
+            "type": "paragraph",
+            "text": "Click a row to load its tasks. Use Add to create a new project; the row's pencil icon edits it.",
+            "documentEditable": true
+          },
+          {
+            "id": "embed_projects",
+            "type": "embed",
+            "embed": {
+              "obj_name": "repm_project",
+              "obj_type": "T",
+              "mode": "list",
+              "renderMode": "realtime",
+              "filters": [],
+              "selectedIdVar": "selected_project_id",
+              "selectedDataVar": "selected_project"
+            },
+            "size": {
+              "width": {
+                "value": 827,
+                "unit": "px"
+              },
+              "height": {
+                "value": 329,
+                "unit": "px"
+              }
+            }
+          },
+          {
+            "id": "div_projects_tasks",
+            "type": "divider"
+          },
+          {
+            "id": "tasks_heading",
+            "type": "heading",
+            "level": 2,
+            "text": "Tasks for {{selected_project_id}}",
+            "documentEditable": true
+          },
+          {
+            "id": "tasks_subtitle",
+            "type": "paragraph",
+            "text": "Tasks belonging to the selected project. Pick a task to drill into its activities.",
+            "documentEditable": true
+          },
+          {
+            "id": "embed_tasks",
+            "type": "embed",
+            "embed": {
+              "obj_name": "repm_task",
+              "obj_type": "T",
+              "mode": "list",
+              "renderMode": "realtime",
+              "filters": [
+                {
+                  "id": "flt_task_proj",
+                  "column": "PROJ_CODE",
+                  "op": "eq",
+                  "value": {
+                    "source": "page_input",
+                    "name": "selected_project_id"
+                  }
+                }
+              ],
+              "selectedIdVar": "selected_task_id",
+              "selectedDataVar": "selected_task"
+            }
+          },
+          {
+            "id": "div_tasks_activities",
+            "type": "divider"
+          },
+          {
+            "id": "activities_heading",
+            "type": "heading",
+            "level": 2,
+            "text": "Activities for {{selected_task.task_name}}",
+            "documentEditable": true
+          },
+          {
+            "id": "activities_subtitle",
+            "type": "paragraph",
+            "text": "Activities captured against the selected task. Add to log progress, click a row to edit, or use the trash icon to remove.",
+            "documentEditable": true
+          },
+          {
+            "id": "embed_activities",
+            "type": "embed",
+            "embed": {
+              "obj_name": "repm_activity",
+              "obj_type": "T",
+              "mode": "add",
+              "renderMode": "capture",
+              "filters": [
+                {
+                  "id": "f_mpc87fyd_11",
+                  "column": "PROJ_CODE",
+                  "op": "eq",
+                  "value": {
+                    "source": "page_input",
+                    "name": "selected_project_id"
+                  }
+                },
+                {
+                  "id": "f_mpc87sce_15",
+                  "column": "TASK_ID",
+                  "op": "eq",
+                  "value": {
+                    "source": "page_input",
+                    "name": "selected_task_id"
+                  }
+                }
+              ],
+              "captureTemplate": "multi-tabular",
+              "selectedIdVar": "selected_project_id",
+              "selectedDataVar": "selected_project"
+            }
+          }
+        ]
+      }
+    ],
+    "kind": "document",
+    "pageMode": "document",
+    "blocks": []
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "page": {
+    "obj_name": "repm_x_project_detail",
+    "title": "Project Detail",
+    "description": "Public project detail page template showcasing project information, amenities, plans, and enquiry options.",
+    "kind": "external",
+    "inputs": [],
+    "blocks": [
+      {
+        "id": "hero1",
+        "type": "hero",
+        "eyebrow": "RERA No. P51700012345",
+        "title": "Skyline Residences",
+        "subtitle": "Premium 2 & 3 BHK Apartments in Bandra West, Mumbai • Status: Under Construction",
+        "align": "left",
+        "height": "tall",
+        "background": {
+          "kind": "gradient",
+          "gradientFrom": "#0F172A",
+          "gradientTo": "#1E40AF",
+          "gradientAngle": 135,
+          "overlay": true
+        },
+        "textColor": "#FFFFFF",
+        "primaryCta": {
+          "id": "hero-cta-1",
+          "label": "Download Brochure",
+          "variant": "primary",
+          "size": "lg"
+        },
+        "secondaryCta": {
+          "id": "hero-cta-2",
+          "label": "Schedule Site Visit",
+          "variant": "outline",
+          "size": "lg"
+        },
+        "imageSide": "right",
+        "imageUrl": ""
+      },
+      {
+        "id": "stats1",
+        "type": "stats",
+        "columns": 4,
+        "align": "center",
+        "background": "#F8FAFC",
+        "items": [
+          {"id": "s1", "value": "2 & 3", "suffix": " BHK", "label": "Configurations"},
+          {"id": "s2", "value": "1,250", "suffix": " sq.ft", "label": "Starting Size"},
+          {"id": "s3", "value": "₹2.5", "suffix": " Cr+", "label": "Starting Price"},
+          {"id": "s4", "value": "Dec", "suffix": " 2026", "label": "Possession"}
+        ]
+      },
+      {
+        "id": "heading-gallery",
+        "type": "heading",
+        "level": 2,
+        "text": "Project Gallery"
+      },
+      {
+        "id": "gallery1",
+        "type": "gallery",
+        "columns": 3,
+        "gap": 12,
+        "rounded": true,
+        "items": [
+          {"id": "g1", "url": "", "caption": "Tower Elevation"},
+          {"id": "g2", "url": "", "caption": "Clubhouse"},
+          {"id": "g3", "url": "", "caption": "Swimming Pool"},
+          {"id": "g4", "url": "", "caption": "Living Room"},
+          {"id": "g5", "url": "", "caption": "Master Bedroom"},
+          {"id": "g6", "url": "", "caption": "Landscaped Garden"}
+        ]
+      },
+      {
+        "id": "divider1",
+        "type": "divider"
+      },
+      {
+        "id": "cols-main",
+        "type": "columns",
+        "count": 2,
+        "gap": 32,
+        "align": "top",
+        "columns": [
+          {
+            "id": "col-left",
+            "blocks": [
+              {
+                "id": "h-highlights",
+                "type": "heading",
+                "level": 2,
+                "text": "Project Highlights"
+              },
+              {
+                "id": "fg-highlights",
+                "type": "feature_grid",
+                "columns": 2,
+                "iconStyle": "circle",
+                "items": [
+                  {"id": "h1", "icon": "MapPin", "title": "Prime Location", "description": "5 minutes from Bandra Station & Linking Road"},
+                  {"id": "h2", "icon": "Building2", "title": "Modern Architecture", "description": "G+30 storey tower with panoramic sea views"},
+                  {"id": "h3", "icon": "Shield", "title": "Earthquake Resistant", "description": "RCC framed structure with Zone IV compliance"},
+                  {"id": "h4", "icon": "Leaf", "title": "Green Certified", "description": "IGBC Gold pre-certified sustainable design"}
+                ]
+              },
+              {
+                "id": "h-amenities",
+                "type": "heading",
+                "level": 2,
+                "text": "Amenities"
+              },
+              {
+                "id": "fg-amenities",
+                "type": "feature_grid",
+                "columns": 3,
+                "iconStyle": "plain",
+                "items": [
+                  {"id": "a1", "icon": "Waves", "title": "Swimming Pool"},
+                  {"id": "a2", "icon": "Dumbbell", "title": "Fitness Center"},
+                  {"id": "a3", "icon": "Trees", "title": "Landscaped Gardens"},
+                  {"id": "a4", "icon": "Users", "title": "Clubhouse"},
+                  {"id": "a5", "icon": "Gamepad2", "title": "Kids Play Area"},
+                  {"id": "a6", "icon": "Car", "title": "Covered Parking"},
+                  {"id": "a7", "icon": "ShieldCheck", "title": "24x7 Security"},
+                  {"id": "a8", "icon": "Zap", "title": "Power Backup"},
+                  {"id": "a9", "icon": "Wifi", "title": "High-Speed Wi-Fi"}
+                ]
+              },
+              {
+                "id": "h-plans",
+                "type": "heading",
+                "level": 2,
+                "text": "Floor & Master Plans"
+              },
+              {
+                "id": "tabs-plans",
+                "type": "tabs",
+                "variant": "underline",
+                "items": [
+                  {
+                    "id": "tp1",
+                    "label": "Master Plan",
+                    "blocks": [
+                      {"id": "mp-img", "type": "image", "url": "", "alt": "Master Plan", "caption": "Site layout showing tower placement, amenities, and landscaping", "rounded": true}
+                    ]
+                  },
+                  {
+                    "id": "tp2",
+                    "label": "2 BHK Floor Plan",
+                    "blocks": [
+                      {"id": "fp2-img", "type": "image", "url": "", "alt": "2 BHK Floor Plan", "caption": "2 BHK • 1,250 sq.ft Carpet Area", "rounded": true}
+                    ]
+                  },
+                  {
+                    "id": "tp3",
+                    "label": "3 BHK Floor Plan",
+                    "blocks": [
+                      {"id": "fp3-img", "type": "image", "url": "", "alt": "3 BHK Floor Plan", "caption": "3 BHK • 1,750 sq.ft Carpet Area", "rounded": true}
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "h-specs",
+                "type": "heading",
+                "level": 2,
+                "text": "Specifications"
+              },
+              {
+                "id": "acc-specs",
+                "type": "accordion",
+                "items": [
+                  {
+                    "id": "sp1",
+                    "title": "Structure",
+                    "defaultOpen": true,
+                    "blocks": [
+                      {"id": "sp1-list", "type": "bullet_list", "items": [
+                        {"id": "sp1-i1", "text": "RCC framed earthquake-resistant structure", "indent": 0},
+                        {"id": "sp1-i2", "text": "External walls: 200mm AAC blocks", "indent": 0},
+                        {"id": "sp1-i3", "text": "Internal walls: 100mm AAC blocks", "indent": 0}
+                      ]}
+                    ]
+                  },
+                  {
+                    "id": "sp2",
+                    "title": "Flooring",
+                    "blocks": [
+                      {"id": "sp2-list", "type": "bullet_list", "items": [
+                        {"id": "sp2-i1", "text": "Living/Dining: Imported marble flooring", "indent": 0},
+                        {"id": "sp2-i2", "text": "Bedrooms: Engineered wooden flooring", "indent": 0},
+                        {"id": "sp2-i3", "text": "Kitchen & Bathrooms: Anti-skid vitrified tiles", "indent": 0}
+                      ]}
+                    ]
+                  },
+                  {
+                    "id": "sp3",
+                    "title": "Kitchen",
+                    "blocks": [
+                      {"id": "sp3-list", "type": "bullet_list", "items": [
+                        {"id": "sp3-i1", "text": "Modular kitchen with granite countertop", "indent": 0},
+                        {"id": "sp3-i2", "text": "Stainless steel sink with hot/cold mixer", "indent": 0},
+                        {"id": "sp3-i3", "text": "Provision for water purifier and chimney", "indent": 0}
+                      ]}
+                    ]
+                  },
+                  {
+                    "id": "sp4",
+                    "title": "Electrical",
+                    "blocks": [
+                      {"id": "sp4-list", "type": "bullet_list", "items": [
+                        {"id": "sp4-i1", "text": "Concealed copper wiring with modular switches", "indent": 0},
+                        {"id": "sp4-i2", "text": "100% DG backup for common areas", "indent": 0},
+                        {"id": "sp4-i3", "text": "Smart home automation ready", "indent": 0}
+                      ]}
+                    ]
+                  },
+                  {
+                    "id": "sp5",
+                    "title": "Doors & Windows",
+                    "blocks": [
+                      {"id": "sp5-list", "type": "bullet_list", "items": [
+                        {"id": "sp5-i1", "text": "Main door: Engineered teak wood with digital lock", "indent": 0},
+                        {"id": "sp5-i2", "text": "Internal doors: Flush doors with laminate finish", "indent": 0},
+                        {"id": "sp5-i3", "text": "Windows: UPVC double-glazed sliding windows", "indent": 0}
+                      ]}
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "h-location",
+                "type": "heading",
+                "level": 2,
+                "text": "Location"
+              },
+              {
+                "id": "map1",
+                "type": "map",
+                "provider": "leaflet",
+                "locationMode": "address",
+                "address": "Bandra West, Mumbai, Maharashtra 400050, India",
+                "zoom": 15,
+                "height": 400,
+                "title": "Skyline Residences",
+                "caption": "Bandra West, Mumbai — 5 min from Bandra Station"
+              }
+            ]
+          },
+          {
+            "id": "col-right",
+            "blocks": [
+              {
+                "id": "enq-card",
+                "type": "container",
+                "background": "#FFFFFF",
+                "padding": 24,
+                "rounded": true,
+                "text": "",
+                "textColor": "#0F172A"
+              },
+              {
+                "id": "enq-heading",
+                "type": "heading",
+                "level": 3,
+                "text": "Enquire Now"
+              },
+              {
+                "id": "enq-sub",
+                "type": "paragraph",
+                "text": "Get instant callback from our project expert"
+              },
+              {
+                "id": "enq-form",
+                "type": "contact_form",
+                "buttonLabel": "Request Callback",
+                "align": "left",
+                "fields": [
+                  {"id": "ef1", "name": "full_name", "label": "Full Name", "type": "text", "placeholder": "Your name", "required": true},
+                  {"id": "ef2", "name": "email", "label": "Email", "type": "email", "placeholder": "you@example.com", "required": true},
+                  {"id": "ef3", "name": "phone", "label": "Phone", "type": "tel", "placeholder": "+91 98xxxxxxxx", "required": true},
+                  {"id": "ef4", "name": "message", "label": "Message", "type": "textarea", "placeholder": "I'm interested in...", "required": false}
+                ]
+              },
+              {
+                "id": "enq-btns",
+                "type": "button_group",
+                "align": "center",
+                "gap": 12,
+                "buttons": [
+                  {"id": "bg1", "label": "Download Brochure", "variant": "primary", "size": "md", "on_click": {"kind": "external_url", "url": "/files/skyline-brochure.pdf", "newTab": true}},
+                  {"id": "bg2", "label": "Schedule Visit", "variant": "outline", "size": "md", "on_click": {"kind": "external_url", "url": "tel:+919999999999"}}
+                ]
+              },
+              {
+                "id": "enq-callout",
+                "type": "callout",
+                "variant": "info",
+                "title": "RERA Registered",
+                "body": "MahaRERA Registration No. P51700012345 • View at maharera.mahaonline.gov.in",
+                "icon": "ShieldCheck"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cta-bottom",
+        "type": "cta_banner",
+        "eyebrow": "Limited Inventory",
+        "title": "Book Your Dream Home Today",
+        "subtitle": "Pre-launch pricing available for a limited time. Schedule a site visit to experience Skyline Residences.",
+        "align": "center",
+        "background": {
+          "kind": "gradient",
+          "gradientFrom": "#1E40AF",
+          "gradientTo": "#0F172A",
+          "gradientAngle": 135
+        },
+        "textColor": "#FFFFFF",
+        "primaryCta": {"id": "cb1", "label": "Download Brochure", "variant": "primary", "size": "lg"},
+        "secondaryCta": {"id": "cb2", "label": "Schedule Site Visit", "variant": "outline", "size": "lg"}
+      }
+    ],
+    "actions": []
+  }
+}

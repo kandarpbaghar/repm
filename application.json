@@ -371,7 +371,9 @@
       "obj_name": "repm_x_home",
       "obj_type": "S",
       "menu_path": "repm.8.1",
-      "functional_specs": "Hero carousel, primary CTA Enquire Now, secondary Explore Projects, feature grid (Residential/Commercial/Townships/Completed), featured projects cards from public API, why-choose-us, testimonials, newsroom strip, footer contact form, inline enquiry mini-form."
+      "functional_specs": "Hero carousel, primary CTA Enquire Now, secondary Explore Projects, feature grid (Residential/Commercial/Townships/Completed), featured projects cards from public API, why-choose-us, testimonials, newsroom strip, footer contact form, inline enquiry mini-form.",
+      "page_kind": "external",
+      "design_reference_url": "https://surakshasmartcity.com/"
     },
     {
       "id": "repm.8.2",
