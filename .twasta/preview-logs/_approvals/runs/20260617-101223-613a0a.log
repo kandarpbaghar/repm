@@ -1,0 +1,8 @@
+=== preview run 20260617-101223-613a0a ===
+kind=execute action=approval_list user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-17T10:12:23
+project=repm
+obj=_approvals
+payload_keys=limit,offset,status
+  • approval_list ok
+finished=2026-06-17T10:12:23 status=OK

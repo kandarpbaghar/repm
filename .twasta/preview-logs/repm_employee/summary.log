@@ -1,0 +1,91 @@
+2026-06-05T12:59:44	20260605-125944-258b3d	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T12:59:44	20260605-125944-33ca8f	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:17:00	20260605-131700-5f81ea	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:17:00	20260605-131700-0ad30a	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:25:26	20260605-132526-aa77de	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:25:26	20260605-132526-c3408a	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:25:48	20260605-132548-61de63	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:25:48	20260605-132548-e01673	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:26:04	20260605-132604-68c151	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:26:04	20260605-132604-9f1d55	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:42:26	20260605-134226-d74d85	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:42:26	20260605-134226-c758ec	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:42:33	20260605-134233-2e8ac1	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:42:33	20260605-134233-30ecba	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:42:33	20260605-134233-ca420b	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:44:37	20260605-134437-9f33c9	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-05T13:45:33	20260605-134533-b9800a	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-05T13:45:33	20260605-134533-862570	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-05T13:45:44	20260605-134544-5fd0aa	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-05T13:45:44	20260605-134544-ed5942	resolve_defaults	resolve_defaults	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	resolved default values
+2026-06-05T13:45:54	20260605-134554-3db6e4	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-05T13:45:54	20260605-134554-fec3b1	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-05T13:45:56	20260605-134556-1a319f	execute	item_change	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	item_change ok
+2026-06-17T09:11:30	20260617-091130-b9efc6	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:11:30	20260617-091130-b282be	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:11:35	20260617-091135-7f6812	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T09:11:37	20260617-091137-5bd332	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 1 validation error(s): report_mgr: Validation could not run: business-logic function 'validate_active_manager' is not deployed (no compiled function body found).
+2026-06-17T09:11:48	20260617-091148-2b0571	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T09:11:50	20260617-091150-00e288	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 1 validation error(s): report_mgr: Validation could not run: business-logic function 'validate_active_manager' is not deployed (no compiled function body found).
+2026-06-17T09:14:16	20260617-091416-ba8c08	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:14:16	20260617-091416-1c4189	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:14:27	20260617-091427-1d0d09	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T09:14:32	20260617-091432-aa144c	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 1 validation error(s): report_mgr: Validation could not run: business-logic function 'validate_active_manager' is not deployed (no compiled function body found).
+2026-06-17T09:19:56	20260617-091956-021189	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:19:56	20260617-091956-eb37b8	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:26:55	20260617-092655-526d5b	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T09:26:58	20260617-092658-2dbd69	execute	validate	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 1 validation error(s): report_mgr: Validation could not run: business-logic function 'validate_active_manager' is not deployed (no compiled function body found).
+2026-06-17T09:30:38	20260617-093038-f04951	resolve_defaults	resolve_defaults	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	resolved default values
+2026-06-17T09:32:27	20260617-093227-6567c2	execute	validate	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 6 validation error(s): emp_code: Employee Code is required; emp_name: Employee Name is required; designation: Designation is required
+2026-06-17T09:32:46	20260617-093246-ada15a	deploy	deploy	WARN	9d766f1f-50c6-4668-bb17-eabebe25e8a7	deployed with 1 warning(s): repm_employee: Could not add column emp_image: type "image" does not exist LINE 1: ... TABLE "twasta"."repm_employee" ADD COLUMN "emp_image" IMAGE                                                                 …
+2026-06-17T09:32:46	20260617-093246-8f96f8	list	list	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ProgrammingError: column t0.emp_image does not exist LINE 1: ...code" AS "emp_code", t0."emp_name" AS "emp_name", t0."emp_im...                                                              ^ HINT:  Perhaps you meant to reference the column…
+2026-06-17T09:33:18	20260617-093318-71a7b6	deploy	deploy	WARN	9d766f1f-50c6-4668-bb17-eabebe25e8a7	deployed with 1 warning(s): repm_employee: Could not add column emp_image: type "image" does not exist LINE 1: ... TABLE "twasta"."repm_employee" ADD COLUMN "emp_image" IMAGE                                                                 …
+2026-06-17T09:33:18	20260617-093318-2113da	list	list	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ProgrammingError: column t0.emp_image does not exist LINE 1: ...code" AS "emp_code", t0."emp_name" AS "emp_name", t0."emp_im...                                                              ^ HINT:  Perhaps you meant to reference the column…
+2026-06-17T09:35:36	20260617-093536-06b726	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:35:36	20260617-093536-1feb5b	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:36:25	20260617-093625-d82357	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:36:25	20260617-093625-23486f	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:55:31	20260617-095531-c5b9b5	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:55:31	20260617-095531-ab2f7b	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:55:36	20260617-095535-3a1ebe	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:55:36	20260617-095536-57427e	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:55:42	20260617-095542-39f4fa	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T09:56:12	20260617-095612-dc8df0	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 3 validation error(s): email: Email must be a valid format (must contain @ and domain); mobile: Mobile Number must be exactly 10 digits; emp_image: Employee Image cannot exceed 50 characters (you entered 91).
+2026-06-17T09:56:39	20260617-095639-16995a	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 2 validation error(s): mobile: Mobile Number must be exactly 10 digits; emp_image: Employee Image cannot exceed 50 characters (you entered 91).
+2026-06-17T09:56:51	20260617-095651-22ab91	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 2 validation error(s): mobile: Mobile Number must be exactly 10 digits; emp_image: Employee Image cannot exceed 50 characters (you entered 91).
+2026-06-17T09:57:24	20260617-095724-dc3e3d	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 2 validation error(s): mobile: Mobile Number must be exactly 10 digits; emp_image: Employee Image cannot exceed 50 characters (you entered 91).
+2026-06-17T09:57:35	20260617-095735-c58e40	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 1 validation error(s): emp_image: Employee Image cannot exceed 50 characters (you entered 91).
+2026-06-17T09:57:44	20260617-095744-b42820	execute_batch	save_batch	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	batch saved
+2026-06-17T09:57:44	20260617-095744-99db7a	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T09:59:57	20260617-095957-e56a5e	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T09:59:57	20260617-095957-cd07a3	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T10:00:00	20260617-100000-600978	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:00:15	20260617-100015-568e88	execute_batch	save_batch	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	batch saved
+2026-06-17T10:00:15	20260617-100015-0376ea	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T10:00:21	20260617-100021-9e71ce	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:00:28	20260617-100028-e61fee	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:00:46	20260617-100046-7faf33	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:12:23	20260617-101223-9b1888	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-17T10:12:23	20260617-101223-c4fbea	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-17T10:12:36	20260617-101236-f17d60	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:12:41	20260617-101241-55a58a	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:12:48	20260617-101248-709fe4	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-17T10:13:06	20260617-101306-a5cc37	execute_batch	save_batch	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	batch saved
+2026-06-17T10:13:06	20260617-101306-26521d	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:32:27	20260618-183226-00aab9	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-18T18:32:27	20260618-183227-fac944	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:32:31	20260618-183231-ac11f9	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-18T18:32:31	20260618-183231-cc3836	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:32:35	20260618-183235-9ca29d	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-18T18:32:35	20260618-183235-063837	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:32:35	20260618-183235-c35fc0	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:33:51	20260618-183351-d0e5ca	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:34:02	20260618-183402-615568	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:34:02	20260618-183402-22b9ab	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:35:03	20260618-183503-0fbb73	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-18T18:35:04	20260618-183504-a29589	resolve_defaults	resolve_defaults	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	resolved default values
+2026-06-18T18:35:13	20260618-183513-5fd646	execute	validate	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 6 validation error(s): emp_code: Employee Code is required; emp_name: Employee Name is required; designation: Designation is required
+2026-06-18T18:35:16	20260618-183516-20d667	load	load	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	-
+2026-06-18T18:35:19	20260618-183519-ac841b	execute	validate	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 2 validation error(s): emp_code: Employee Code must be unique; email: Email must be unique across all employees
+2026-06-19T16:26:46	20260619-162646-1cfdb9	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-19T16:26:46	20260619-162646-c951c6	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows

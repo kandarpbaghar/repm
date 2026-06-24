@@ -1,0 +1,69 @@
+=== preview run 20260617-093318-2113da ===
+kind=list action=list user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-17T09:33:18
+project=repm
+obj=repm_employee
+limit=50
+offset=0
+  ┌─ TRACEBACK
+      Traceback (most recent call last):
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+          self.dialect.do_execute(
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+          cursor.execute(statement, parameters)
+      psycopg2.errors.UndefinedColumn: column t0.emp_image does not exist
+      LINE 1: ...code" AS "emp_code", t0."emp_name" AS "emp_name", t0."emp_im...
+                                                                   ^
+      HINT:  Perhaps you meant to reference the column "t0.emp_name".
+      
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/backend/app/services/preview_logging.py", line 149, in run
+          yield run
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/backend/app/routers/livepreview.py", line 947, in _do
+          result = executor.execute_action(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/backend/app/services/livepreview/executor.py", line 44, in execute_action
+          return _pkg_execute_action(
+                 ^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 85, in wrapper
+          return fn(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 4362, in execute_action
+          result = _list(
+                   ^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 2669, in _list
+          rows = conn.execute(
+                 ^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+          return meth(
+                 ^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+          return connection._execute_clauseelement(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+          ret = self._execute_context(
+                ^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+          return self._exec_single_context(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+          self._handle_dbapi_exception(
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+          raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+          self.dialect.do_execute(
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+          cursor.execute(statement, parameters)
+      sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column t0.emp_image does not exist
+      LINE 1: ...code" AS "emp_code", t0."emp_name" AS "emp_name", t0."emp_im...
+                                                                   ^
+      HINT:  Perhaps you meant to reference the column "t0.emp_name".
+      
+      [SQL: SELECT t0."emp_code" AS "emp_code", t0."emp_name" AS "emp_name", t0."emp_image" AS "emp_image", t0."father_name" AS "father_name", t0."designation" AS "designation", t0."department" AS "department", t0."email" AS "email", t0."mobile" AS "mobile", t0."birth_date" AS "birth_date", t0."marital_status" AS "marital_status", t0."qualification" AS "qualification", t0."address1" AS "address1", t0."address2" AS "address2", t0."address3" AS "address3", t0."city" AS "city", t0."country" AS "country", t0."state" AS "state", t0."zip" AS "zip", t0."report_mgr" AS "report_mgr", t0."report_mgr_name" AS "report_mgr_name", t0."doj" AS "doj", t0."status" AS "status", t0."remarks" AS "remarks", t0."add_date" AS "add_date", t0."add_user" AS "add_user", t0."add_term" AS "add_term", t0."chg_date" AS "chg_date", t0."chg_user" AS "chg_user", t0."chg_term" AS "chg_term" FROM "twasta"."repm_employee" t0 ORDER BY t0."birth_date" DESC, t0."emp_code" LIMIT %(lim)s OFFSET %(off)s]
+      [parameters: {'lim': 50, 'off': 0}]
+      (Background on this error at: https://sqlalche.me/e/20/f405)
+  └─
+finished=2026-06-17T09:33:18 status=ERROR

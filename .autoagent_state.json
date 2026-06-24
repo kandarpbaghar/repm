@@ -13,7 +13,7 @@
       "obj_name": "repm_project",
       "obj_type": null,
       "started_at": 1779182152.279031,
-      "completed_at": 1779182994.976649
+      "completed_at": 1779402451.922844
     },
     {
       "id": "change_2",
@@ -24,7 +24,7 @@
       "obj_name": "repm_project",
       "obj_type": "T",
       "started_at": 1779182173.05867,
-      "completed_at": 1779183016.351101
+      "completed_at": 1779402474.906805
     },
     {
       "id": "change_3",
@@ -35,7 +35,7 @@
       "obj_name": "repm_project",
       "obj_type": "T",
       "started_at": 1779182191.087214,
-      "completed_at": 1779183127.101194
+      "completed_at": 1779402500.6837199
     },
     {
       "id": "change_1",
@@ -73,7 +73,43 @@
       "obj_name": "repm_home",
       "obj_type": "S",
       "started_at": 1779183127.103192,
-      "completed_at": 1779183160.408399
+      "completed_at": 1779402552.897717
+    },
+    {
+      "id": "change_1",
+      "step": "change",
+      "label": "Update FRS to remove Project Location from Manage Project and remove Manage Project Location Master section",
+      "status": "pending",
+      "error": null,
+      "obj_name": null,
+      "obj_type": null
+    },
+    {
+      "id": "change_2",
+      "step": "change",
+      "label": "Update application.json to remove Project Location references from repm_project navigation spec and remove repm_location navigation object",
+      "status": "pending",
+      "error": null,
+      "obj_name": null,
+      "obj_type": null
+    },
+    {
+      "id": "change_3",
+      "step": "change",
+      "label": "Remove Project Location field and related metadata from repm_project transaction model",
+      "status": "pending",
+      "error": null,
+      "obj_name": "repm_project",
+      "obj_type": "T"
+    },
+    {
+      "id": "change_4",
+      "step": "change",
+      "label": "Delete the repm_location transaction model file",
+      "status": "pending",
+      "error": null,
+      "obj_name": "repm_location",
+      "obj_type": "T"
     }
   ]
 }

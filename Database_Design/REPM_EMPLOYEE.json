@@ -1,6 +1,6 @@
 {
   "table_name": "REPM_EMPLOYEE",
-  "table_description": "",
+  "table_description": "Employee master table",
   "project": "repm",
   "columns": [
     {
@@ -8,7 +8,7 @@
       "data_type": "CHAR",
       "size": "10",
       "key": true,
-      "description": "",
+      "description": "Unique employee code",
       "sequence": 1
     },
     {
@@ -16,8 +16,144 @@
       "data_type": "VARCHAR",
       "size": "120",
       "key": false,
-      "description": "Project manager name from employee master",
+      "description": "Full name of the employee",
       "sequence": 2
+    },
+    {
+      "column_name": "DESIGNATION",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Job designation of the employee",
+      "sequence": 3
+    },
+    {
+      "column_name": "DEPARTMENT",
+      "data_type": "CHAR",
+      "size": "3",
+      "key": false,
+      "description": "Department of the employee",
+      "sequence": 4
+    },
+    {
+      "column_name": "EMAIL",
+      "data_type": "VARCHAR",
+      "size": "120",
+      "key": false,
+      "description": "Official email address",
+      "sequence": 5
+    },
+    {
+      "column_name": "MOBILE",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "10-digit mobile number",
+      "sequence": 6
+    },
+    {
+      "column_name": "BIRTH_DATE",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date of birth of the employee",
+      "sequence": 7
+    },
+    {
+      "column_name": "QUALIFICATION",
+      "data_type": "VARCHAR",
+      "size": "100",
+      "key": false,
+      "description": "Highest educational qualification of the employee",
+      "sequence": 8
+    },
+    {
+      "column_name": "ADDRESS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Residential address of the employee",
+      "sequence": 9
+    },
+    {
+      "column_name": "REPORT_MGR",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "Reporting manager employee code",
+      "sequence": 10
+    },
+    {
+      "column_name": "DOJ",
+      "data_type": "DATE",
+      "size": "",
+      "key": false,
+      "description": "Date the employee joined",
+      "sequence": 11
+    },
+    {
+      "column_name": "STATUS",
+      "data_type": "CHAR",
+      "size": "1",
+      "key": false,
+      "description": "Active / Inactive status (soft delete via Inactive)",
+      "sequence": 12
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR",
+      "size": "500",
+      "key": false,
+      "description": "Free-form remarks",
+      "sequence": 13
+    },
+    {
+      "column_name": "ADD_DATE",
+      "data_type": "DATETIME",
+      "size": "",
+      "key": false,
+      "description": "Record creation timestamp",
+      "sequence": 14
+    },
+    {
+      "column_name": "ADD_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who created the record",
+      "sequence": 15
+    },
+    {
+      "column_name": "ADD_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of record creation",
+      "sequence": 16
+    },
+    {
+      "column_name": "CHG_DATE",
+      "data_type": "DATETIME",
+      "size": "",
+      "key": false,
+      "description": "Last change timestamp",
+      "sequence": 17
+    },
+    {
+      "column_name": "CHG_USER",
+      "data_type": "CHAR",
+      "size": "10",
+      "key": false,
+      "description": "User who last changed the record",
+      "sequence": 18
+    },
+    {
+      "column_name": "CHG_TERM",
+      "data_type": "VARCHAR",
+      "size": "15",
+      "key": false,
+      "description": "Terminal of last change",
+      "sequence": 19
     }
   ]
 }

@@ -86,20 +86,6 @@
       }
     },
     {
-      "object_name": "repm_project",
-      "form_no": "1",
-      "usage_type": "R",
-      "referred_columns": [
-        "EMP_NAME",
-        "EMP_CODE"
-      ],
-      "join_info": {
-        "column": "EMP_CODE",
-        "join_table": "REPM_PROJECT",
-        "join_column": "PM_EMP_CODE"
-      }
-    },
-    {
       "object_name": "repm_checklist",
       "form_no": "2",
       "usage_type": "R",
@@ -111,6 +97,20 @@
         "column": "EMP_CODE",
         "join_table": "REPM_CHECKLIST_ITEM",
         "join_column": "RESP_EMP_CODE"
+      }
+    },
+    {
+      "object_name": "repm_project",
+      "form_no": "1",
+      "usage_type": "R",
+      "referred_columns": [
+        "EMP_CODE",
+        "EMP_NAME"
+      ],
+      "join_info": {
+        "column": "EMP_CODE",
+        "join_table": "REPM_PROJECT",
+        "join_column": "PM_EMP_CODE"
       }
     }
   ]

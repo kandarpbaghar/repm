@@ -19,7 +19,7 @@
                 "mandatory": "true",
                 "protect": "1",
                 "hidden": "1",
-                "x": "10",
+                "x": "30",
                 "y": "10",
                 "col_id": "1",
                 "db_name": "CHECKLIST_ID",
@@ -46,7 +46,7 @@
                 "validations": [
                   "expression('unique(CHECKLIST_CODE)')"
                 ],
-                "x": "20",
+                "x": "40",
                 "y": "20",
                 "col_id": "2",
                 "db_name": "CHECKLIST_CODE",
@@ -73,14 +73,14 @@
                 "heading": "Checklist Name",
                 "descr": "Name of the checklist",
                 "mandatory": "true",
-                "x": "30",
+                "x": "20",
                 "y": "30",
                 "col_id": "3",
                 "db_name": "CHECKLIST_NAME",
                 "table_name": "REPM_CHECKLIST",
                 "table_display_name": "Project checklist header table",
                 "db_size": "120",
-                "width": 500,
+                "width": 271,
                 "key": false,
                 "hidden": "",
                 "format": "",
@@ -314,32 +314,28 @@
                 "heading": "Status",
                 "descr": "Checklist status",
                 "mandatory": "true",
-                "default_value": "DR",
+                "default_value": "P",
                 "edit_mask": {
-                  "mask": "ddlb",
+                  "mask": "bool_check",
                   "values": [
                     {
-                      "data": "DR",
-                      "display": "Draft"
+                      "data": "C",
+                      "display": "Pending"
                     },
                     {
-                      "data": "AC",
-                      "display": "Active"
-                    },
-                    {
-                      "data": "CL",
-                      "display": "Closed"
+                      "data": "P",
+                      "display": "Done"
                     }
                   ]
                 },
-                "x": "40",
+                "x": "10",
                 "y": "40",
                 "col_id": "10",
                 "db_name": "STATUS",
                 "table_name": "REPM_CHECKLIST",
                 "table_display_name": "Project checklist header table",
                 "db_size": "2",
-                "width": 50,
+                "width": 75,
                 "key": false,
                 "hidden": "",
                 "format": "",

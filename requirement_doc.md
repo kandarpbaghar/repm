@@ -7,19 +7,12 @@
 - Actions: Search, Add, Edit, Delete (soft-delete by toggling Status to Inactive when references exist).
 - Additional data management: On deactivation, open action points assigned to the employee are flagged for reassignment.
 
-### Manage Project Location Master
-- Description: Maintain the list of project sites / locations used to tag projects.
-- Data points: Location Code, Location Name, Address Line 1, Address Line 2, City, State (dropdown of Indian states), Pin Code, Country (default India), Latitude, Longitude, Status (Active / Inactive).
-- Business rules: Location Code is mandatory and unique. Pin Code must be 6 digits numeric. Latitude/Longitude, if entered, must be within valid ranges.
-- Actions: Search, Add, Edit, Delete.
-- Additional data management: None.
-
 ## Project Setup & Planning
 
 ### Manage Project
 - Description: Create and maintain real-estate development projects. Each project is the top-level container of phases, tasks, activities and action points.
-- Data points: Project Code, Project Name, Project Type (dropdown: Residential Apartment / Residential Villa / Commercial Office / Commercial Retail / Mixed-Use / Township / Plotted Development / Redevelopment), Project Category (dropdown: Affordable / Mid-Segment / Premium / Luxury / Ultra-Luxury), Priority (dropdown: Low / Medium / High / Critical), Status (dropdown: Draft / Planned / In-Progress / On-Hold / Completed / Cancelled), Project Location, Land Area (Sq.Ft), Built-up Area (Sq.Ft), Number of Towers, Number of Units, Planned Start Date, Planned End Date, Actual Start Date, Actual End Date, Estimated Budget, Approved Budget, Project Manager (Employee), RERA Number, Approval Authority, Description, Remarks.
-- Business rules: Project Code is mandatory and unique. Project Location is optional (non-mandatory) and may be left blank at project creation or edit. Planned End Date must be on or after Planned Start Date. Approved Budget cannot exceed Estimated Budget by more than 20% without an Approve action. A project cannot be marked Completed unless all phases are Completed or Cancelled. Cancelled projects become read-only.
+- Data points: Project Code, Project Name, Project Type (dropdown: Residential Apartment / Residential Villa / Commercial Office / Commercial Retail / Mixed-Use / Township / Plotted Development / Redevelopment), Project Category (dropdown: Affordable / Mid-Segment / Premium / Luxury / Ultra-Luxury), Priority (dropdown: Low / Medium / High / Critical), Status (dropdown: Draft / Planned / In-Progress / On-Hold / Completed / Cancelled), Land Area (Sq.Ft), Built-up Area (Sq.Ft), Number of Towers, Number of Units, Planned Start Date, Planned End Date, Actual Start Date, Actual End Date, Estimated Budget, Approved Budget, Project Manager (Employee), RERA Number, Approval Authority, Description, Remarks.
+- Business rules: Project Code is mandatory and unique. Planned End Date must be on or after Planned Start Date. Approved Budget cannot exceed Estimated Budget by more than 20% without an Approve action. A project cannot be marked Completed unless all phases are Completed or Cancelled. Cancelled projects become read-only.
 - Actions: Search, Add, Edit, Delete, Submit-for-Approval, Approve, Cancel.
 - Additional data management: On Submit-for-Approval, send notification to the approver role. On Approve, set Status to Planned and stamp approval date/user. On Cancel, cascade-cancel all open phases, tasks, activities and action points.
 

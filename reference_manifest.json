@@ -1,7 +1,7 @@
 {
   "project_name": "Real Estate Project Management",
   "project_description": "End-to-end project management for real-estate developers covering masters, project planning, phases, tasks, activities, action point check-lists, daily progress, issues/risks, dashboards, reports and a public marketing website.",
-  "generated_at": "2026-05-19T09:32:07.098018+00:00",
+  "generated_at": "2026-05-30T22:42:50.862109+00:00",
   "owner_user_id": "",
   "navigation_summary": [
     {
@@ -15,12 +15,6 @@
       "obj_type": "T",
       "title": "Manage Employee",
       "description": "Maintain employees who can be assigned to project work."
-    },
-    {
-      "obj_name": "repm_location",
-      "obj_type": "T",
-      "title": "Manage Project Location",
-      "description": "Maintain project sites/locations."
     },
     {
       "obj_name": "repm_project",
@@ -317,12 +311,29 @@
     },
     {
       "table_name": "REPM_EMPLOYEE",
-      "description": "",
+      "description": "Employee master table",
       "key_columns": [
         "EMP_CODE CHAR"
       ],
       "other_columns": [
-        "EMP_NAME VARCHAR"
+        "EMP_NAME VARCHAR",
+        "DESIGNATION CHAR",
+        "DEPARTMENT CHAR",
+        "EMAIL VARCHAR",
+        "MOBILE CHAR",
+        "BIRTH_DATE DATE",
+        "QUALIFICATION VARCHAR",
+        "ADDRESS VARCHAR",
+        "REPORT_MGR CHAR",
+        "DOJ DATE",
+        "STATUS CHAR",
+        "REMARKS VARCHAR",
+        "ADD_DATE DATETIME",
+        "ADD_USER CHAR",
+        "ADD_TERM VARCHAR",
+        "CHG_DATE DATETIME",
+        "CHG_USER CHAR",
+        "CHG_TERM VARCHAR"
       ]
     },
     {
@@ -354,16 +365,6 @@
         "CHG_DATE DATE",
         "CHG_USER CHAR",
         "CHG_TERM VARCHAR"
-      ]
-    },
-    {
-      "table_name": "REPM_LOCATION",
-      "description": "",
-      "key_columns": [
-        "LOC_CODE CHAR"
-      ],
-      "other_columns": [
-        "LOC_NAME VARCHAR"
       ]
     },
     {
@@ -431,11 +432,9 @@
       ],
       "other_columns": [
         "PROJ_NAME VARCHAR",
-        "PROJ_TYPE CHAR",
         "PROJ_CATEGORY CHAR",
         "PRIORITY CHAR",
         "STATUS CHAR",
-        "LOC_CODE CHAR",
         "LAND_AREA NUMBER(14,2)",
         "BUILTUP_AREA NUMBER(14,2)",
         "NUM_TOWERS NUMBER(4)",
@@ -463,7 +462,8 @@
         "ADD_TERM VARCHAR",
         "CHG_DATE DATE",
         "CHG_USER CHAR",
-        "CHG_TERM VARCHAR"
+        "CHG_TERM VARCHAR",
+        "PROJ_TYPE VARCHAR"
       ]
     },
     {

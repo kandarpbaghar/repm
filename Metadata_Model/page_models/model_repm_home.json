@@ -40,6 +40,21 @@
         "label": "Selected task row",
         "type": "json",
         "display": true
+      },
+      {
+        "name": "ACTIVITY_ID",
+        "label": "Selected Activity",
+        "type": "text",
+        "isInput": false,
+        "default": "",
+        "display": false
+      },
+      {
+        "name": "ACTIVITY_ROW",
+        "label": "Activity Row",
+        "type": "json",
+        "isInput": true,
+        "default": ""
       }
     ],
     "pageSchemaVersion": 2,
@@ -90,7 +105,13 @@
               "renderMode": "realtime",
               "filters": [],
               "selectedIdVar": "selected_project_id",
-              "selectedDataVar": "selected_project"
+              "selectedDataVar": "selected_project",
+              "columnTotals": {
+                "est_budget": {
+                  "kind": "aggregate",
+                  "spec": "sum"
+                }
+              }
             },
             "size": {
               "width": {
@@ -189,8 +210,18 @@
                 }
               ],
               "captureTemplate": "multi-tabular",
-              "selectedIdVar": "selected_project_id",
-              "selectedDataVar": "selected_project"
+              "selectedIdVar": "ACTIVITY_ID",
+              "selectedDataVar": "ACTIVITY_ROW"
+            },
+            "size": {
+              "width": {
+                "value": 822,
+                "unit": "px"
+              },
+              "height": {
+                "value": 345,
+                "unit": "px"
+              }
             }
           },
           {
@@ -245,6 +276,15 @@
                     "source": "page_input",
                     "name": "selected_task_id"
                   }
+                },
+                {
+                  "id": "f_mpctjz4b_106",
+                  "column": "ACTIVITY_ID",
+                  "op": "eq",
+                  "value": {
+                    "source": "page_input",
+                    "name": "ACTIVITY_ID"
+                  }
                 }
               ]
             }
@@ -273,6 +313,77 @@
             "id": "paragraph_2",
             "type": "paragraph",
             "text": "Write anything that you want to track"
+          },
+          {
+            "id": "paragraph_3",
+            "type": "file_upload",
+            "text": "",
+            "kind": "document",
+            "docType": {
+              "source": "static",
+              "value": "ProjectFile"
+            },
+            "transactionId": {
+              "source": "static",
+              "value": "T001"
+            },
+            "label": "Attach a file",
+            "documentEditable": true,
+            "documentRequired": true
+          },
+          {
+            "id": "paragraph_4",
+            "type": "columns",
+            "text": "",
+            "count": 2,
+            "gap": 6,
+            "align": "top",
+            "columns": [
+              {
+                "id": "col_mq4i6j0y_4",
+                "text": "",
+                "blocks": [
+                  {
+                    "id": "file_upload_1",
+                    "type": "file_upload",
+                    "kind": "document",
+                    "docType": {
+                      "source": "static",
+                      "value": "ANY"
+                    },
+                    "transactionId": {
+                      "source": "static",
+                      "value": "P001"
+                    },
+                    "label": "Attach a file",
+                    "documentEditable": true,
+                    "documentRequired": true
+                  }
+                ]
+              },
+              {
+                "id": "col_mq4i6j0y_5",
+                "text": "",
+                "blocks": [
+                  {
+                    "id": "file_upload_2",
+                    "type": "file_upload",
+                    "kind": "document",
+                    "docType": {
+                      "source": "static",
+                      "value": "repm_home"
+                    },
+                    "transactionId": {
+                      "source": "static",
+                      "value": "file_upload_2"
+                    },
+                    "label": "Attach a file",
+                    "documentEditable": true,
+                    "documentRequired": true
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "todo_1",

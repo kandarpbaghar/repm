@@ -1,0 +1,8 @@
+=== preview run 20260617-100015-568e88 ===
+kind=execute_batch action=save_batch user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-17T10:00:15
+project=repm
+obj=repm_employee
+payload_keys=
+  • batch saved pk=E0006 child_forms=0
+finished=2026-06-17T10:00:15 status=OK

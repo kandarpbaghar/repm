@@ -20,20 +20,12 @@
       "sequence": 2
     },
     {
-      "column_name": "PROJ_TYPE",
-      "data_type": "CHAR",
-      "size": "3",
-      "key": false,
-      "description": "Type of project",
-      "sequence": 3
-    },
-    {
       "column_name": "PROJ_CATEGORY",
       "data_type": "CHAR",
       "size": "3",
       "key": false,
       "description": "Segment category",
-      "sequence": 4
+      "sequence": 3
     },
     {
       "column_name": "PRIORITY",
@@ -41,7 +33,7 @@
       "size": "1",
       "key": false,
       "description": "Project priority",
-      "sequence": 5
+      "sequence": 4
     },
     {
       "column_name": "STATUS",
@@ -49,15 +41,7 @@
       "size": "2",
       "key": false,
       "description": "Project status",
-      "sequence": 6
-    },
-    {
-      "column_name": "LOC_CODE",
-      "data_type": "CHAR",
-      "size": "10",
-      "key": false,
-      "description": "Reference to project location master",
-      "sequence": 7
+      "sequence": 5
     },
     {
       "column_name": "LAND_AREA",
@@ -65,7 +49,7 @@
       "size": "",
       "key": false,
       "description": "Total land area in square feet",
-      "sequence": 8
+      "sequence": 6
     },
     {
       "column_name": "BUILTUP_AREA",
@@ -73,7 +57,7 @@
       "size": "",
       "key": false,
       "description": "Total built-up area in square feet",
-      "sequence": 9
+      "sequence": 7
     },
     {
       "column_name": "NUM_TOWERS",
@@ -81,7 +65,7 @@
       "size": "",
       "key": false,
       "description": "Total number of towers",
-      "sequence": 10
+      "sequence": 8
     },
     {
       "column_name": "NUM_UNITS",
@@ -89,7 +73,7 @@
       "size": "",
       "key": false,
       "description": "Total number of saleable units",
-      "sequence": 11
+      "sequence": 9
     },
     {
       "column_name": "PLAN_START_DT",
@@ -97,7 +81,7 @@
       "size": "",
       "key": false,
       "description": "Planned start date of project",
-      "sequence": 12
+      "sequence": 10
     },
     {
       "column_name": "PLAN_END_DT",
@@ -105,7 +89,7 @@
       "size": "",
       "key": false,
       "description": "Planned end date of project",
-      "sequence": 13
+      "sequence": 11
     },
     {
       "column_name": "ACT_START_DT",
@@ -113,7 +97,7 @@
       "size": "",
       "key": false,
       "description": "Actual start date of project",
-      "sequence": 14
+      "sequence": 12
     },
     {
       "column_name": "ACT_END_DT",
@@ -121,7 +105,7 @@
       "size": "",
       "key": false,
       "description": "Actual end date of project",
-      "sequence": 15
+      "sequence": 13
     },
     {
       "column_name": "EST_BUDGET",
@@ -129,7 +113,7 @@
       "size": "",
       "key": false,
       "description": "Estimated budget amount",
-      "sequence": 16
+      "sequence": 14
     },
     {
       "column_name": "APPR_BUDGET",
@@ -137,7 +121,7 @@
       "size": "",
       "key": false,
       "description": "Approved budget amount",
-      "sequence": 17
+      "sequence": 15
     },
     {
       "column_name": "PM_EMP_CODE",
@@ -145,7 +129,7 @@
       "size": "10",
       "key": false,
       "description": "Employee code of project manager",
-      "sequence": 18
+      "sequence": 16
     },
     {
       "column_name": "RERA_NUMBER",
@@ -153,7 +137,7 @@
       "size": "30",
       "key": false,
       "description": "RERA registration number",
-      "sequence": 19
+      "sequence": 17
     },
     {
       "column_name": "APPR_AUTHORITY",
@@ -161,7 +145,7 @@
       "size": "60",
       "key": false,
       "description": "Statutory approval authority",
-      "sequence": 20
+      "sequence": 18
     },
     {
       "column_name": "PCT_COMPLETE",
@@ -169,7 +153,7 @@
       "size": "",
       "key": false,
       "description": "Overall project percent complete computed from phase weightages",
-      "sequence": 21
+      "sequence": 19
     },
     {
       "column_name": "DESCRIPTION",
@@ -177,7 +161,7 @@
       "size": "2000",
       "key": false,
       "description": "Project description",
-      "sequence": 22
+      "sequence": 20
     },
     {
       "column_name": "REMARKS",
@@ -185,7 +169,7 @@
       "size": "500",
       "key": false,
       "description": "Free-form remarks",
-      "sequence": 23
+      "sequence": 21
     },
     {
       "column_name": "SUBMIT_DT",
@@ -193,7 +177,7 @@
       "size": "",
       "key": false,
       "description": "Date when submitted for approval",
-      "sequence": 24
+      "sequence": 22
     },
     {
       "column_name": "SUBMIT_USER",
@@ -201,7 +185,7 @@
       "size": "10",
       "key": false,
       "description": "User who submitted for approval",
-      "sequence": 25
+      "sequence": 23
     },
     {
       "column_name": "APPR_DT",
@@ -209,7 +193,7 @@
       "size": "",
       "key": false,
       "description": "Date of approval",
-      "sequence": 26
+      "sequence": 24
     },
     {
       "column_name": "APPR_USER",
@@ -217,7 +201,7 @@
       "size": "10",
       "key": false,
       "description": "User who approved the project",
-      "sequence": 27
+      "sequence": 25
     },
     {
       "column_name": "CANCEL_DT",
@@ -225,7 +209,7 @@
       "size": "",
       "key": false,
       "description": "Date of cancellation",
-      "sequence": 28
+      "sequence": 26
     },
     {
       "column_name": "CANCEL_REASON",
@@ -233,7 +217,7 @@
       "size": "500",
       "key": false,
       "description": "Reason for cancellation",
-      "sequence": 29
+      "sequence": 27
     },
     {
       "column_name": "ADD_DATE",
@@ -241,7 +225,7 @@
       "size": "",
       "key": false,
       "description": "Record creation date",
-      "sequence": 30
+      "sequence": 28
     },
     {
       "column_name": "ADD_USER",
@@ -249,7 +233,7 @@
       "size": "10",
       "key": false,
       "description": "User who created the record",
-      "sequence": 31
+      "sequence": 29
     },
     {
       "column_name": "ADD_TERM",
@@ -257,7 +241,7 @@
       "size": "15",
       "key": false,
       "description": "Terminal of creation",
-      "sequence": 32
+      "sequence": 30
     },
     {
       "column_name": "CHG_DATE",
@@ -265,7 +249,7 @@
       "size": "",
       "key": false,
       "description": "Last change date",
-      "sequence": 33
+      "sequence": 31
     },
     {
       "column_name": "CHG_USER",
@@ -273,7 +257,7 @@
       "size": "10",
       "key": false,
       "description": "User who last changed the record",
-      "sequence": 34
+      "sequence": 32
     },
     {
       "column_name": "CHG_TERM",
@@ -281,7 +265,15 @@
       "size": "15",
       "key": false,
       "description": "Terminal of last change",
-      "sequence": 35
+      "sequence": 33
+    },
+    {
+      "column_name": "PROJ_TYPE",
+      "data_type": "VARCHAR",
+      "size": "5",
+      "key": false,
+      "description": "",
+      "sequence": 34
     }
   ]
 }

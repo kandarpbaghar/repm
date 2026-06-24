@@ -1,0 +1,30 @@
+=== preview run 20260617-091432-aa144c ===
+kind=execute_batch action=save_batch user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-17T09:14:32
+project=repm
+obj=repm_employee
+payload_keys=
+  ┌─ TRACEBACK
+      Traceback (most recent call last):
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/backend/app/services/preview_logging.py", line 149, in run
+          yield run
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/backend/app/routers/livepreview.py", line 769, in _do
+          result = executor.execute_transaction_batch(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/backend/app/services/livepreview/executor.py", line 64, in execute_transaction_batch
+          return _pkg_execute_transaction_batch(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 85, in wrapper
+          return fn(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 4902, in execute_transaction_batch
+          h_txn, h_header = _save_form_row(
+                            ^^^^^^^^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 4803, in _save_form_row
+          res = _update(
+                ^^^^^^^^
+        File "/Users/kandarpbaghar/ai-projects/twasta.ai/packages/runtime-engine/twasta_runtime_engine/executor.py", line 3108, in _update
+          raise ValidationFailed(blocking)
+      twasta_runtime_engine.executor.ValidationFailed: 1 validation error(s): report_mgr: Validation could not run: business-logic function 'validate_active_manager' is not deployed (no compiled function body found).
+  └─
+finished=2026-06-17T09:14:32 status=ERROR

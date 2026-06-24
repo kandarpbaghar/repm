@@ -431,7 +431,7 @@
                 "hidden": "",
                 "format": "",
                 "default_function": "",
-                "default_value": "",
+                "default_value": ":calendar_today",
                 "expression": "",
                 "edit_mask": "",
                 "protect": "",
@@ -462,7 +462,7 @@
                 "hidden": "",
                 "format": "",
                 "default_function": "",
-                "default_value": "",
+                "default_value": ":calendar_next_month_end",
                 "expression": "",
                 "edit_mask": "",
                 "protect": "",
@@ -543,13 +543,14 @@
                 "item_change": {
                   "mode": "rule",
                   "source_table": "REPM_EMPLOYEE",
-                  "match_table_col": "EMP_CODE",
+                  "match_mode": "simple",
                   "fill": [
                     {
                       "form_col": "ASSIGNED_EMP_NAME",
                       "table_col": "EMP_NAME"
                     }
-                  ]
+                  ],
+                  "match_table_col": "EMP_CODE"
                 },
                 "x": "160",
                 "y": "160",

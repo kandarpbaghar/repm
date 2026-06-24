@@ -1,0 +1,11 @@
+=== preview run 20260607-165527-d52028 ===
+kind=deploy action=deploy user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-07T16:55:27
+project=repm
+obj=repm_activity
+  • loaded transaction metadata schema=twasta
+  • tenant DB + schema ready database=twasta_preview_33a04826_3851_4023_b626_255032b12787 schema=twasta
+  • schema sync — 1 altered
+  • business logic deployed ok=0 empty=12 errors=0
+  • deployment state persisted
+finished=2026-06-07T16:55:27 status=OK

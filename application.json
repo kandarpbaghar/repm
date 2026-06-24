@@ -4,10 +4,11 @@
     "title": "Real Estate Project Management",
     "description": "End-to-end project management for real-estate developers covering masters, project planning, phases, tasks, activities, action point check-lists, daily progress, issues/risks, dashboards, reports and a public marketing website.",
     "icon": "apartment",
-    "theme_color": "#1E5AA8",
+    "theme_color": "#1976D2",
     "group": "generated",
     "generated": true,
-    "folder_name": "repm"
+    "folder_name": "repm",
+    "biz_logic": "plpgsql"
   },
   "navigation": [
     {
@@ -19,7 +20,8 @@
       "obj_name": "repm_home",
       "obj_type": "S",
       "menu_path": "repm.1",
-      "functional_specs": "Smart Page welcome/home: greeting, quick links, KPI cards, my action points grid, go-to-project search, create new project CTA, help link."
+      "functional_specs": "Smart Page welcome/home: greeting, quick links, KPI cards, my action points grid, go-to-project search, create new project CTA, help link.",
+      "page_kind": "document"
     },
     {
       "id": "repm.2",
@@ -44,17 +46,6 @@
       "functional_specs": "Search/Add/Edit/Delete employees. Fields: Code, Name, Designation, Department, Email, Mobile, Reporting Manager, DOJ, Status, Remarks. Unique code/email; soft-delete on Inactive; flag open action points on deactivation."
     },
     {
-      "id": "repm.2.2",
-      "title": "Manage Project Location",
-      "parent_id": "repm.2",
-      "icon_image": "place",
-      "description": "Maintain project sites/locations.",
-      "obj_name": "repm_location",
-      "obj_type": "T",
-      "menu_path": "repm.2.2",
-      "functional_specs": "Search/Add/Edit/Delete locations. Fields: Code, Name, Address, City, State, Pin, Country, Lat/Lng, Status. Unique code; pin 6 digits."
-    },
-    {
       "id": "repm.3",
       "title": "Project Setup & Planning",
       "parent_id": "",
@@ -74,7 +65,7 @@
       "obj_name": "repm_project",
       "obj_type": "T",
       "menu_path": "repm.3.1",
-      "functional_specs": "Actions: Search, Add, Edit, Delete, Submit-for-Approval, Approve, Cancel. Project Location is an optional (non-mandatory) field. Validations on dates, budget tolerance, completion rules. Triggers: send-notification to approver on submit; update-status & stamp approval on approve; cascade-cancel on cancel."
+      "functional_specs": "Actions: Search, Add, Edit, Delete, Submit-for-Approval, Approve, Cancel. Validations on dates, budget tolerance, completion rules. Triggers: send-notification to approver on submit; update-status & stamp approval on approve; cascade-cancel on cancel."
     },
     {
       "id": "repm.3.2",

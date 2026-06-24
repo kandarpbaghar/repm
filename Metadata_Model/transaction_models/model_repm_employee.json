@@ -17,8 +17,16 @@
                 "key": true,
                 "mandatory": "true",
                 "validations": [
-                  "expression('unique(EMP_CODE)','Employee Code must be unique')"
-                ]
+                  {
+                    "type": "builtin",
+                    "name": "Employee Code unique",
+                    "message": "Employee Code must be unique",
+                    "builtin": {
+                      "kind": "must_be_unique"
+                    }
+                  }
+                ],
+                "y": "100"
               }
             },
             {
@@ -28,14 +36,25 @@
                 "col_type": "VARCHAR100",
                 "heading": "Employee Name",
                 "descr": "Full name of the employee",
-                "mandatory": "true"
+                "mandatory": "true",
+                "y": "200"
+              }
+            },
+            {
+              "column": {
+                "name": "FATHER_NAME",
+                "group_name": "Basic",
+                "col_type": "VARCHAR100",
+                "heading": "Parent Name",
+                "descr": "Parent's name of the employee",
+                "y": "300"
               }
             },
             {
               "column": {
                 "name": "DESIGNATION",
                 "group_name": "Basic",
-                "col_type": "CHAR3",
+                "col_type": "CHAR2",
                 "heading": "Designation",
                 "descr": "Job designation of the employee",
                 "mandatory": "true",
@@ -99,7 +118,83 @@
                       "display": "Other"
                     }
                   ]
-                }
+                },
+                "display": {
+                  "type": "status_tag",
+                  "map": [
+                    {
+                      "when": "PM",
+                      "color": "blue",
+                      "label": "Project Manager"
+                    },
+                    {
+                      "when": "SE",
+                      "color": "teal",
+                      "label": "Site Engineer"
+                    },
+                    {
+                      "when": "AR",
+                      "color": "purple",
+                      "label": "Architect"
+                    },
+                    {
+                      "when": "CE",
+                      "color": "cyan",
+                      "label": "Civil Engineer"
+                    },
+                    {
+                      "when": "EE",
+                      "color": "orange",
+                      "label": "Electrical Engineer"
+                    },
+                    {
+                      "when": "PE",
+                      "color": "amber",
+                      "label": "Plumbing Engineer"
+                    },
+                    {
+                      "when": "CN",
+                      "color": "grey",
+                      "label": "Contractor"
+                    },
+                    {
+                      "when": "SV",
+                      "color": "teal",
+                      "label": "Supervisor"
+                    },
+                    {
+                      "when": "QI",
+                      "color": "green",
+                      "label": "Quality Inspector"
+                    },
+                    {
+                      "when": "SO",
+                      "color": "red",
+                      "label": "Safety Officer"
+                    },
+                    {
+                      "when": "PO",
+                      "color": "amber",
+                      "label": "Procurement Officer"
+                    },
+                    {
+                      "when": "LO",
+                      "color": "blue",
+                      "label": "Liaison Officer"
+                    },
+                    {
+                      "when": "SM",
+                      "color": "pink",
+                      "label": "Sales Manager"
+                    },
+                    {
+                      "when": "OT",
+                      "color": "grey",
+                      "label": "Other"
+                    }
+                  ]
+                },
+                "y": "400"
               }
             },
             {
@@ -154,7 +249,63 @@
                       "display": "Admin"
                     }
                   ]
-                }
+                },
+                "display": {
+                  "type": "status_tag",
+                  "map": [
+                    {
+                      "when": "PLN",
+                      "color": "blue",
+                      "label": "Planning"
+                    },
+                    {
+                      "when": "DSG",
+                      "color": "purple",
+                      "label": "Design"
+                    },
+                    {
+                      "when": "CON",
+                      "color": "orange",
+                      "label": "Construction"
+                    },
+                    {
+                      "when": "PRC",
+                      "color": "amber",
+                      "label": "Procurement"
+                    },
+                    {
+                      "when": "SAL",
+                      "color": "pink",
+                      "label": "Sales & Marketing"
+                    },
+                    {
+                      "when": "LGL",
+                      "color": "teal",
+                      "label": "Legal & Liaison"
+                    },
+                    {
+                      "when": "QLT",
+                      "color": "green",
+                      "label": "Quality"
+                    },
+                    {
+                      "when": "SFT",
+                      "color": "red",
+                      "label": "Safety"
+                    },
+                    {
+                      "when": "FIN",
+                      "color": "cyan",
+                      "label": "Finance"
+                    },
+                    {
+                      "when": "ADM",
+                      "color": "grey",
+                      "label": "Admin"
+                    }
+                  ]
+                },
+                "y": "500"
               }
             },
             {
@@ -166,9 +317,24 @@
                 "descr": "Official email address",
                 "mandatory": "true",
                 "validations": [
-                  "expression('valid_email(EMAIL)','Email must be a valid format')",
-                  "expression('unique(EMAIL)','Email must be unique')"
-                ]
+                  {
+                    "type": "expression",
+                    "name": "Email format",
+                    "message": "Email must be a valid format (must contain @ and domain)",
+                    "expression": "contains({form.EMAIL}, '@') and contains({form.EMAIL}, '.') and len(trim({form.EMAIL})) >= 5"
+                  },
+                  {
+                    "type": "builtin",
+                    "name": "Email unique",
+                    "message": "Email must be unique across all employees",
+                    "builtin": {
+                      "kind": "must_be_unique"
+                    }
+                  }
+                ],
+                "display": {
+                  "type": "email"
+                }
               }
             },
             {
@@ -180,45 +346,501 @@
                 "descr": "10-digit mobile number",
                 "mandatory": "true",
                 "validations": [
-                  "expression('len(MOBILE)=10 and is_numeric(MOBILE)','Mobile Number must be 10 digits')"
-                ]
+                  {
+                    "type": "expression",
+                    "name": "Mobile format",
+                    "message": "Mobile Number must be exactly 10 digits",
+                    "expression": "len(trim({form.MOBILE})) == 10 and match({form.MOBILE}, '^[0-9]{10}$')"
+                  }
+                ],
+                "display": {
+                  "type": "telephone"
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "BIRTH_DATE",
+                "group_name": "Personal",
+                "col_type": "DATE",
+                "heading": "Birth Date",
+                "descr": "Date of birth of the employee",
+                "display": {
+                  "type": "date",
+                  "datePattern": "dd-MMM-yyyy"
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "MARITAL_STATUS",
+                "group_name": "Personal",
+                "col_type": "CHAR1",
+                "heading": "Marital Status",
+                "descr": "Marital status of the employee",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "S",
+                      "display": "Single"
+                    },
+                    {
+                      "data": "M",
+                      "display": "Married"
+                    },
+                    {
+                      "data": "D",
+                      "display": "Divorced"
+                    },
+                    {
+                      "data": "W",
+                      "display": "Widowed"
+                    },
+                    {
+                      "data": "C",
+                      "display": "Complicated"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "QUALIFICATION",
+                "group_name": "Personal",
+                "col_type": "VARCHAR100",
+                "heading": "Qualification",
+                "descr": "Highest educational qualification of the employee"
+              }
+            },
+            {
+              "column": {
+                "name": "ADDRESS1",
+                "group_name": "Contact",
+                "col_type": "VARCHAR200",
+                "heading": "Address 1",
+                "descr": "Address line 1"
+              }
+            },
+            {
+              "column": {
+                "name": "ADDRESS2",
+                "group_name": "Contact",
+                "col_type": "VARCHAR200",
+                "heading": "Address 2",
+                "descr": "Address line 2"
+              }
+            },
+            {
+              "column": {
+                "name": "ADDRESS3",
+                "group_name": "Contact",
+                "col_type": "VARCHAR200",
+                "heading": "Address 3",
+                "descr": "Address line 3"
+              }
+            },
+            {
+              "column": {
+                "name": "CITY",
+                "group_name": "Contact",
+                "col_type": "VARCHAR60",
+                "heading": "City",
+                "descr": "City"
+              }
+            },
+            {
+              "column": {
+                "name": "COUNTRY",
+                "group_name": "Contact",
+                "col_type": "CHAR2",
+                "heading": "Country",
+                "descr": "Country (ISO 2-letter code)",
+                "default_value": "IN",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "IN",
+                      "display": "India"
+                    },
+                    {
+                      "data": "US",
+                      "display": "United States"
+                    },
+                    {
+                      "data": "GB",
+                      "display": "United Kingdom"
+                    },
+                    {
+                      "data": "AE",
+                      "display": "United Arab Emirates"
+                    },
+                    {
+                      "data": "SA",
+                      "display": "Saudi Arabia"
+                    },
+                    {
+                      "data": "QA",
+                      "display": "Qatar"
+                    },
+                    {
+                      "data": "OM",
+                      "display": "Oman"
+                    },
+                    {
+                      "data": "KW",
+                      "display": "Kuwait"
+                    },
+                    {
+                      "data": "BH",
+                      "display": "Bahrain"
+                    },
+                    {
+                      "data": "SG",
+                      "display": "Singapore"
+                    },
+                    {
+                      "data": "MY",
+                      "display": "Malaysia"
+                    },
+                    {
+                      "data": "ID",
+                      "display": "Indonesia"
+                    },
+                    {
+                      "data": "TH",
+                      "display": "Thailand"
+                    },
+                    {
+                      "data": "PH",
+                      "display": "Philippines"
+                    },
+                    {
+                      "data": "VN",
+                      "display": "Vietnam"
+                    },
+                    {
+                      "data": "JP",
+                      "display": "Japan"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "China"
+                    },
+                    {
+                      "data": "HK",
+                      "display": "Hong Kong"
+                    },
+                    {
+                      "data": "KR",
+                      "display": "South Korea"
+                    },
+                    {
+                      "data": "AU",
+                      "display": "Australia"
+                    },
+                    {
+                      "data": "NZ",
+                      "display": "New Zealand"
+                    },
+                    {
+                      "data": "CA",
+                      "display": "Canada"
+                    },
+                    {
+                      "data": "DE",
+                      "display": "Germany"
+                    },
+                    {
+                      "data": "FR",
+                      "display": "France"
+                    },
+                    {
+                      "data": "IT",
+                      "display": "Italy"
+                    },
+                    {
+                      "data": "ES",
+                      "display": "Spain"
+                    },
+                    {
+                      "data": "NL",
+                      "display": "Netherlands"
+                    },
+                    {
+                      "data": "CH",
+                      "display": "Switzerland"
+                    },
+                    {
+                      "data": "SE",
+                      "display": "Sweden"
+                    },
+                    {
+                      "data": "ZA",
+                      "display": "South Africa"
+                    },
+                    {
+                      "data": "BR",
+                      "display": "Brazil"
+                    },
+                    {
+                      "data": "MX",
+                      "display": "Mexico"
+                    },
+                    {
+                      "data": "LK",
+                      "display": "Sri Lanka"
+                    },
+                    {
+                      "data": "BD",
+                      "display": "Bangladesh"
+                    },
+                    {
+                      "data": "NP",
+                      "display": "Nepal"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "STATE",
+                "group_name": "Contact",
+                "col_type": "CHAR2",
+                "heading": "State",
+                "descr": "State / Province (filtered by selected Country)",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "AP",
+                      "display": "Andhra Pradesh"
+                    },
+                    {
+                      "data": "AR",
+                      "display": "Arunachal Pradesh"
+                    },
+                    {
+                      "data": "AS",
+                      "display": "Assam"
+                    },
+                    {
+                      "data": "BR",
+                      "display": "Bihar"
+                    },
+                    {
+                      "data": "CT",
+                      "display": "Chhattisgarh"
+                    },
+                    {
+                      "data": "GA",
+                      "display": "Goa"
+                    },
+                    {
+                      "data": "GJ",
+                      "display": "Gujarat"
+                    },
+                    {
+                      "data": "HR",
+                      "display": "Haryana"
+                    },
+                    {
+                      "data": "HP",
+                      "display": "Himachal Pradesh"
+                    },
+                    {
+                      "data": "JK",
+                      "display": "Jammu & Kashmir"
+                    },
+                    {
+                      "data": "JH",
+                      "display": "Jharkhand"
+                    },
+                    {
+                      "data": "KA",
+                      "display": "Karnataka"
+                    },
+                    {
+                      "data": "KL",
+                      "display": "Kerala"
+                    },
+                    {
+                      "data": "MP",
+                      "display": "Madhya Pradesh"
+                    },
+                    {
+                      "data": "MH",
+                      "display": "Maharashtra"
+                    },
+                    {
+                      "data": "MN",
+                      "display": "Manipur"
+                    },
+                    {
+                      "data": "ML",
+                      "display": "Meghalaya"
+                    },
+                    {
+                      "data": "MZ",
+                      "display": "Mizoram"
+                    },
+                    {
+                      "data": "NL",
+                      "display": "Nagaland"
+                    },
+                    {
+                      "data": "OR",
+                      "display": "Odisha"
+                    },
+                    {
+                      "data": "PB",
+                      "display": "Punjab"
+                    },
+                    {
+                      "data": "RJ",
+                      "display": "Rajasthan"
+                    },
+                    {
+                      "data": "SK",
+                      "display": "Sikkim"
+                    },
+                    {
+                      "data": "TN",
+                      "display": "Tamil Nadu"
+                    },
+                    {
+                      "data": "TG",
+                      "display": "Telangana"
+                    },
+                    {
+                      "data": "TR",
+                      "display": "Tripura"
+                    },
+                    {
+                      "data": "UP",
+                      "display": "Uttar Pradesh"
+                    },
+                    {
+                      "data": "UT",
+                      "display": "Uttarakhand"
+                    },
+                    {
+                      "data": "WB",
+                      "display": "West Bengal"
+                    },
+                    {
+                      "data": "AN",
+                      "display": "Andaman & Nicobar Islands"
+                    },
+                    {
+                      "data": "CH",
+                      "display": "Chandigarh"
+                    },
+                    {
+                      "data": "DN",
+                      "display": "Dadra & Nagar Haveli and Daman & Diu"
+                    },
+                    {
+                      "data": "DL",
+                      "display": "Delhi"
+                    },
+                    {
+                      "data": "LD",
+                      "display": "Lakshadweep"
+                    },
+                    {
+                      "data": "LA",
+                      "display": "Ladakh"
+                    },
+                    {
+                      "data": "PY",
+                      "display": "Puducherry"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "ZIP",
+                "group_name": "Contact",
+                "col_type": "CHAR10",
+                "heading": "Zip / Pin",
+                "descr": "Zip or PIN code"
               }
             },
             {
               "column": {
                 "name": "REPORT_MGR",
-                "group_name": "Organization",
+                "group_name": "Basic",
                 "col_type": "CHAR10",
-                "heading": "Reporting Manager",
+                "heading": "Manager Code",
                 "descr": "Reporting manager employee code",
                 "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
                 "validations": [
-                  "must_exist_in('REPM_EMPLOYEE')",
-                  "business_logic('validate_active_manager','Reporting Manager must be an existing Active employee')"
-                ]
+                  {
+                    "type": "builtin",
+                    "name": "Manager must be active employee",
+                    "message": "Reporting Manager must be an existing Active employee",
+                    "builtin": {
+                      "kind": "must_exist_in_master",
+                      "table": "REPM_EMPLOYEE",
+                      "match_column": "EMP_CODE",
+                      "conditions": [
+                        {
+                          "column": "STATUS",
+                          "op": "=",
+                          "source": "const",
+                          "value": "A"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "REPORT_MGR_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ],
+                  "on_no_match": "clear"
+                },
+                "y": "600"
               }
             },
             {
               "column": {
                 "name": "REPORT_MGR_NAME",
-                "db_name": "EMP_NAME",
-                "table_name": "REPM_EMPLOYEE",
-                "group_name": "Organization",
+                "db_name": "REPORT_MGR_NAME",
+                "group_name": "Basic",
                 "col_type": "VARCHAR100",
-                "heading": "Mgr Name",
-                "descr": "Reporting manager name from lookup",
-                "protect": "1"
+                "heading": "Manager Name",
+                "descr": "Reporting manager name (auto-filled from REPORT_MGR)",
+                "protect": "1",
+                "y": "700"
               }
             },
             {
               "column": {
                 "name": "DOJ",
-                "group_name": "Organization",
+                "group_name": "Basic",
                 "col_type": "DATE",
                 "heading": "Date of Joining",
                 "descr": "Date the employee joined",
                 "mandatory": "true",
-                "default_value": "today()"
+                "default_value": "today()",
+                "display": {
+                  "type": "date",
+                  "datePattern": "dd-MMM-yyyy"
+                },
+                "y": "800"
               }
             },
             {
@@ -231,7 +853,7 @@
                 "mandatory": "true",
                 "default_value": "A",
                 "edit_mask": {
-                  "mask": "ddlb",
+                  "mask": "bool_check",
                   "values": [
                     {
                       "data": "A",
@@ -240,6 +862,21 @@
                     {
                       "data": "I",
                       "display": "Inactive"
+                    }
+                  ]
+                },
+                "display": {
+                  "type": "status_tag",
+                  "map": [
+                    {
+                      "when": "A",
+                      "color": "green",
+                      "label": "Active"
+                    },
+                    {
+                      "when": "I",
+                      "color": "red",
+                      "label": "Inactive"
                     }
                   ]
                 }
@@ -319,6 +956,35 @@
                 "default_value": "logged_in_terminal()",
                 "protect": "1"
               }
+            },
+            {
+              "column": {
+                "name": "EMP_IMAGE",
+                "col_id": "29",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Employee Image",
+                "descr": "",
+                "key": false,
+                "default_value": "",
+                "protect": false,
+                "mandatory": false,
+                "db_name": "EMP_IMAGE",
+                "db_size": "500",
+                "width": 200,
+                "x": "10",
+                "y": "900",
+                "hidden": false,
+                "format": "",
+                "edit_mask": {
+                  "mask": "image",
+                  "values": []
+                },
+                "lookup": "",
+                "lookup_filter": "",
+                "item_change": "",
+                "validations": []
+              }
             }
           ],
           "joins": {
@@ -328,22 +994,156 @@
                   "table": "REPM_EMPLOYEE",
                   "main_table": true,
                   "table_descr": "Employee master table"
-                },
-                {
-                  "table": "REPM_EMPLOYEE",
-                  "main_table": false,
-                  "table_descr": "Reporting manager lookup (self-join)",
-                  "column": "REPORT_MGR",
-                  "join_table": "REPM_EMPLOYEE",
-                  "join_column": "EMP_CODE",
-                  "join_type": "left"
                 }
               ]
             }
           },
-          "validations": [
-            "business_logic('validate_employee','Validate unique code/email, mobile length, and active reporting manager')"
-          ]
+          "validations": []
+        }
+      },
+      {
+        "sql_model": {
+          "form_title": "Past Experience",
+          "form_descr": "Last 3 employment history records of the employee.",
+          "form_no": "2",
+          "main_table": "REPM_EMP_EXPERIENCE",
+          "columns": [
+            {
+              "column": {
+                "name": "EMP_CODE",
+                "group_name": "Past Experience",
+                "col_type": "CHAR10",
+                "heading": "Employee Code",
+                "descr": "FK to parent employee",
+                "key": true,
+                "protect": "1",
+                "hidden": "1"
+              }
+            },
+            {
+              "column": {
+                "name": "SEQ_NO",
+                "group_name": "Past Experience",
+                "col_type": "NUMBER3",
+                "heading": "Seq #",
+                "descr": "Sequence 1 to 3",
+                "key": true,
+                "mandatory": "true",
+                "validations": [
+                  {
+                    "type": "builtin",
+                    "name": "Seq range 1-3",
+                    "message": "Sequence number must be between 1 and 3",
+                    "builtin": {
+                      "kind": "value_in_range",
+                      "min": {
+                        "source": "const",
+                        "value": "1"
+                      },
+                      "max": {
+                        "source": "const",
+                        "value": "3"
+                      }
+                    }
+                  },
+                  {
+                    "type": "builtin",
+                    "name": "Seq unique per employee",
+                    "message": "Sequence number must be unique per employee",
+                    "builtin": {
+                      "kind": "must_be_unique",
+                      "conditions": [
+                        {
+                          "column": "EMP_CODE",
+                          "op": "=",
+                          "source": "form",
+                          "value": "EMP_CODE"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "column": {
+                "name": "COMPANY_NAME",
+                "group_name": "Past Experience",
+                "col_type": "VARCHAR200",
+                "heading": "Company Name",
+                "descr": "Name of the previous employer",
+                "mandatory": "true"
+              }
+            },
+            {
+              "column": {
+                "name": "DESIGNATION",
+                "group_name": "Past Experience",
+                "col_type": "VARCHAR100",
+                "heading": "Designation",
+                "descr": "Role / designation held at the company",
+                "mandatory": "true"
+              }
+            },
+            {
+              "column": {
+                "name": "FROM_DATE",
+                "group_name": "Past Experience",
+                "col_type": "DATE",
+                "heading": "From Date",
+                "descr": "Start date of employment",
+                "mandatory": "true",
+                "display": {
+                  "type": "date_range",
+                  "endColumn": "TO_DATE",
+                  "datePattern": "dd-MMM-yyyy"
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "TO_DATE",
+                "group_name": "Past Experience",
+                "col_type": "DATE",
+                "heading": "To Date",
+                "descr": "End date of employment",
+                "mandatory": "true",
+                "validations": [
+                  {
+                    "type": "expression",
+                    "name": "To Date after From Date",
+                    "message": "To Date must be after From Date",
+                    "expression": "{form.TO_DATE} > {form.FROM_DATE}"
+                  }
+                ],
+                "display": {
+                  "type": "date",
+                  "datePattern": "dd-MMM-yyyy"
+                }
+              }
+            },
+            {
+              "column": {
+                "name": "RESPONSIBILITIES",
+                "group_name": "Past Experience",
+                "col_type": "VARCHAR500",
+                "heading": "Key Responsibilities",
+                "descr": "Brief description of responsibilities held"
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_EMP_EXPERIENCE",
+                  "main_table": true,
+                  "table_descr": "Employee past experience records"
+                }
+              ]
+            }
+          },
+          "validations": []
         }
       }
     ],
@@ -354,8 +1154,22 @@
       "delete:business_logic('soft_delete_employee','If references exist, set Status to Inactive instead of hard delete')"
     ],
     "cross_updates": [
-      "business_logic('flag_open_action_points','On deactivation, flag open action points assigned to this employee for reassignment')",
-      "business_logic('block_new_assignments','Inactive employees cannot be assigned to new action points')"
+      {
+        "mode": "business_logic",
+        "business_logic": {
+          "method": "block_new_assignments",
+          "description": "Prevent deactivation with open action points",
+          "spec": "When the employee STATUS in the payload is 'I' and the currently stored STATUS in REPM_EMPLOYEE is 'A' (i.e. being deactivated), query REPM_ACTION_POINT for rows where ASSIGNED_EMP_CODE = EMP_CODE and STATUS IN ('PE','IP'). If any such rows exist, return {\"error\": \"Cannot deactivate: <N> open action point(s) are still assigned. Please reassign them before deactivating.\"} to block the save. Otherwise return NULL."
+        }
+      },
+      {
+        "mode": "business_logic",
+        "business_logic": {
+          "method": "flag_open_action_points",
+          "description": "Flag blocked action points on deactivation",
+          "spec": "When the employee STATUS in the payload is 'I' and the currently stored STATUS in REPM_EMPLOYEE is 'A' (i.e. being deactivated), update REPM_ACTION_POINT.REMARKS for all rows where ASSIGNED_EMP_CODE = EMP_CODE and STATUS = 'BL' (Blocked) by appending ' | [Needs Reassignment: Employee deactivated on <today date>]'. Return NULL."
+        }
+      }
     ],
     "attach_docs": [
       "Offer Letter",

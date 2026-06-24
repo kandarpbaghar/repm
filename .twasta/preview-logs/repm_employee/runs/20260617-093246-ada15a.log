@@ -1,0 +1,16 @@
+=== preview run 20260617-093246-ada15a ===
+kind=deploy action=deploy user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-17T09:32:46
+project=repm
+obj=repm_employee
+  • loaded transaction metadata schema=twasta
+  • data DB + schema ready database=twasta_preview_33a04826_3851_4023_b626_255032b12787 schema=twasta
+  • schema sync — 2 altered
+  ┌─ SCHEMA WARNINGS
+      repm_employee: Could not add column emp_image: type "image" does not exist
+      LINE 1: ... TABLE "twasta"."repm_employee" ADD COLUMN "emp_image" IMAGE
+                                                                        ^
+  └─
+  • business logic deployed ok=5 empty=0 errors=0
+  • deployment state persisted
+finished=2026-06-17T09:32:46 status=WARN

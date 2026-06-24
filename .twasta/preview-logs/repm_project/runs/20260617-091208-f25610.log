@@ -1,0 +1,14 @@
+=== preview run 20260617-091208-f25610 ===
+kind=deploy action=deploy user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-17T09:12:08
+project=repm
+obj=repm_project
+  • loaded transaction metadata schema=twasta
+  • data DB + schema ready database=twasta_preview_33a04826_3851_4023_b626_255032b12787 schema=twasta
+  • schema sync — 1 altered
+  ┌─ SCHEMA WARNINGS
+      repm_project: loc_code: dropped NOT NULL — column is no longer in the model (was blocking inserts).
+  └─
+  • business logic deployed ok=0 empty=11 errors=0
+  • deployment state persisted
+finished=2026-06-17T09:12:08 status=WARN

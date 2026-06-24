@@ -1,0 +1,14 @@
+=== preview run 20260607-182044-39f7aa ===
+kind=deploy action=deploy user=9d766f1f-50c6-4668-bb17-eabebe25e8a7
+started=2026-06-07T18:20:44
+project=repm
+obj=repm_task
+  • loaded transaction metadata schema=twasta
+  • tenant DB + schema ready database=twasta_preview_33a04826_3851_4023_b626_255032b12787 schema=twasta
+  • schema sync — 1 altered
+  ┌─ SCHEMA WARNINGS
+      Master table 'REPM_TASK_PRED' is not deployed — columns from it will show as blank in Task. Generate and deploy the 'REPM_TASK_PRED' object first.
+  └─
+  • business logic deployed ok=0 empty=14 errors=0
+  • deployment state persisted
+finished=2026-06-07T18:20:44 status=WARN
