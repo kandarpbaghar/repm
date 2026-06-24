@@ -1,0 +1,19 @@
+{
+  "id": "6ab64fdc-70b2-463c-9044-b891e9d4f5c9",
+  "project": "repm",
+  "backend": "claude",
+  "title": "Option A",
+  "kind": "modify",
+  "status": "completed",
+  "description": "Option A",
+  "created_at": 1782293327.628913,
+  "updated_at": 1782293849.8677702,
+  "todos": [],
+  "phases": [],
+  "originating_prompt": "Option A",
+  "resume_ref": {
+    "session_id": "f8125c00-0940-4e49-842a-3876a9d8a87e",
+    "claude_session_id": "72606212-4473-4eec-b1c4-6f5a71e32cbe"
+  },
+  "depends_on": []
+}

@@ -315,6 +315,36 @@
             "text": "Write anything that you want to track"
           },
           {
+            "id": "todo_1",
+            "type": "todo",
+            "items": [
+              {
+                "id": "todo_mpcf8irp_177",
+                "text": "",
+                "checked": false
+              }
+            ],
+            "documentEditable": true,
+            "documentRequired": true,
+            "documentExtensible": true
+          },
+          {
+            "id": "paragraph_5",
+            "type": "paragraph",
+            "text": "Attach Required files below. Image files are supported.",
+            "size": {
+              "height": {
+                "value": 23,
+                "unit": "px"
+              }
+            }
+          },
+          {
+            "id": "paragraph_6",
+            "type": "paragraph",
+            "text": ""
+          },
+          {
             "id": "paragraph_3",
             "type": "file_upload",
             "text": "",
@@ -384,20 +414,6 @@
                 ]
               }
             ]
-          },
-          {
-            "id": "todo_1",
-            "type": "todo",
-            "items": [
-              {
-                "id": "todo_mpcf8irp_177",
-                "text": "",
-                "checked": false
-              }
-            ],
-            "documentEditable": true,
-            "documentRequired": true,
-            "documentExtensible": true
           }
         ]
       }

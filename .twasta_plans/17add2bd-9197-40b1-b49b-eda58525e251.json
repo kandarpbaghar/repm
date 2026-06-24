@@ -1,0 +1,19 @@
+{
+  "id": "17add2bd-9197-40b1-b49b-eda58525e251",
+  "project": "repm",
+  "backend": "claude",
+  "title": "Unit test the \"repm_action_point\" form (transaction object repm_action_point, ty",
+  "kind": "modify",
+  "status": "completed",
+  "description": "Unit test the \"repm_action_point\" form (transaction object repm_action_point, ty",
+  "created_at": 1782293280.934829,
+  "updated_at": 1782293313.431515,
+  "todos": [],
+  "phases": [],
+  "originating_prompt": "Unit test the \"repm_action_point\" form (transaction object repm_action_point, type T). Run the full add/list/load/edit/delete test. Fix any test-DATA problems yourself \u2014 look up valid lookup / cross-reference values and seed a master row if one is missing \u2014 then re-run. If the data is valid but a validation still fails, that's a likely bug: ask me before changing the model. Report the final PASS/FAIL.",
+  "resume_ref": {
+    "session_id": "f8125c00-0940-4e49-842a-3876a9d8a87e",
+    "claude_session_id": "94ac69f8-9fa3-4cf9-a292-b4a4ab93ac14"
+  },
+  "depends_on": []
+}

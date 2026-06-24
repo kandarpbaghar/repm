@@ -1,0 +1,30 @@
+2026-06-24T14:49:35	20260624-144935-4d961f	deploy	deploy	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	1 function compile error(s): form_validation__1__validate_seq_unique
+2026-06-24T14:49:36	20260624-144936-9cc4e7	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-24T14:49:43	20260624-144943-cef8c7	deploy	deploy	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	1 function compile error(s): form_validation__1__validate_seq_unique
+2026-06-24T14:49:43	20260624-144943-8ab85f	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-24T14:51:47	20260624-145147-b85172	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-24T14:51:47	20260624-145147-c7a78f	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-24T14:51:49	20260624-145149-e515aa	resolve_defaults	resolve_defaults	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	resolved default values
+2026-06-24T14:56:26	20260624-145626-f882c2	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-24T14:56:26	20260624-145626-289fce	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-24T14:56:32	20260624-145631-cceee4	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-24T14:56:32	20260624-145632-83ae06	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-24T14:56:35	20260624-145635-dc1219	deploy	deploy	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	loaded transaction metadata
+2026-06-24T14:56:35	20260624-145635-a55226	list	list	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	list returned rows
+2026-06-24T14:56:37	20260624-145637-956234	resolve_defaults	resolve_defaults	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	resolved default values
+2026-06-24T14:56:52	20260624-145652-fc6d22	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:56:52	20260624-145652-331dca	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:56:54	20260624-145654-2d5259	execute	item_change	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	item_change ok
+2026-06-24T14:56:57	20260624-145657-5b4fe4	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:56:57	20260624-145657-4d3224	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:56:59	20260624-145659-8e4842	execute	item_change	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	item_change ok
+2026-06-24T14:57:01	20260624-145701-94c5a9	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:57:02	20260624-145702-922ac4	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:57:04	20260624-145704-25baee	execute	item_change	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	item_change ok
+2026-06-24T14:57:06	20260624-145706-64424c	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:57:06	20260624-145706-a1119f	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:57:09	20260624-145709-8be496	execute	item_change	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	item_change ok
+2026-06-24T14:57:26	20260624-145726-4c9eee	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:57:26	20260624-145726-ece5b0	lookup	lookup	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	lookup returned rows
+2026-06-24T14:57:28	20260624-145728-a7f4ee	execute	item_change	OK	9d766f1f-50c6-4668-bb17-eabebe25e8a7	item_change ok
+2026-06-24T14:57:41	20260624-145741-4f71e0	execute_batch	save_batch	ERROR	9d766f1f-50c6-4668-bb17-eabebe25e8a7	ValidationFailed: 1 validation error(s): assigned_emp_code: Validation could not run: business-logic function 'validate_active_employee' is not deployed (no compiled function body found).

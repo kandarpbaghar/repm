@@ -1,0 +1,959 @@
+{
+  "transaction": {
+    "obj_name": "repm_action_point",
+    "sql_models": [
+      {
+        "sql_model": {
+          "form_title": "Action Point",
+          "form_descr": "Maintain check-list of action points under an activity with assigned employee, due date and status.",
+          "columns": [
+            {
+              "column": {
+                "name": "ACTION_ID",
+                "group_name": "Identification",
+                "col_type": "CHAR",
+                "heading": "Action ID",
+                "descr": "Unique identifier of the action point",
+                "key": true,
+                "default_value": "auto_generate()",
+                "mandatory": "true",
+                "protect": "1",
+                "x": "10",
+                "y": "10",
+                "col_id": "1",
+                "db_name": "ACTION_ID",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_CODE",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Project",
+                "descr": "Project to which this action point belongs",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_PROJECT')"
+                ],
+                "lookup": "REPM_PROJECT(PROJ_NAME, PROJ_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PROJECT",
+                  "match_table_col": "PROJ_CODE",
+                  "fill": [
+                    {
+                      "form_col": "PROJ_NAME",
+                      "table_col": "PROJ_NAME"
+                    }
+                  ]
+                },
+                "x": "20",
+                "y": "20",
+                "col_id": "2",
+                "db_name": "PROJ_CODE",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PROJ_NAME",
+                "db_name": "PROJ_NAME",
+                "table_name": "REPM_PROJECT",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Project Name",
+                "descr": "Project name from lookup",
+                "protect": "1",
+                "x": "30",
+                "y": "30",
+                "col_id": "3",
+                "table_display_name": "Project master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_ID",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Phase",
+                "descr": "Phase under the project",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_PHASE')"
+                ],
+                "lookup": "REPM_PHASE(PHASE_NAME, PHASE_ID)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_PHASE",
+                  "match_table_col": "PHASE_ID",
+                  "fill": [
+                    {
+                      "form_col": "PHASE_NAME",
+                      "table_col": "PHASE_NAME"
+                    }
+                  ]
+                },
+                "x": "40",
+                "y": "40",
+                "col_id": "4",
+                "db_name": "PHASE_ID",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "PHASE_NAME",
+                "db_name": "PHASE_NAME",
+                "table_name": "REPM_PHASE",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Phase Name",
+                "descr": "Phase name from lookup",
+                "protect": "1",
+                "x": "50",
+                "y": "50",
+                "col_id": "5",
+                "table_display_name": "Phase master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_ID",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Task",
+                "descr": "Task under the phase",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_TASK')"
+                ],
+                "lookup": "REPM_TASK(TASK_NAME, TASK_ID)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_TASK",
+                  "match_table_col": "TASK_ID",
+                  "fill": [
+                    {
+                      "form_col": "TASK_NAME",
+                      "table_col": "TASK_NAME"
+                    }
+                  ]
+                },
+                "x": "60",
+                "y": "60",
+                "col_id": "6",
+                "db_name": "TASK_ID",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "TASK_NAME",
+                "db_name": "TASK_NAME",
+                "table_name": "REPM_TASK",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Task Name",
+                "descr": "Task name from lookup",
+                "protect": "1",
+                "x": "70",
+                "y": "70",
+                "col_id": "7",
+                "table_display_name": "Task master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_ID",
+                "group_name": "Context",
+                "col_type": "CHAR",
+                "heading": "Activity",
+                "descr": "Parent activity under which this action point falls",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_ACTIVITY')"
+                ],
+                "lookup": "REPM_ACTIVITY(ACTIVITY_NAME, ACTIVITY_ID)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_ACTIVITY",
+                  "match_table_col": "ACTIVITY_ID",
+                  "fill": [
+                    {
+                      "form_col": "ACTIVITY_NAME",
+                      "table_col": "ACTIVITY_NAME"
+                    },
+                    {
+                      "form_col": "ACT_PLAN_START_DT",
+                      "table_col": "PLAN_START_DT"
+                    },
+                    {
+                      "form_col": "ACT_PLAN_END_DT",
+                      "table_col": "PLAN_END_DT"
+                    }
+                  ]
+                },
+                "x": "100",
+                "y": "100",
+                "col_id": "8",
+                "db_name": "ACTIVITY_ID",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTIVITY_NAME",
+                "db_name": "ACTIVITY_NAME",
+                "table_name": "REPM_ACTIVITY",
+                "group_name": "Context",
+                "col_type": "VARCHAR",
+                "heading": "Activity Name",
+                "descr": "Activity name from lookup",
+                "protect": "1",
+                "x": "110",
+                "y": "110",
+                "col_id": "9",
+                "table_display_name": "Activity master (lookup)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_PLAN_START_DT",
+                "db_name": "PLAN_START_DT",
+                "table_name": "REPM_ACTIVITY",
+                "group_name": "Context",
+                "col_type": "DATE",
+                "heading": "Act. Plan Start",
+                "descr": "Activity planned start date (for due date range validation)",
+                "protect": "1",
+                "x": "120",
+                "y": "120",
+                "col_id": "10",
+                "table_display_name": "Activity master (lookup)",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACT_PLAN_END_DT",
+                "db_name": "PLAN_END_DT",
+                "table_name": "REPM_ACTIVITY",
+                "group_name": "Context",
+                "col_type": "DATE",
+                "heading": "Act. Plan End",
+                "descr": "Activity planned end date (for due date range validation)",
+                "protect": "1",
+                "x": "130",
+                "y": "130",
+                "col_id": "11",
+                "table_display_name": "Activity master (lookup)",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "SEQ_NO",
+                "group_name": "Basic",
+                "col_type": "NUMBER(4)",
+                "heading": "Sequence",
+                "descr": "Sequence number of action point within the activity",
+                "mandatory": "true",
+                "x": "10",
+                "y": "10",
+                "col_id": "12",
+                "db_name": "SEQ_NO",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ACTION_DESCR",
+                "group_name": "Basic",
+                "col_type": "VARCHAR",
+                "heading": "Description",
+                "descr": "Action point description",
+                "mandatory": "true",
+                "x": "20",
+                "y": "20",
+                "col_id": "13",
+                "db_name": "ACTION_DESCR",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ASSIGNED_EMP_CODE",
+                "group_name": "Assignment",
+                "col_type": "CHAR",
+                "heading": "Assigned To",
+                "descr": "Employee to whom action point is assigned",
+                "mandatory": "true",
+                "validations": [
+                  "must_exist_in('REPM_EMPLOYEE')",
+                  "business_logic('validate_active_employee','Assigned employee must be Active')"
+                ],
+                "lookup": "REPM_EMPLOYEE(EMP_NAME, EMP_CODE)",
+                "item_change": {
+                  "mode": "rule",
+                  "source_table": "REPM_EMPLOYEE",
+                  "match_table_col": "EMP_CODE",
+                  "fill": [
+                    {
+                      "form_col": "ASSIGNED_EMP_NAME",
+                      "table_col": "EMP_NAME"
+                    }
+                  ]
+                },
+                "x": "140",
+                "y": "140",
+                "col_id": "14",
+                "db_name": "ASSIGNED_EMP_CODE",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ASSIGNED_EMP_NAME",
+                "db_name": "EMP_NAME",
+                "table_name": "REPM_EMPLOYEE",
+                "group_name": "Assignment",
+                "col_type": "VARCHAR",
+                "heading": "Assignee Name",
+                "descr": "Assigned employee name from lookup",
+                "protect": "1",
+                "x": "150",
+                "y": "150",
+                "col_id": "15",
+                "table_display_name": "Employee master (lookup for assignee)",
+                "db_size": "120",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "DUE_DT",
+                "group_name": "Dates",
+                "col_type": "DATE",
+                "heading": "Due Date",
+                "descr": "Due date for the action point",
+                "mandatory": "true",
+                "validations": [
+                  "expression('DUE_DT >= ACT_PLAN_START_DT and DUE_DT <= ACT_PLAN_END_DT')"
+                ],
+                "x": "160",
+                "y": "160",
+                "col_id": "16",
+                "db_name": "DUE_DT",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "COMPLETED_DT",
+                "group_name": "Dates",
+                "col_type": "DATE",
+                "heading": "Completed Date",
+                "descr": "Date when action point was marked Done",
+                "validations": [
+                  "expression('COMPLETED_DT is null or COMPLETED_DT <= today()')"
+                ],
+                "x": "170",
+                "y": "170",
+                "col_id": "17",
+                "db_name": "COMPLETED_DT",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "STATUS",
+                "group_name": "Status",
+                "col_type": "CHAR",
+                "heading": "Status",
+                "descr": "Status of action point",
+                "default_value": "PE",
+                "mandatory": "true",
+                "edit_mask": {
+                  "mask": "ddlb",
+                  "values": [
+                    {
+                      "data": "PE",
+                      "display": "Pending"
+                    },
+                    {
+                      "data": "IP",
+                      "display": "In-Progress"
+                    },
+                    {
+                      "data": "DN",
+                      "display": "Done"
+                    },
+                    {
+                      "data": "BL",
+                      "display": "Blocked"
+                    },
+                    {
+                      "data": "CN",
+                      "display": "Cancelled"
+                    }
+                  ]
+                },
+                "x": "180",
+                "y": "180",
+                "col_id": "18",
+                "db_name": "STATUS",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "2",
+                "width": 50,
+                "key": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "BLOCKING_REASON",
+                "group_name": "Status",
+                "col_type": "VARCHAR",
+                "heading": "Blocking Reason",
+                "descr": "Reason if action point is blocked",
+                "x": "190",
+                "y": "190",
+                "col_id": "19",
+                "db_name": "BLOCKING_REASON",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ATTACHMENT",
+                "group_name": "Additional",
+                "col_type": "VARCHAR",
+                "heading": "Attachment",
+                "descr": "Supporting attachment for the action point",
+                "x": "200",
+                "y": "200",
+                "col_id": "20",
+                "db_name": "ATTACHMENT",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "250",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "REMARKS",
+                "group_name": "Additional",
+                "col_type": "VARCHAR",
+                "heading": "Remarks",
+                "descr": "Free text remarks",
+                "x": "210",
+                "y": "210",
+                "col_id": "21",
+                "db_name": "REMARKS",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "500",
+                "width": 500,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "default_value": "",
+                "expression": "",
+                "edit_mask": "",
+                "protect": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Created On",
+                "descr": "Record creation date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "220",
+                "y": "220",
+                "col_id": "22",
+                "db_name": "ADD_DATE",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Created By",
+                "descr": "Record creation user",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "230",
+                "y": "230",
+                "col_id": "23",
+                "db_name": "ADD_USER",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "ADD_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Created Term",
+                "descr": "Record creation terminal",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "240",
+                "y": "240",
+                "col_id": "24",
+                "db_name": "ADD_TERM",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_DATE",
+                "group_name": "Audit",
+                "col_type": "DATE",
+                "heading": "Changed On",
+                "descr": "Last change date",
+                "default_value": "today()",
+                "protect": "1",
+                "x": "250",
+                "y": "250",
+                "col_id": "25",
+                "db_name": "CHG_DATE",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "",
+                "width": 50,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_USER",
+                "group_name": "Audit",
+                "col_type": "CHAR",
+                "heading": "Changed By",
+                "descr": "Last change user",
+                "default_value": "logged_in_user()",
+                "protect": "1",
+                "x": "260",
+                "y": "260",
+                "col_id": "26",
+                "db_name": "CHG_USER",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "10",
+                "width": 100,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            },
+            {
+              "column": {
+                "name": "CHG_TERM",
+                "group_name": "Audit",
+                "col_type": "VARCHAR",
+                "heading": "Changed Term",
+                "descr": "Last change terminal",
+                "default_value": "logged_in_terminal()",
+                "protect": "1",
+                "x": "270",
+                "y": "270",
+                "col_id": "27",
+                "db_name": "CHG_TERM",
+                "table_name": "REPM_ACTION_POINT",
+                "table_display_name": "Action point main table",
+                "db_size": "15",
+                "width": 150,
+                "key": false,
+                "mandatory": false,
+                "hidden": "",
+                "format": "",
+                "default_function": "",
+                "expression": "",
+                "edit_mask": "",
+                "validations": "",
+                "lookup": ""
+              }
+            }
+          ],
+          "joins": {
+            "join_predicates": {
+              "joins": [
+                {
+                  "table": "REPM_ACTION_POINT",
+                  "main_table": true,
+                  "table_descr": "Action point main table"
+                },
+                {
+                  "table": "REPM_PROJECT",
+                  "main_table": false,
+                  "table_descr": "Project master (lookup)",
+                  "column": "PROJ_CODE",
+                  "join_table": "REPM_ACTION_POINT",
+                  "join_column": "PROJ_CODE",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_PHASE",
+                  "main_table": false,
+                  "table_descr": "Phase master (lookup)",
+                  "column": "PHASE_ID",
+                  "join_table": "REPM_ACTION_POINT",
+                  "join_column": "PHASE_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_TASK",
+                  "main_table": false,
+                  "table_descr": "Task master (lookup)",
+                  "column": "TASK_ID",
+                  "join_table": "REPM_ACTION_POINT",
+                  "join_column": "TASK_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_ACTIVITY",
+                  "main_table": false,
+                  "table_descr": "Activity master (lookup)",
+                  "column": "ACTIVITY_ID",
+                  "join_table": "REPM_ACTION_POINT",
+                  "join_column": "ACTIVITY_ID",
+                  "join_type": "inner"
+                },
+                {
+                  "table": "REPM_EMPLOYEE",
+                  "main_table": false,
+                  "table_descr": "Employee master (lookup for assignee)",
+                  "column": "EMP_CODE",
+                  "join_table": "REPM_ACTION_POINT",
+                  "join_column": "ASSIGNED_EMP_CODE",
+                  "join_type": "inner"
+                }
+              ]
+            }
+          },
+          "validations": [
+            "expression('STATUS != \"DN\" or COMPLETED_DT is not null')",
+            "expression('STATUS != \"BL\" or BLOCKING_REASON is not null')",
+            "business_logic('validate_due_date_range','Due Date must be within parent activity planned start and end dates')",
+            "business_logic('validate_seq_unique','Action Point Sequence must be unique within Activity')"
+          ],
+          "form_no": "1"
+        }
+      }
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "delete",
+      "search",
+      "mark_done:business_logic('mark_action_done','Set STATUS=DN, stamp COMPLETED_DT=today() and trigger roll-up')",
+      "mark_blocked:business_logic('mark_action_blocked','Set STATUS=BL, require BLOCKING_REASON and notify')",
+      "cancel:business_logic('cancel_action_point','Set STATUS=CN; excluded from progress computation')"
+    ],
+    "cross_updates": [
+      "business_logic('recompute_activity_pct','Recompute parent activity % complete from Done vs non-cancelled action points')",
+      "business_logic('rollup_task_phase_project','Roll-up % complete to task, phase and project using weightages')"
+    ],
+    "attach_docs": [
+      "Action Point Attachment",
+      "Supporting Document"
+    ],
+    "follow_up_actions": [
+      "on-mark_done,trigger_email:email(get_activity_owner(ACTIVITY_ID),'action_point_done','Action point #SEQ_NO under activity #ACTIVITY_NAME marked Done by #CHG_USER on #COMPLETED_DT')",
+      "on-mark_blocked,trigger_email:email(get_task_owner(TASK_ID),'action_point_blocked','Action point #SEQ_NO blocked. Reason: #BLOCKING_REASON')",
+      "on-mark_blocked,trigger_email:email(get_project_manager(PROJ_CODE),'action_point_blocked_pm','Action point #SEQ_NO under #PROJ_CODE blocked. Reason: #BLOCKING_REASON')",
+      "on-add-edit-mark_done-mark_blocked-cancel,business_logic('recompute_progress_rollup','Recompute activity/task/phase/project % complete')"
+    ]
+  }
+}
